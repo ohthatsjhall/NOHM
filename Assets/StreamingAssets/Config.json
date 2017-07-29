@@ -1,0 +1,37 @@
+{
+    "m_ClassifierDirectory": "Watson/Scripts/Editor/Classifiers/",
+    "m_TimeOut": 30.0,
+    "m_MaxRestConnections": 5,
+    "m_Credentials": [
+        {
+            "m_ServiceID": "ConversationV1",
+            "m_URL": "https://gateway.watsonplatform.net/conversation/api",
+            "m_User": "e69f1eea-2731-48eb-accc-6113ffe4d420",
+            "m_Password": "6LxxkQxkXOcU",
+            "m_Apikey": null,
+            "m_Note": null
+        },
+        {
+            "m_ServiceID": "SpeechToTextV1",
+            "m_URL": "https://stream.watsonplatform.net/speech-to-text/api",
+            "m_User": "3518ed91-8c88-4fe0-b79c-e27e8a691c23",
+            "m_Password": "wnyd7LShpmOG",
+            "m_Apikey": null,
+            "m_Note": null
+        },
+        {
+            "m_ServiceID": "TextToSpeechV1",
+            "m_URL": "https://stream.watsonplatform.net/text-to-speech/api",
+            "m_User": "8fc575c4-35f3-4a5e-9f02-35af5426f6c3",
+            "m_Password": "QiioAtxOlcCK",
+            "m_Apikey": null,
+            "m_Note": null
+        }
+    ],
+    "m_Variables": [
+        {
+            "Key": "ConversationV1_ID",
+            "Value": "caa0c1b5-e0e4-4873-aed8-970092de70e3"
+        }
+    ]
+}

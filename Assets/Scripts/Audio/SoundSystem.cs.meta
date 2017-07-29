@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 25491a0e79881468089811e3071b36ac
+timeCreated: 1494986261
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - track: {fileID: 8300000, guid: b9eab1d1a565e472d86c54ee05d37623, type: 3}
+  - vinylEffect: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,25 @@
+fileFormatVersion: 2
+guid: 0a474d740252b92428b9e0c89cd09e9c
+labels:
+- http
+- www
+- web
+- cache
+- stream
+- WP8
+- rest
+- websocket
+- socket
+- socket.io
+- websockets
+- cookie
+- proxy
+- ios
+- android
+- wp8
+- tcp
+- https
+- signalr
+folderAsset: yes
+DefaultImporter:
+  userData: 
