@@ -154,7 +154,7 @@ public class OnboardingVoiceSpawner : Widget {
 			yield return new WaitForSeconds (delay);
 			if (currentStep == 1) {
 				onboardingManager.microphone.ActivateMicrophone();
-				LoadNextScene ();
+
 			} else if (currentStep == 3) {
 				onboardingManager.recordPlayer.SetActive (true);
 				onboardingManager.pointLight.range = 19.9f;
@@ -167,8 +167,7 @@ public class OnboardingVoiceSpawner : Widget {
 			}
 			textToSpeech.ToSpeech (values[i], HandleToSpeechCallback);
 			if (currentStep == 4) {
-				//StartCoroutine (LoadVinylScene ());
-				//LoadVinylSceneAsync();
+				LoadLevelWithSteam ();
 			}
 			Debug.Log ("value post" + values[i]);
 			onboardingManager.worldSpaceCanvas.GetComponentInChildren<Text> ().text = values[i];
@@ -196,7 +195,7 @@ public class OnboardingVoiceSpawner : Widget {
 
 	private void LoadLevelWithSteam() {
 		VRTK.VRTK_SDKManager.instance.UnloadSDKSetup ();
-		SteamVR_LoadLevel.Begin ("Avp4_VR 6_Hover");
+		SteamVR_LoadLevel.Begin ("Vinyl");
 	}
 
 }
