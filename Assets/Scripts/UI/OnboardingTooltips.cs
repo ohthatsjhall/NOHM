@@ -21,8 +21,9 @@ public class OnboardingTooltips : MonoBehaviour {
 	private float defaultOpacity = 1f;
 	private bool highlighted;
 
-	void OnEnabled() {
+	void OnEnable() {
 		if (pulseTriggerHighlightColor) {
+			Debug.Log ("enabled!");
 			InvokeRepeating("PulseGrip", pulseTimer, pulseTimer);
 		}
 	}
