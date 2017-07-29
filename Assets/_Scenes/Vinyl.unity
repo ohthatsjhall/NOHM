@@ -9883,12 +9883,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Hover.Core.Items.Managers.HoverItemsManager+ItemEvent, Assembly-CSharp,
-      Version=1.0.2.36523, Culture=neutral, PublicKeyToken=null
+      Version=1.0.2.20267, Culture=neutral, PublicKeyToken=null
   OnItemRemoved:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Hover.Core.Items.Managers.HoverItemsManager+ItemEvent, Assembly-CSharp,
-      Version=1.0.2.36523, Culture=neutral, PublicKeyToken=null
+      Version=1.0.2.20267, Culture=neutral, PublicKeyToken=null
 --- !u!1 &481328563
 GameObject:
   m_ObjectHideFlags: 0
@@ -24349,8 +24349,8 @@ GameObject:
   - component: {fileID: 1141846368}
   - component: {fileID: 1141846371}
   - component: {fileID: 1141846370}
-  - component: {fileID: 1141846369}
   - component: {fileID: 1141846372}
+  - component: {fileID: 1141846369}
   m_Layer: 0
   m_Name: LeftController
   m_TagString: Untagged
@@ -27562,6 +27562,7 @@ MonoBehaviour:
   headsetPositionCompensation: 1
   targetListPolicy: {fileID: 1405407214}
   navMeshLimitDistance: 0
+  snapToNearestFloor: 1
   customRaycast: {fileID: 0}
   layersToIgnore:
     serializedVersion: 2
@@ -35252,12 +35253,12 @@ GameObject:
   - component: {fileID: 1876842909}
   - component: {fileID: 1876842908}
   - component: {fileID: 1876842907}
-  - component: {fileID: 1876842906}
   - component: {fileID: 1876842905}
   - component: {fileID: 1876842904}
   - component: {fileID: 1876842910}
   - component: {fileID: 1876842911}
   - component: {fileID: 1876842912}
+  - component: {fileID: 1876842906}
   m_Layer: 0
   m_Name: RightController
   m_TagString: Untagged
@@ -35277,6 +35278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playareaCursor: {fileID: 0}
+  directionIndicator: {fileID: 0}
   customRaycast: {fileID: 0}
   layersToIgnore:
     serializedVersion: 2
@@ -35310,6 +35312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enableTeleport: 1
+  targetListPolicy: {fileID: 0}
   pointerRenderer: {fileID: 1876842904}
   activationButton: 10
   holdButtonToActivate: 1
@@ -35322,8 +35325,8 @@ MonoBehaviour:
   interactWithObjects: 0
   grabToPointerTip: 0
   controller: {fileID: 0}
+  interactUse: {fileID: 0}
   customOrigin: {fileID: 0}
-  directionIndicator: {fileID: 0}
 --- !u!114 &1876842906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35491,6 +35494,7 @@ MonoBehaviour:
   snapType: 0
   snapDuration: 0
   applyScalingOnSnap: 0
+  cloneNewOnUnsnap: 0
   highlightColor: {r: 0, g: 0, b: 0, a: 0}
   highlightAlwaysActive: 0
   validObjectListPolicy: {fileID: 0}
