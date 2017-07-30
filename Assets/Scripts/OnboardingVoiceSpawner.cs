@@ -25,12 +25,7 @@ public class OnboardingVoiceSpawner : Widget {
 	private string m_WorkspaceID;
 	private bool artistReturned = false;
 	private int currentStep = 0;
-
-	private VRTK_ControllerHighlighter highligher;
-	private Color highlightColor = Color.yellow;
-	private Color pulseColor = Color.black;
-	private Color currentPulseColor;
-	private float pulseTimer = 0.75f;
+	private Animator pointLightAnimator;
 
 	[SerializeField]
 	private Input m_SpeechInput = new Input("SpeechInput", typeof(SpeechToTextData), "OnSpeechInput");
@@ -46,6 +41,7 @@ public class OnboardingVoiceSpawner : Widget {
 
 	protected override void Start() {
 		base.Start();
+		pointLightAnimator = onboardingManager.pointLight.GetComponent<Animator> ();
 		textToSpeech.Voice = VoiceType.en_GB_Kate;
 		//textToSpeech.ToSpeech (welcomeString, HandleToSpeechCallback);
 		m_WorkspaceID = Config.Instance.GetVariableValue("ConversationV1_ID");
@@ -135,11 +131,12 @@ public class OnboardingVoiceSpawner : Widget {
 				StartCoroutine (DelayMethod (0.0f, values));
 				currentStep++;
 				onboardingManager.records.GetComponent<OnboardingRecords> ().AnimateRecords (currentStep == 2);
+				pointLightAnimator.SetInteger ("Stage", 1);
 			} else if (intent == "OnboardingGrabRecord" && currentStep == 2) {
 				StartCoroutine (DelayMethod (8.0f, values));
 				currentStep++;
 			} else if (intent == "OnboardingClose" && currentStep == 3){
-
+				pointLightAnimator.SetInteger ("Stage", 2);
 				currentStep++;
 				StartCoroutine(DelayMethod(20.0f, values));
 			}
@@ -154,12 +151,12 @@ public class OnboardingVoiceSpawner : Widget {
 			yield return new WaitForSeconds (delay);
 			if (currentStep == 1) {
 				if (i == values.Length - 1) {
-					onboardingManager.microphone.ActivateMicrophone();
-				}
+					onboardingManager.microphone.ActivateMicrophone ();
+				}	
 
 			} else if (currentStep == 3) {
 				onboardingManager.recordPlayer.SetActive (true);
-				onboardingManager.pointLight.range = 19.9f;
+
 				onboardingManager.leftController.GetComponent<OnboardingTooltips> ().enabled = true;
 				onboardingManager.rightController.GetComponent<OnboardingTooltips> ().enabled = true;
 				// animate point light
@@ -175,28 +172,9 @@ public class OnboardingVoiceSpawner : Widget {
 			onboardingManager.worldSpaceCanvas.GetComponentInChildren<Text> ().text = values[i];
 		}
 	}
-
-	private void TransitionScene() {
-		LoadingOverlay overlay = GameObject.Find ("LoadingOverlay").gameObject.GetComponent<LoadingOverlay> ();
-		overlay.FadeOut ();
-		StartCoroutine (LoadVinylSceneAsync());
-	}
-
-	IEnumerator LoadVinylSceneAsync() {
-		VRTK.VRTK_SDKManager.instance.UnloadSDKSetup ();
-		AsyncOperation async = SceneManager.LoadSceneAsync (1);
-		yield return async;
-		Debug.Log("Loading complete");
-	}
-
-	private void LoadNextScene() {
-		//VRTK.VRTK_SDKManager.instance.UnloadSDKSetup ();
-		int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
-		SceneManager.LoadScene (nextSceneIndex, LoadSceneMode.Single);
-	}
-
+		
 	private void LoadLevelWithSteam() {
-		VRTK.VRTK_SDKManager.instance.UnloadSDKSetup ();
+		VRTK_SDKManager.instance.UnloadSDKSetup ();
 		SteamVR_LoadLevel.Begin ("Vinyl");
 	}
 
