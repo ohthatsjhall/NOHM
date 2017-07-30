@@ -32,7 +32,6 @@ public class OnboardingVoiceSpawner : Widget {
 	private fsSerializer _serializer = new fsSerializer();
 
 	TextToSpeech textToSpeech = new TextToSpeech();
-	//private string welcomeString = "Welcome to Gnome, when you are ready to listen to music, just say, hey gnome";
 
 	#region InitAndLifecycle
 	//------------------------------------------------------------------------------------------------------------------
@@ -45,7 +44,7 @@ public class OnboardingVoiceSpawner : Widget {
 		textToSpeech.Voice = VoiceType.en_GB_Kate;
 		//textToSpeech.ToSpeech (welcomeString, HandleToSpeechCallback);
 		m_WorkspaceID = Config.Instance.GetVariableValue("ConversationV1_ID");
-		m_Conversation.Message (OnMessage, m_WorkspaceID, "Onboarding");
+		m_Conversation.Message (OnMessage, m_WorkspaceID, "LastMoonOnboardingForNohm");
 	}
 
 	private void Update(){
@@ -94,7 +93,16 @@ public class OnboardingVoiceSpawner : Widget {
 						string text = alt.transcript;
 
 						Debug.Log("Result: " + text + " Confidence: " + alt.confidence);
-						m_Conversation.Message(OnMessage, m_WorkspaceID, text);
+						string resultText = text.ToLower ();
+						if ((resultText.Contains ("frank")) || (resultText.Contains ("ocean"))) {
+							m_Conversation.Message (OnMessage, m_WorkspaceID, text);
+							currentStep = 2;
+							ClearCanvas ();
+						} else {
+							// Error Handling to make the user say 
+							Debug.Log ("didnt say Frank Ocean");
+							textToSpeech.ToSpeech ("Say Frank Ocean you silly ass donk", HandleToSpeechCallback);
+						}
 					}
 				}
 			}
@@ -121,7 +129,7 @@ public class OnboardingVoiceSpawner : Widget {
 			string intent = messageResponse.intents [0].intent;
 			Debug.Log ("Intent: " + intent);
 
-			if (intent == "Onboarding" && currentStep == 0) {
+			if (intent == "LastMoonOnboardingForNohm" && currentStep == 0) {
 				
 				StartCoroutine (DelayMethod (5.0f, values));
 				currentStep++;
@@ -129,10 +137,12 @@ public class OnboardingVoiceSpawner : Widget {
 			} else if (intent == "HeyNohm" && currentStep == 1) {
 
 				StartCoroutine (DelayMethod (0.0f, values));
-				currentStep++;
+
+			} else if (intent == "OnboardingGrabRecord" && currentStep == 2) {
+				onboardingManager.rightController.GetComponent<OnboardingRightControllerListener> ().enabled = false;
+				onboardingManager.microphone.DeactivateMicrophone ();
 				onboardingManager.records.GetComponent<OnboardingRecords> ().AnimateRecords (currentStep == 2);
 				pointLightAnimator.SetInteger ("Stage", 1);
-			} else if (intent == "OnboardingGrabRecord" && currentStep == 2) {
 				StartCoroutine (DelayMethod (8.0f, values));
 				currentStep++;
 			} else if (intent == "OnboardingClose" && currentStep == 3){
@@ -151,7 +161,8 @@ public class OnboardingVoiceSpawner : Widget {
 			yield return new WaitForSeconds (delay);
 			if (currentStep == 1) {
 				if (i == values.Length - 1) {
-					onboardingManager.microphone.ActivateMicrophone ();
+					//onboardingManager.microphone.ActivateMicrophone ();
+					onboardingManager.rightController.GetComponent<OnboardingRightControllerListener>().enabled = true;
 				}	
 
 			} else if (currentStep == 3) {
@@ -176,6 +187,15 @@ public class OnboardingVoiceSpawner : Widget {
 	private void LoadLevelWithSteam() {
 		VRTK_SDKManager.instance.UnloadSDKSetup ();
 		SteamVR_LoadLevel.Begin ("Vinyl");
+	}
+
+	public void OnboardingTriggerPressed() {
+		onboardingManager.microphone.ActivateMicrophone ();
+		m_Conversation.Message(OnMessage, m_WorkspaceID, "Hey Nohm");
+	}
+
+	private void ClearCanvas() {
+		onboardingManager.worldSpaceCanvas.GetComponentInChildren<Text> ().text = "";
 	}
 
 }

@@ -3058,7 +3058,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 120026359}
-  m_LocalRotation: {x: -0, y: 0.9313661, z: -0, w: -0.36408398}
+  m_LocalRotation: {x: -0, y: 0.93136615, z: -0, w: -0.364084}
   m_LocalPosition: {x: 487, y: 116.999985, z: -147}
   m_LocalScale: {x: 100.00003, y: 100, z: 100.00003}
   m_Children: []
@@ -5263,6 +5263,7 @@ GameObject:
   - component: {fileID: 236944495}
   - component: {fileID: 236944499}
   - component: {fileID: 236944500}
+  - component: {fileID: 236944501}
   m_Layer: 0
   m_Name: RightController
   m_TagString: Untagged
@@ -5434,6 +5435,18 @@ MonoBehaviour:
   highlightBodyOnlyOnCollision: 0
   pulseTriggerHighlightColor: 1
   highlightColor: {r: 1, g: 0, b: 0.64137936, a: 1}
+--- !u!114 &236944501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 236944493}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ca3279c6468bde4d85439a5575dea2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  voiceSpawner: {fileID: 772646771}
 --- !u!1 &241469532
 GameObject:
   m_ObjectHideFlags: 0
