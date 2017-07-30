@@ -153,23 +153,19 @@ public class OnboardingVoiceSpawner : Widget {
 		for (var i = 0; i < values.Length; i++) {
 			yield return new WaitForSeconds (delay);
 			if (currentStep == 1) {
-				onboardingManager.microphone.ActivateMicrophone();
+				if (i == values.Length - 1) {
+					onboardingManager.microphone.ActivateMicrophone();
+				}
 
 			} else if (currentStep == 3) {
 				onboardingManager.recordPlayer.SetActive (true);
 				onboardingManager.pointLight.range = 19.9f;
 				onboardingManager.leftController.GetComponent<OnboardingTooltips> ().enabled = true;
 				onboardingManager.rightController.GetComponent<OnboardingTooltips> ().enabled = true;
-				onboardingManager.leftController.GetComponentInChildren<VRTK_ControllerTooltips> ().gripText = "Squeeze My Dad";
-				onboardingManager.rightController.GetComponentInChildren<VRTK_ControllerTooltips> ().gripText = "Squeeze My Dad";
-				onboardingManager.leftController.transform.GetChild(1).GetComponent<VRTK_ObjectTooltip> ().displayText = "Squeeze My Dad";
-				onboardingManager.rightController.transform.GetChild(1).GetComponent<VRTK_ObjectTooltip> ().displayText = "Squeeze My Dad";
 				// animate point light
 			} else {
 				onboardingManager.leftController.GetComponent<OnboardingTooltips> ().enabled = false;
 				onboardingManager.rightController.GetComponent<OnboardingTooltips> ().enabled = false;
-				onboardingManager.leftController.GetComponentInChildren<VRTK_ControllerTooltips> ().gripText = "";
-				onboardingManager.rightController.GetComponentInChildren<VRTK_ControllerTooltips> ().gripText = "";
 			}
 			textToSpeech.ToSpeech (values[i], HandleToSpeechCallback);
 			if (currentStep == 4) {
