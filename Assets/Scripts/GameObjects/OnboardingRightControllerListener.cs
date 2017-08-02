@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using VRTK;
 using UnityEngine;
+using VRTK;
 
-public class RightControllerListener : MonoBehaviour {
+public class OnboardingRightControllerListener : MonoBehaviour {
 
-	public VoiceSpawner voiceSpawner;
+	public OnboardingVoiceSpawner voiceSpawner;
 
 	// Use this for initialization
 	void Start () {
@@ -19,13 +19,12 @@ public class RightControllerListener : MonoBehaviour {
 	}
 
 	private void DoTriggerClicked(object sender, ControllerInteractionEventArgs e) {
-		voiceSpawner.TriggerPressed ();
+		voiceSpawner.OnboardingTriggerPressed ();
 		DebugLogger(VRTK_ControllerReference.GetRealIndex(e.controllerReference), "TRIGGER", "clicked", e);
 	}
 
 
 	private void DoTouchpadPressed(object sender, ControllerInteractionEventArgs e) {
-		
-	}
 
+	}
 }

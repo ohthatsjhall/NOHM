@@ -17,6 +17,7 @@ public class VoiceSpawner : Widget {
 	public APIManager apiManager;
 	public AudioClip sorryClip;
 	public List<AudioClip> helpClips;
+	public MicrophoneWidget microphone;
 
 	private Conversation m_Conversation = new Conversation();
 	private string m_WorkspaceID;
@@ -27,7 +28,7 @@ public class VoiceSpawner : Widget {
 	private fsSerializer _serializer = new fsSerializer();
 
 	TextToSpeech textToSpeech = new TextToSpeech();
-	private string welcomeString = "Welcome to Gnome, when you are ready to listen to music, just say, hey gnome";
+	private string welcomeString = "Welcome to Gnome, when you are ready to listen to music, press the right trigger";
 
 	#region InitAndLifecycle
 	//------------------------------------------------------------------------------------------------------------------
@@ -86,6 +87,11 @@ public class VoiceSpawner : Widget {
 		}
 	}
 
+	public void TriggerPressed() {
+		microphone.ActivateMicrophone ();
+		m_Conversation.Message(OnMessage, m_WorkspaceID, "Hey Nohm");
+	}
+
 	void OnMessage(object resp, string customData) {
 		//  Convert resp to fsdata
 
@@ -118,10 +124,11 @@ public class VoiceSpawner : Widget {
 					Debug.Log ("entityType: " + entity.entity + " , value: " + entity.value);
 					apiManager.artist = entity.value;
 					apiManager.FindArtistOrTrack ();
+					microphone.DeactivateMicrophone ();
 				}
 
 			} else {
-				Debug.Log ("Failed to invoke OnMessage();");
+				Debug.Log ("Failed to invoke OnMessage()");
 			}
 		}
 	}

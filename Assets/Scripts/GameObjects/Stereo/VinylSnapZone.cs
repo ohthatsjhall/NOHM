@@ -8,20 +8,26 @@ public class VinylSnapZone : VRTK_SnapDropZone {
 
 	//public SoundSystem soundSystem;
 	public GameObject recordPlayer;
+	public bool isOnboarding;
 
 	private GameObject vinylRecord;
 	private float spinSpeed;
-	private Animator animator;
+	public Animator animator;
 
 
 	protected override void Awake () {
 		base.Awake ();
-		animator = recordPlayer.GetComponent<Animator> ();
+
+	}
+
+	void Start() {
+		//animator = recordPlayer.GetComponent<Animator> ();
 	}
 		
 	protected override void Update() {
 		base.Update();
 		if (vinylRecord != null) {
+			Debug.Log ("spin speed: " + spinSpeed);
 			vinylRecord.transform.Rotate (new Vector3 (0.0f, spinSpeed * Time.deltaTime, 0.0f));
 		}
 	}
@@ -35,7 +41,13 @@ public class VinylSnapZone : VRTK_SnapDropZone {
 
 	public override void OnObjectSnappedToDropZone (SnapDropZoneEventArgs e) {
 		base.OnObjectSnappedToDropZone (e);
-		animator.Play ("Playback");
+
+		if (isOnboarding) {
+			animator.SetBool ("isPlaying", true);
+		} else {
+			animator.Play ("Playback");
+		}
+
 		StartCoroutine (SpinVinyl (e.snappedObject));
 		Debug.Log (vinylRecord.GetComponent<Vinyl>().artist.trackName);
 		SoundSystem.Instance.PlayOneShot (SoundSystem.Instance.track);
@@ -43,10 +55,15 @@ public class VinylSnapZone : VRTK_SnapDropZone {
 
 	public override void OnObjectUnsnappedFromDropZone (SnapDropZoneEventArgs e) {
 		base.OnObjectUnsnappedFromDropZone (e);
+
 		spinSpeed = 0.0f;
-		//recordPlayer.GetComponent<AudioSource> ().Stop();
+
 		SoundSystem.Instance.StopAudio();
-		animator.Play ("Idle");
+		if (isOnboarding) {
+			animator.SetBool ("isPlaying", false);
+		} else {
+			animator.Play ("Idle");
+		}
 	}
 
 	public override void OnObjectExitedSnapDropZone (SnapDropZoneEventArgs e) {
