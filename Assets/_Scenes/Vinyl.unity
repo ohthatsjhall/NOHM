@@ -9884,12 +9884,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Hover.Core.Items.Managers.HoverItemsManager+ItemEvent, Assembly-CSharp,
-      Version=1.0.2.20886, Culture=neutral, PublicKeyToken=null
+      Version=1.0.2.37076, Culture=neutral, PublicKeyToken=null
   OnItemRemoved:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Hover.Core.Items.Managers.HoverItemsManager+ItemEvent, Assembly-CSharp,
-      Version=1.0.2.20886, Culture=neutral, PublicKeyToken=null
+      Version=1.0.2.37076, Culture=neutral, PublicKeyToken=null
 --- !u!1 &481328563
 GameObject:
   m_ObjectHideFlags: 0
@@ -25092,6 +25092,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114576976955871208, guid: 9eab9a65c08608e4995bc51e5ea13524,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9eab9a65c08608e4995bc51e5ea13524, type: 2}
   m_IsPrefabParent: 0
@@ -28298,6 +28303,11 @@ Prefab:
       propertyPath: recordPlayer
       value: 
       objectReference: {fileID: 1878134968}
+    - target: {fileID: 114122592016382626, guid: 64ab3d57f601f8a43afe39e50b9cf358,
+        type: 2}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1878134973}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64ab3d57f601f8a43afe39e50b9cf358, type: 2}
   m_IsPrefabParent: 0
@@ -35561,7 +35571,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1878134975}
   - component: {fileID: 1878134973}
-  - component: {fileID: 1878134971}
   - component: {fileID: 1878134972}
   - component: {fileID: 1878134970}
   - component: {fileID: 1878134969}
@@ -35608,87 +35617,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 1136694831}
   albums: {fileID: 290106853}
---- !u!82 &1878134971
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 82188068969300560, guid: 415998bd1ad3a408da276d326ed7c1b5,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1878134968}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
 --- !u!114 &1878134972
 MonoBehaviour:
   m_ObjectHideFlags: 0

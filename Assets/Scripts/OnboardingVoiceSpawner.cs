@@ -101,7 +101,7 @@ public class OnboardingVoiceSpawner : Widget {
 						} else {
 							// Error Handling to make the user say 
 							Debug.Log ("didnt say Frank Ocean");
-							textToSpeech.ToSpeech ("Say Frank Ocean you silly ass donk", HandleToSpeechCallback);
+							textToSpeech.ToSpeech ("try again by searching for the artist, Frank Ocean", HandleToSpeechCallback);
 						}
 					}
 				}

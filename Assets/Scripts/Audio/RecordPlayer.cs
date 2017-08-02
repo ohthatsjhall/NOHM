@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using BestHTTP;
 using UnityEngine;
 
-[RequireComponent(typeof(AudioSource))]
 public class RecordPlayer : MonoBehaviour {
 
 	public APIManager manager;
