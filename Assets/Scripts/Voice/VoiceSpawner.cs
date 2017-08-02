@@ -77,10 +77,12 @@ public class VoiceSpawner : Widget {
 		if (result != null && result.results.Length > 0) {
 			foreach (var res in result.results) {
 				foreach (var alt in res.alternatives) {
-					if (res.final && alt.confidence > 0.55) {
+					if (res.final && alt.confidence > 0.667) {
 						string text = alt.transcript;
-						Debug.Log("Result: " + text + " Confidence: " + alt.confidence);
-						m_Conversation.Message(OnMessage, m_WorkspaceID, text);
+						Debug.Log ("Result: " + text + " Confidence: " + alt.confidence);
+						m_Conversation.Message (OnMessage, m_WorkspaceID, text);
+					} else {
+						Debug.Log ("Confidence below threshold");
 					}
 				}
 			}
