@@ -87,7 +87,7 @@ public struct Artist {
 
 	// convienence function to get track details
 	public static string GetArtistInfo(Artist artist) {
-		string details = "";
+		string details = "\n";
 		details += "Artist Name: " + artist.artistName + "\n";
 		details += "Track Name: " + artist.trackName + "\n";
 		details += "Album Name: " + artist.albumName + "\n";
