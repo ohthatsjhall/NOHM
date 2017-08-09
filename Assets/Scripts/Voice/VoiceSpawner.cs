@@ -81,6 +81,7 @@ public class VoiceSpawner : Widget {
 						string text = alt.transcript;
 						Debug.Log ("Result: " + text + " Confidence: " + alt.confidence);
 						m_Conversation.Message (OnMessage, m_WorkspaceID, text);
+						microphone.DeactivateMicrophone ();
 					} else {
 						Debug.Log ("Confidence below threshold");
 					}
@@ -91,12 +92,11 @@ public class VoiceSpawner : Widget {
 
 	public void TriggerPressed() {
 		microphone.ActivateMicrophone ();
-		m_Conversation.Message(OnMessage, m_WorkspaceID, "Hey Nohm");
+		m_Conversation.Message(OnMessage, m_WorkspaceID, "I'd like to hear some new music");
 	}
 
 	void OnMessage(object resp, string customData) {
 		//  Convert resp to fsdata
-
 		fsData fsdata = null;
 		fsResult r = _serializer.TrySerialize (resp.GetType (), resp, out fsdata);
 		if (!r.Succeeded)
@@ -108,12 +108,14 @@ public class VoiceSpawner : Widget {
 		r = _serializer.TryDeserialize (fsdata, obj.GetType (), ref obj);
 		if (!r.Succeeded)
 			throw new WatsonException (r.FormattedMessages);
-
 		if (resp != null && (messageResponse.intents.Length > 0 || messageResponse.entities.Length > 0)) {
 			string[] values = messageResponse.output.text;
 			foreach (string value in values) {
 				Debug.Log ("response value: " + value);
 			}
+
+			Debug.Log ("intents count: " + messageResponse.intents.Length);
+
 			string intent = messageResponse.intents [0].intent;
 			Debug.Log ("Intent: " + intent);
 
@@ -130,8 +132,19 @@ public class VoiceSpawner : Widget {
 				}
 
 			} else {
-				Debug.Log ("Failed to invoke OnMessage()");
+				Debug.Log ("Different intent path)");
+				string greeting = messageResponse.output.text [0];
+				textToSpeech.ToSpeech (greeting, HandleToSpeechCallback);
+				foreach (EntityResponse entity in messageResponse.entities) {
+					Debug.Log ("entityType: " + entity.entity + " , value: " + entity.value);
+					apiManager.artist = entity.value;
+					apiManager.FindArtistOrTrack ();
+					microphone.DeactivateMicrophone ();
+				}
 			}
+		} else {
+			Debug.Log ("else conditional log messages: " + messageResponse.output.log_messages [0]);
+			Debug.Log ("else conditional input: " + messageResponse.input.text);
 		}
 	}
 	#endregion
