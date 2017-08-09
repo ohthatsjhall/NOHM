@@ -134,7 +134,7 @@ public class OnboardingVoiceSpawner : Widget {
 				StartCoroutine (DelayMethod (5.0f, values));
 				currentStep++;
 
-			} else if (intent == "HeyNohm" && currentStep == 1) {
+			} else if (intent == "PlayMusic" && currentStep == 1) {
 
 				StartCoroutine (DelayMethod (0.0f, values));
 
@@ -191,7 +191,7 @@ public class OnboardingVoiceSpawner : Widget {
 
 	public void OnboardingTriggerPressed() {
 		onboardingManager.microphone.ActivateMicrophone ();
-		m_Conversation.Message(OnMessage, m_WorkspaceID, "Hey Nohm");
+		m_Conversation.Message(OnMessage, m_WorkspaceID, "I'd like to hear some new music");
 	}
 
 	private void ClearCanvas() {
