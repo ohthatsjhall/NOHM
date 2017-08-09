@@ -18,29 +18,29 @@ public class OnboardingRecords : MonoBehaviour {
 	private void AddArtistData() {
 		onboardingArtists = new List<Artist>();
 		Artist firstArtist = new Artist ();
-		firstArtist.previewUrl = "https://p.scdn.co/mp3-preview/d3e8d7ced6e0f3844b8c0309a7d4baad511a3518?cid=8897482848704f2a8f8d7c79726a70d4";
+		firstArtist.previewUrl = "http://listen.vo.llnwd.net/g3/5/4/3/4/7/1330574345.mp3";
 		firstArtist.albumName = "Slide";
 		firstArtist.artistName = "Calvin Harris";
 		firstArtist.trackName = "Slide";
-		firstArtist.imageUrl = "https://i.scdn.co/image/24a63c5c743b4376b7b7d570cf4a83ea017382fd";
+		firstArtist.albumId = "alb.253543923";
 		firstArtist.index = 0;
 		onboardingArtists.Add (firstArtist);
 
 		Artist secondArtist = new Artist ();
-		secondArtist.previewUrl = "https://p.scdn.co/mp3-preview/be2bc4aadde588c1a381e878497db1a165706b18?cid=8897482848704f2a8f8d7c79726a70d4";
+		secondArtist.previewUrl = "http://listen.vo.llnwd.net/g3/7/5/9/4/0/1341604957.mp3";
 		secondArtist.albumName = "Blonde";
 		secondArtist.artistName = "Frank Ocean";
 		secondArtist.trackName = "Nikes";
-		secondArtist.imageUrl = "https://i.scdn.co/image/e22f959dae6f088b9c6614c4f777efacaf3544f1";
+		secondArtist.albumId = "alb.243666117";
 		secondArtist.index = 1;
 		onboardingArtists.Add (secondArtist);
 
 		Artist thirdArtist = new Artist ();
-		thirdArtist.previewUrl = "https://p.scdn.co/mp3-preview/43abb77afc35b8eced064a1b062921a13f5c7b15?cid=8897482848704f2a8f8d7c79726a70d4";
-		thirdArtist.albumName = "Blonde";
+		thirdArtist.previewUrl = "http://listen.vo.llnwd.net/g3/7/6/9/9/9/1282299967.mp3";
+		thirdArtist.albumName = "Channel Orange";
 		thirdArtist.artistName = "Frank Ocean";
-		thirdArtist.trackName = "Nights";
-		thirdArtist.imageUrl = "https://i.scdn.co/image/b9aa26b76e088da60aa9adf4d30fa39b98075a0d";
+		thirdArtist.trackName = "Thinkin' Bout You";
+		thirdArtist.albumId = "alb.62368630";
 		thirdArtist.index = 2;
 		onboardingArtists.Add (thirdArtist);
 
@@ -51,11 +51,12 @@ public class OnboardingRecords : MonoBehaviour {
 		for (var i = 0; i < onboardingArtists.Count; i++) {
 			Artist artist = onboardingArtists [i];
 			gameObject.transform.GetChild (artist.index).GetComponent<Record> ().artist = artist;
-			StartCoroutine(FetchAlbumArtwork(artist.imageUrl));
+			StartCoroutine(FetchAlbumArtwork(artist.albumId));
 		}
 	}
 
-	IEnumerator FetchAlbumArtwork(string url) {
+	IEnumerator FetchAlbumArtwork(string albumId) {
+		string url = NohmConstants.ArtworkBaseURL + albumId + NohmConstants.ArtworkSize500;
 		HTTPRequest request = new HTTPRequest (new System.Uri (url), AlbumArtworkCallback);
 		request.Send ();
 		yield return request;

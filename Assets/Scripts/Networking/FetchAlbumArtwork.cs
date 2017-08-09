@@ -11,11 +11,12 @@ public class FetchAlbumArtwork : MonoBehaviour {
 
 	public void ShowAlbumArtwork() {
 		foreach (Artist artist in manager.artists) {
-			StartCoroutine (FetchNewArtwork (artist.imageUrl));
+			StartCoroutine (FetchNewArtwork (artist.albumId));
 		}
 	}
 
-	IEnumerator FetchNewArtwork(string url) {
+	IEnumerator FetchNewArtwork(string albumId) {
+		string url = NohmConstants.ArtworkBaseURL + albumId + NohmConstants.ArtworkSize500;
 		HTTPRequest request = new HTTPRequest (new System.Uri (url), Callback);
 		request.Send ();
 		yield return request;
