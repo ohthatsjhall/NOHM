@@ -40,7 +40,7 @@ public class TrackSelector : VRTK_InteractableObject {
 
 	private void SearchWithText(string searchText) {
 		manager.artist = searchText;
-		manager.FindArtistOrTrack ();
+		//manager.FindArtistOrTrack ();
 		inputField.GetComponentInChildren<Text> ().text = "";
 	}
 
