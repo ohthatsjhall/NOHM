@@ -27,7 +27,6 @@ public class VinylSnapZone : VRTK_SnapDropZone {
 	protected override void Update() {
 		base.Update();
 		if (vinylRecord != null) {
-			Debug.Log ("spin speed: " + spinSpeed);
 			vinylRecord.transform.Rotate (new Vector3 (0.0f, spinSpeed * Time.deltaTime, 0.0f));
 		}
 	}

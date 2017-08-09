@@ -138,7 +138,7 @@ public class VoiceSpawner : Widget {
 				foreach (EntityResponse entity in messageResponse.entities) {
 					Debug.Log ("entityType: " + entity.entity + " , value: " + entity.value);
 					apiManager.artist = entity.value;
-					apiManager.FindArtistOrTrack ();
+					apiManager.SearchTracksForArtist (entity.value);
 					microphone.DeactivateMicrophone ();
 				}
 			}

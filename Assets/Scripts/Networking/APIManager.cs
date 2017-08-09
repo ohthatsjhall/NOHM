@@ -18,6 +18,7 @@ public class APIManager : MonoBehaviour {
 	public void SearchTracksForArtist(string artist) {
 		string artistString = artist.Replace (" ", "+");
 		HTTPRequest request = new HTTPRequest (new System.Uri (NohmConstants.BaseURL + NohmConstants.SearchEndpoint + artistString + NohmConstants.TrackSearch), RequestCallback);
+		request.AddHeader ("apiKey", NohmConstants.APIKey);
 		request.Send ();
 	}
 

@@ -39,6 +39,7 @@ public struct Artist {
 			string albumId = track ["albumId"].ToString ();
 			albumId = albumId.Substring(1, albumId.Length - 2);
 			string previewUrl = track ["previewURL"].ToString ();
+			previewUrl = previewUrl.Substring (1, previewUrl.Length - 2);
 			bool previewAvailable = previewUrl != "" ? true : false;
 
 			Artist artist = SingleArtist (
