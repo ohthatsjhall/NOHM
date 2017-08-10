@@ -131,7 +131,7 @@ public class OnboardingVoiceSpawner : Widget {
 
 			if (intent == "LastMoonOnboardingForNohm" && currentStep == 0) {
 				
-				StartCoroutine (DelayMethod (5.0f, values));
+				StartCoroutine (DelayMethod (7.0f, values));
 				currentStep++;
 
 			} else if (intent == "PlayMusic" && currentStep == 1) {

@@ -29832,8 +29832,8 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.75
-  m_Range: 0.75
+  m_Intensity: 0.4
+  m_Range: 0.4
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -39085,15 +39085,6 @@ MonoBehaviour:
   canvas: {fileID: 766704015}
   vinylPrefab: {fileID: 1062972270910036, guid: 90cecb40878374f328795a4a7c474943,
     type: 2}
-  artist:
-    artistName: 
-    imageUrl: 
-    trackName: 
-    previewUrl: 
-    albumName: 
-    index: 0
-    artwork: {fileID: 0}
-    previewAvailable: 0
 --- !u!114 &949003334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43722,15 +43713,6 @@ MonoBehaviour:
   canvas: {fileID: 766704015}
   vinylPrefab: {fileID: 1062972270910036, guid: 90cecb40878374f328795a4a7c474943,
     type: 2}
-  artist:
-    artistName: 
-    imageUrl: 
-    trackName: 
-    previewUrl: 
-    albumName: 
-    index: 0
-    artwork: {fileID: 0}
-    previewAvailable: 0
 --- !u!114 &1054574264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65335,7 +65317,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: For optimal experience, we recommend higher quality headphones
 --- !u!222 &1620524544
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -75496,7 +75478,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5886aa4f697127c478dd367d91c9e054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  artists: []
   Records: {fileID: 1052133595}
   artist: 
 --- !u!1 &1899838883
@@ -77475,15 +77456,6 @@ MonoBehaviour:
   canvas: {fileID: 766704015}
   vinylPrefab: {fileID: 1062972270910036, guid: 90cecb40878374f328795a4a7c474943,
     type: 2}
-  artist:
-    artistName: 
-    imageUrl: 
-    trackName: 
-    previewUrl: 
-    albumName: 
-    index: 0
-    artwork: {fileID: 0}
-    previewAvailable: 0
 --- !u!114 &1941437196
 MonoBehaviour:
   m_ObjectHideFlags: 0
