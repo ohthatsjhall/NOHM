@@ -31,8 +31,7 @@ public class Record : VRTK_InteractableObject {
 		} else {
 			canvas.transform.position = new Vector3 (recordPosition.x + 0.0037f, recordPosition.y, recordPosition.z);
 		}
-
-		//canvas.transform.rotation = new Quaternion (recordRotation.x, recordRotation.y, recordRotation.z, recordRotation.w);
+			
 		canvas.GetComponentInChildren<Text> ().text = artist.trackName;
 
 		controllerEvents = currentTouchingObject.GetComponent<VRTK_ControllerEvents> ();
