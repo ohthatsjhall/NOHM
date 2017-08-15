@@ -191,7 +191,7 @@ public class OnboardingVoiceSpawner : Widget {
 		SteamVR_LoadLevel.Begin ("Vinyl");
 	}
 
-	public void OnboardingTriggerPressed() {
+	public void OnboardingButtonTwoPressed() {
 		onboardingManager.microphone.ActivateMicrophone ();
 		m_Conversation.Message(OnMessage, m_WorkspaceID, "I'd like to hear some new music");
 	}

@@ -9,8 +9,8 @@ public class OnboardingRightControllerListener : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		GetComponent<VRTK_ControllerEvents>().TriggerClicked += new ControllerInteractionEventHandler(DoTriggerClicked);
-		// GetComponent<VRTK_ControllerEvents> ().TouchpadPressed += new ControllerInteractionEventHandler(DoTouchpadPressed);
+		//GetComponent<VRTK_ControllerEvents>().TriggerClicked += new ControllerInteractionEventHandler(DoTriggerClicked);
+		GetComponent<VRTK_ControllerEvents> ().ButtonTwoPressed += new ControllerInteractionEventHandler (ButtonTwoPressed);
 	}
 
 	private void DebugLogger(uint index, string button, string action, ControllerInteractionEventArgs e) {
@@ -18,13 +18,15 @@ public class OnboardingRightControllerListener : MonoBehaviour {
 			+ " with a pressure of " + e.buttonPressure + " / trackpad axis at: " + e.touchpadAxis + " (" + e.touchpadAngle + " degrees)");
 	}
 
+	/*
 	private void DoTriggerClicked(object sender, ControllerInteractionEventArgs e) {
 		voiceSpawner.OnboardingTriggerPressed ();
 		DebugLogger(VRTK_ControllerReference.GetRealIndex(e.controllerReference), "TRIGGER", "clicked", e);
 	}
-
-
-	private void DoTouchpadPressed(object sender, ControllerInteractionEventArgs e) {
-
+*/
+	private void ButtonTwoPressed(object sender, ControllerInteractionEventArgs e) {
+		DebugLogger(VRTK_ControllerReference.GetRealIndex(e.controllerReference), "Nohm Button", "pressed", e);
+		voiceSpawner.OnboardingButtonTwoPressed ();
 	}
+
 }
