@@ -9800,9 +9800,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81ec9ac8090f8424ba60cf4585275894, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentStep: 0
   highlightBodyOnlyOnCollision: 0
   pulseTriggerHighlightColor: 1
-  highlightColor: {r: 1, g: 0, b: 0.64137936, a: 1}
+  highlightColor: {r: 0.4, g: 0.8, b: 0.8, a: 1}
 --- !u!114 &236944501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36914,6 +36915,21 @@ Prefab:
       propertyPath: isOnboarding
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 135671055745521850, guid: 64ab3d57f601f8a43afe39e50b9cf358,
+        type: 2}
+      propertyPath: m_Radius
+      value: 1.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 135671055745521850, guid: 64ab3d57f601f8a43afe39e50b9cf358,
+        type: 2}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 135671055745521850, guid: 64ab3d57f601f8a43afe39e50b9cf358,
+        type: 2}
+      propertyPath: m_Center.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64ab3d57f601f8a43afe39e50b9cf358, type: 2}
   m_IsPrefabParent: 0
@@ -43059,6 +43075,7 @@ GameObject:
   - component: {fileID: 1047268386}
   - component: {fileID: 1047268391}
   - component: {fileID: 1047268390}
+  - component: {fileID: 1047268392}
   m_Layer: 0
   m_Name: LeftController
   m_TagString: Untagged
@@ -43184,9 +43201,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81ec9ac8090f8424ba60cf4585275894, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentStep: 0
   highlightBodyOnlyOnCollision: 0
   pulseTriggerHighlightColor: 1
-  highlightColor: {r: 1, g: 0, b: 0.6431373, a: 1}
+  highlightColor: {r: 0.4, g: 0.8, b: 0.8, a: 1}
 --- !u!114 &1047268391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43230,6 +43248,18 @@ MonoBehaviour:
     startMenu: {fileID: 0}
   controllerAlias: {fileID: 0}
   modelContainer: {fileID: 0}
+--- !u!114 &1047268392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1047268384}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ca3279c6468bde4d85439a5575dea2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  voiceSpawner: {fileID: 772646771}
 --- !u!1 &1048596066
 GameObject:
   m_ObjectHideFlags: 0

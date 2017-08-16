@@ -141,7 +141,8 @@ public class OnboardingVoiceSpawner : Widget {
 				StartCoroutine (DelayMethod (0.0f, values));
 
 			} else if (intent == "OnboardingGrabRecord" && currentStep == 2) {
-				onboardingManager.rightController.GetComponent<OnboardingRightControllerListener> ().enabled = false;
+				onboardingManager.rightController.GetComponent<OnboardingControllerListener> ().enabled = false;
+				onboardingManager.leftController.GetComponent<OnboardingControllerListener> ().enabled = false;
 				onboardingManager.microphone.DeactivateMicrophone ();
 				onboardingManager.records.GetComponent<OnboardingRecords> ().AnimateRecords (currentStep == 2);
 				pointLightAnimator.SetInteger ("Stage", 1);
@@ -164,15 +165,25 @@ public class OnboardingVoiceSpawner : Widget {
 			if (currentStep == 1) {
 				if (i == values.Length - 1) {
 					VRTK_ControllerHaptics.TriggerHapticPulse (VRTK_ControllerReference.GetControllerReference (controllerEvents.gameObject), 3.5f);
-					onboardingManager.rightController.GetComponent<OnboardingRightControllerListener>().enabled = true;
+					onboardingManager.rightController.GetComponent<OnboardingControllerListener>().enabled = true;
+					onboardingManager.leftController.GetComponent<OnboardingControllerListener> ().enabled = true;
+
+					onboardingManager.leftController.GetComponent<OnboardingTooltips> ().currentStep = 1;
+					onboardingManager.rightController.GetComponent<OnboardingTooltips> ().currentStep = 1;
+
+					onboardingManager.leftController.GetComponent<OnboardingTooltips> ().enabled = true;
+					onboardingManager.rightController.GetComponent<OnboardingTooltips> ().enabled = true;
 				}	
 
 			} else if (currentStep == 3) {
 				onboardingManager.recordPlayer.SetActive (true);
 
+				onboardingManager.leftController.GetComponent<OnboardingTooltips> ().currentStep = 3;
+				onboardingManager.rightController.GetComponent<OnboardingTooltips> ().currentStep = 3;
+
 				onboardingManager.leftController.GetComponent<OnboardingTooltips> ().enabled = true;
 				onboardingManager.rightController.GetComponent<OnboardingTooltips> ().enabled = true;
-				// animate point light
+
 			} else {
 				onboardingManager.leftController.GetComponent<OnboardingTooltips> ().enabled = false;
 				onboardingManager.rightController.GetComponent<OnboardingTooltips> ().enabled = false;

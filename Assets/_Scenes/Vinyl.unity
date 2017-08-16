@@ -9812,12 +9812,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Hover.Core.Items.Managers.HoverItemsManager+ItemEvent, Assembly-CSharp,
-      Version=1.0.2.21453, Culture=neutral, PublicKeyToken=null
+      Version=1.0.2.36268, Culture=neutral, PublicKeyToken=null
   OnItemRemoved:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Hover.Core.Items.Managers.HoverItemsManager+ItemEvent, Assembly-CSharp,
-      Version=1.0.2.21453, Culture=neutral, PublicKeyToken=null
+      Version=1.0.2.36268, Culture=neutral, PublicKeyToken=null
 --- !u!1 &481328563
 GameObject:
   m_ObjectHideFlags: 0
@@ -24244,6 +24244,7 @@ GameObject:
   - component: {fileID: 1141846370}
   - component: {fileID: 1141846372}
   - component: {fileID: 1141846369}
+  - component: {fileID: 1141846373}
   m_Layer: 0
   m_Name: LeftController
   m_TagString: Untagged
@@ -24357,6 +24358,18 @@ MonoBehaviour:
   controllerEvents: {fileID: 0}
   interactTouch: {fileID: 0}
   interactGrab: {fileID: 0}
+--- !u!114 &1141846373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1141846367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d18394fdc8dfffb47ae968aaf6e03792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  voiceSpawner: {fileID: 13313160}
 --- !u!1 &1157901706
 GameObject:
   m_ObjectHideFlags: 0
@@ -28181,6 +28194,21 @@ Prefab:
       propertyPath: animator
       value: 
       objectReference: {fileID: 1878134973}
+    - target: {fileID: 135671055745521850, guid: 64ab3d57f601f8a43afe39e50b9cf358,
+        type: 2}
+      propertyPath: m_Radius
+      value: 0.6964522
+      objectReference: {fileID: 0}
+    - target: {fileID: 135671055745521850, guid: 64ab3d57f601f8a43afe39e50b9cf358,
+        type: 2}
+      propertyPath: m_Center.y
+      value: 0.060000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 135671055745521850, guid: 64ab3d57f601f8a43afe39e50b9cf358,
+        type: 2}
+      propertyPath: m_Center.z
+      value: -0.3264522
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64ab3d57f601f8a43afe39e50b9cf358, type: 2}
   m_IsPrefabParent: 0
@@ -35244,7 +35272,7 @@ MonoBehaviour:
   cursorVisibility: 0
   maximumLength: {x: 10, y: Infinity}
   tracerDensity: 10
-  cursorRadius: 0.5
+  cursorRadius: 0.2
   heightLimitAngle: 100
   curveOffset: 1
   rescaleTracer: 0

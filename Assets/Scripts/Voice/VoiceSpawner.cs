@@ -90,7 +90,7 @@ public class VoiceSpawner : Widget {
 		}
 	}
 
-	public void TriggerPressed() {
+	public void ActivateSearchArtist() {
 		microphone.ActivateMicrophone ();
 		m_Conversation.Message(OnMessage, m_WorkspaceID, "I'd like to hear some new music");
 	}
