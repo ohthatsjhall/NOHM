@@ -10,15 +10,13 @@ public class Vinyl : VRTK_InteractableObject {
 	private VRTK_ControllerEvents controllerEvents;
 
 
-	public override void StartUsing (VRTK_InteractUse currentUsingObject)
-	{
+	public override void StartUsing (VRTK_InteractUse currentUsingObject) {
 		base.StartUsing (currentUsingObject);
 		controllerEvents = usingObject.GetComponent<VRTK_ControllerEvents>();
 	}
 
 
-	public override void StopUsing (VRTK_InteractUse previousUsingObject)
-	{
+	public override void StopUsing (VRTK_InteractUse previousUsingObject) {
 		base.StopUsing (previousUsingObject);
 		controllerEvents = null;
 	}

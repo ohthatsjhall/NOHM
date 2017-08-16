@@ -137,7 +137,7 @@ MonoBehaviour:
   holdButtonToGrab: 1
   stayGrabbedOnTeleport: 1
   validDrop: 1
-  grabOverrideButton: 0
+  grabOverrideButton: 3
   allowedGrabControllers: 0
   grabAttachMechanicScript: {fileID: 114212633524420634}
   secondaryGrabActionScript: {fileID: 0}
@@ -148,12 +148,6 @@ MonoBehaviour:
   useOverrideButton: 0
   allowedUseControllers: 0
   usingState: 0
-  artist:
-    artistName: 
-    imageUrl: 
-    trackName: 
-    previewUrl: 
-    albumName: 
 --- !u!136 &136676987485678264
 CapsuleCollider:
   m_ObjectHideFlags: 1
