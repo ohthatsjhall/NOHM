@@ -143,8 +143,9 @@ public class VoiceSpawner : Widget {
 				}
 			}
 		} else {
-			Debug.Log ("else conditional log messages: " + messageResponse.output.log_messages [0]);
-			Debug.Log ("else conditional input: " + messageResponse.input.text);
+			string responseOutput = messageResponse.output.text [0];
+			textToSpeech.ToSpeech (responseOutput, HandleToSpeechCallback);
+			microphone.DeactivateMicrophone ();
 		}
 	}
 	#endregion
