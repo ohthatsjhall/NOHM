@@ -12,6 +12,8 @@ public class Record : VRTK_InteractableObject {
 	public GameObject vinylPrefab;
 	[HideInInspector]
 	public Artist artist;
+	[HideInInspector]
+	public Texture2D vinylArtwork;
 
 	private VRTK_ControllerEvents controllerEvents;
 	private Animator canvasAnimator;
@@ -62,6 +64,7 @@ public class Record : VRTK_InteractableObject {
 		}
 
 		vinyl.GetComponent<Vinyl>().artist = artist;
+		vinyl.GetComponent<MeshRenderer> ().materials [2].mainTexture = vinylArtwork;
 	}
 
 
