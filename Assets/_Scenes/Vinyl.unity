@@ -678,6 +678,7 @@ MonoBehaviour:
   canvas: {fileID: 1604948425}
   vinylPrefab: {fileID: 1062972270910036, guid: 90cecb40878374f328795a4a7c474943,
     type: 2}
+  vinylArtwork: {fileID: 0}
 --- !u!114 &31277208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4013,6 +4014,7 @@ MonoBehaviour:
   canvas: {fileID: 1604948425}
   vinylPrefab: {fileID: 1062972270910036, guid: 90cecb40878374f328795a4a7c474943,
     type: 2}
+  vinylArtwork: {fileID: 0}
 --- !u!114 &98122926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5355,6 +5357,7 @@ MonoBehaviour:
   canvas: {fileID: 1604948425}
   vinylPrefab: {fileID: 1062972270910036, guid: 90cecb40878374f328795a4a7c474943,
     type: 2}
+  vinylArtwork: {fileID: 0}
 --- !u!114 &237317851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6529,6 +6532,7 @@ MonoBehaviour:
   canvas: {fileID: 1604948425}
   vinylPrefab: {fileID: 1062972270910036, guid: 90cecb40878374f328795a4a7c474943,
     type: 2}
+  vinylArtwork: {fileID: 0}
 --- !u!114 &306936626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6779,6 +6783,7 @@ MonoBehaviour:
   canvas: {fileID: 1604948425}
   vinylPrefab: {fileID: 1062972270910036, guid: 90cecb40878374f328795a4a7c474943,
     type: 2}
+  vinylArtwork: {fileID: 0}
 --- !u!114 &319076978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7457,6 +7462,7 @@ MonoBehaviour:
   canvas: {fileID: 1604948425}
   vinylPrefab: {fileID: 1062972270910036, guid: 90cecb40878374f328795a4a7c474943,
     type: 2}
+  vinylArtwork: {fileID: 0}
 --- !u!114 &354512121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7954,6 +7960,7 @@ MonoBehaviour:
   canvas: {fileID: 1604948425}
   vinylPrefab: {fileID: 1062972270910036, guid: 90cecb40878374f328795a4a7c474943,
     type: 2}
+  vinylArtwork: {fileID: 0}
 --- !u!114 &368220364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8382,6 +8389,7 @@ MonoBehaviour:
   canvas: {fileID: 1604948425}
   vinylPrefab: {fileID: 1062972270910036, guid: 90cecb40878374f328795a4a7c474943,
     type: 2}
+  vinylArtwork: {fileID: 0}
 --- !u!114 &390852204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9812,12 +9820,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Hover.Core.Items.Managers.HoverItemsManager+ItemEvent, Assembly-CSharp,
-      Version=1.0.2.37664, Culture=neutral, PublicKeyToken=null
+      Version=1.0.2.18634, Culture=neutral, PublicKeyToken=null
   OnItemRemoved:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Hover.Core.Items.Managers.HoverItemsManager+ItemEvent, Assembly-CSharp,
-      Version=1.0.2.37664, Culture=neutral, PublicKeyToken=null
+      Version=1.0.2.18634, Culture=neutral, PublicKeyToken=null
 --- !u!1 &481328563
 GameObject:
   m_ObjectHideFlags: 0
@@ -10451,6 +10459,7 @@ MonoBehaviour:
   canvas: {fileID: 1604948425}
   vinylPrefab: {fileID: 1062972270910036, guid: 90cecb40878374f328795a4a7c474943,
     type: 2}
+  vinylArtwork: {fileID: 0}
 --- !u!114 &528859463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11086,6 +11095,7 @@ MonoBehaviour:
   canvas: {fileID: 1604948425}
   vinylPrefab: {fileID: 1062972270910036, guid: 90cecb40878374f328795a4a7c474943,
     type: 2}
+  vinylArtwork: {fileID: 0}
 --- !u!114 &574283454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14004,6 +14014,7 @@ MonoBehaviour:
   canvas: {fileID: 1604948425}
   vinylPrefab: {fileID: 1062972270910036, guid: 90cecb40878374f328795a4a7c474943,
     type: 2}
+  vinylArtwork: {fileID: 0}
 --- !u!114 &859359107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14552,6 +14563,7 @@ MonoBehaviour:
   canvas: {fileID: 1604948425}
   vinylPrefab: {fileID: 1062972270910036, guid: 90cecb40878374f328795a4a7c474943,
     type: 2}
+  vinylArtwork: {fileID: 0}
 --- !u!114 &881467965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15187,6 +15199,7 @@ MonoBehaviour:
   canvas: {fileID: 1604948425}
   vinylPrefab: {fileID: 1062972270910036, guid: 90cecb40878374f328795a4a7c474943,
     type: 2}
+  vinylArtwork: {fileID: 0}
 --- !u!114 &893372586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25529,6 +25542,7 @@ MonoBehaviour:
   canvas: {fileID: 1604948425}
   vinylPrefab: {fileID: 1062972270910036, guid: 90cecb40878374f328795a4a7c474943,
     type: 2}
+  vinylArtwork: {fileID: 0}
 --- !u!114 &1233707935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29028,6 +29042,7 @@ MonoBehaviour:
   canvas: {fileID: 1604948425}
   vinylPrefab: {fileID: 1062972270910036, guid: 90cecb40878374f328795a4a7c474943,
     type: 2}
+  vinylArtwork: {fileID: 0}
 --- !u!114 &1542727644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29674,6 +29689,7 @@ MonoBehaviour:
   canvas: {fileID: 1604948425}
   vinylPrefab: {fileID: 1062972270910036, guid: 90cecb40878374f328795a4a7c474943,
     type: 2}
+  vinylArtwork: {fileID: 0}
 --- !u!114 &1586535541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30119,6 +30135,7 @@ MonoBehaviour:
   canvas: {fileID: 1604948425}
   vinylPrefab: {fileID: 1062972270910036, guid: 90cecb40878374f328795a4a7c474943,
     type: 2}
+  vinylArtwork: {fileID: 0}
 --- !u!114 &1611685082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30842,6 +30859,18 @@ GameObject:
 Transform:
   m_PrefabParentObject: {fileID: 420908, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
   m_PrefabInternal: {fileID: 44125495}
+--- !u!114 &1671130739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1671130733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38154dd187d06c848b0e630b5662cd3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  voiceSpawner: {fileID: 13313160}
 --- !u!1001 &1673336398
 Prefab:
   m_ObjectHideFlags: 0
@@ -35600,6 +35629,7 @@ MonoBehaviour:
   canvas: {fileID: 1604948425}
   vinylPrefab: {fileID: 1062972270910036, guid: 90cecb40878374f328795a4a7c474943,
     type: 2}
+  vinylArtwork: {fileID: 0}
 --- !u!114 &1885279039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35877,6 +35907,7 @@ MonoBehaviour:
   canvas: {fileID: 1604948425}
   vinylPrefab: {fileID: 1062972270910036, guid: 90cecb40878374f328795a4a7c474943,
     type: 2}
+  vinylArtwork: {fileID: 0}
 --- !u!114 &1902304663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38713,6 +38744,7 @@ MonoBehaviour:
   canvas: {fileID: 1604948425}
   vinylPrefab: {fileID: 1062972270910036, guid: 90cecb40878374f328795a4a7c474943,
     type: 2}
+  vinylArtwork: {fileID: 0}
 --- !u!114 &2138594353
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -28,7 +28,8 @@ public class VoiceSpawner : Widget {
 	private fsSerializer _serializer = new fsSerializer();
 
 	TextToSpeech textToSpeech = new TextToSpeech();
-	private string welcomeString = "Welcome to Gnome, when you are ready to listen to music, press the app button";
+	[HideInInspector]
+	public const string welcomeString = "Welcome to Gnome, when you are ready to listen to music, press the app button";
 
 	#region InitAndLifecycle
 	//------------------------------------------------------------------------------------------------------------------
@@ -37,18 +38,19 @@ public class VoiceSpawner : Widget {
 
 	protected override void Start() {
 		base.Start();
-		textToSpeech.Voice = VoiceType.en_GB_Kate;
-		textToSpeech.ToSpeech (welcomeString, HandleToSpeechCallback);
 		m_WorkspaceID = Config.Instance.GetVariableValue("ConversationV1_ID");
 	}
 
 	void HandleToSpeechCallback (AudioClip clip) {
-		Debug.Log ("ready to play...");
 		PlayClip (clip);
 	}
 
+	public void TextToSpeechWithString(string text) {
+		textToSpeech.Voice = VoiceType.en_GB_Kate;
+		textToSpeech.ToSpeech (text, HandleToSpeechCallback);
+	}
+
 	private void PlayClip(AudioClip clip) {
-		Debug.Log ("playing");
 		if (Application.isPlaying && clip != null) {
 			GameObject audioObject = new GameObject("AudioObject");
 			AudioSource source = audioObject.AddComponent<AudioSource>();
