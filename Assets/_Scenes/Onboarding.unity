@@ -39093,7 +39093,7 @@ MonoBehaviour:
   holdButtonToUse: 0
   useOnlyIfGrabbed: 0
   pointerActivatesUseAction: 0
-  useOverrideButton: 7
+  useOverrideButton: 3
   allowedUseControllers: 0
   usingState: 0
   isOnboarding: 1
@@ -39101,6 +39101,7 @@ MonoBehaviour:
   canvas: {fileID: 766704015}
   vinylPrefab: {fileID: 1062972270910036, guid: 90cecb40878374f328795a4a7c474943,
     type: 2}
+  vinylArtwork: {fileID: 0}
 --- !u!114 &949003334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43735,7 +43736,7 @@ MonoBehaviour:
   holdButtonToUse: 0
   useOnlyIfGrabbed: 0
   pointerActivatesUseAction: 0
-  useOverrideButton: 7
+  useOverrideButton: 3
   allowedUseControllers: 0
   usingState: 0
   isOnboarding: 1
@@ -43743,6 +43744,7 @@ MonoBehaviour:
   canvas: {fileID: 766704015}
   vinylPrefab: {fileID: 1062972270910036, guid: 90cecb40878374f328795a4a7c474943,
     type: 2}
+  vinylArtwork: {fileID: 0}
 --- !u!114 &1054574264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77478,7 +77480,7 @@ MonoBehaviour:
   holdButtonToUse: 0
   useOnlyIfGrabbed: 0
   pointerActivatesUseAction: 0
-  useOverrideButton: 7
+  useOverrideButton: 3
   allowedUseControllers: 0
   usingState: 0
   isOnboarding: 1
@@ -77486,6 +77488,7 @@ MonoBehaviour:
   canvas: {fileID: 766704015}
   vinylPrefab: {fileID: 1062972270910036, guid: 90cecb40878374f328795a4a7c474943,
     type: 2}
+  vinylArtwork: {fileID: 0}
 --- !u!114 &1941437196
 MonoBehaviour:
   m_ObjectHideFlags: 0
