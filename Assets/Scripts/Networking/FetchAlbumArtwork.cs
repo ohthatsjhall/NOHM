@@ -24,11 +24,9 @@ public class FetchAlbumArtwork : MonoBehaviour {
 
 	void Callback(HTTPRequest request, HTTPResponse response) {
 		int artistIndex = manager.artists [count].index;
+		Texture2D artwork = response.DataAsTexture2D;
 		if (count == artistIndex) {
-			gameObject.transform.GetChild (artistIndex).GetComponent<Renderer> ().material.mainTexture = response.DataAsTexture2D;
-			gameObject.transform.GetChild (artistIndex).GetComponent<Record> ().artist = manager.artists [artistIndex];
-			gameObject.transform.GetChild (artistIndex).GetComponent<Record> ().SetTouchHighlightColorForValidURL (manager.artists [artistIndex].previewAvailable);
-	
+			configureVinylRecordWithArtwork (artwork, artistIndex);
 			if (count >= 19) {
 				count = 0;
 				return;
@@ -39,5 +37,11 @@ public class FetchAlbumArtwork : MonoBehaviour {
 		} 
 	}
 
+	private void configureVinylRecordWithArtwork(Texture2D artwork, int artistIndex) {
+		gameObject.transform.GetChild (artistIndex).GetComponent<Renderer> ().material.mainTexture = artwork;
+		gameObject.transform.GetChild (artistIndex).GetComponent<Record> ().artist = manager.artists [artistIndex];
+		gameObject.transform.GetChild (artistIndex).GetComponent<Record> ().SetTouchHighlightColorForValidURL (manager.artists [artistIndex].previewAvailable);
+		gameObject.transform.GetChild (artistIndex).GetComponent<Record> ().vinylArtwork = artwork;
+	}
 
 }

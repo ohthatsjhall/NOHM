@@ -9,33 +9,20 @@ public class Vinyl : VRTK_InteractableObject {
 	public Artist artist;
 	private VRTK_ControllerEvents controllerEvents;
 
+	protected override void Awake () {
+		base.Awake ();
+		GetComponent<MeshRenderer> ().materials [2].mainTextureScale = new Vector2 (3f, 3f);
+	}
 
-	public override void StartUsing (VRTK_InteractUse currentUsingObject)
-	{
+	public override void StartUsing (VRTK_InteractUse currentUsingObject) {
 		base.StartUsing (currentUsingObject);
 		controllerEvents = usingObject.GetComponent<VRTK_ControllerEvents>();
 	}
 
 
-	public override void StopUsing (VRTK_InteractUse previousUsingObject)
-	{
+	public override void StopUsing (VRTK_InteractUse previousUsingObject) {
 		base.StopUsing (previousUsingObject);
 		controllerEvents = null;
 	}
-
-	// VRTK 3.1.0
-	/*
-
-	public override void StartUsing(GameObject usingObject) {
-		base.StartUsing(usingObject);
-		controllerEvents = usingObject.GetComponent<VRTK_ControllerEvents>();
-	}
-
-	public override void StopUsing(GameObject previousUsingObject) {
-		base.StopUsing(previousUsingObject);
-		controllerEvents = null;
-	}
-		
-*/
 
 }

@@ -670,7 +670,7 @@ MonoBehaviour:
   holdButtonToUse: 0
   useOnlyIfGrabbed: 0
   pointerActivatesUseAction: 0
-  useOverrideButton: 7
+  useOverrideButton: 3
   allowedUseControllers: 0
   usingState: 0
   isOnboarding: 0
@@ -678,15 +678,6 @@ MonoBehaviour:
   canvas: {fileID: 1604948425}
   vinylPrefab: {fileID: 1062972270910036, guid: 90cecb40878374f328795a4a7c474943,
     type: 2}
-  artist:
-    artistName: 
-    imageUrl: 
-    trackName: 
-    previewUrl: 
-    albumName: 
-    index: 0
-    artwork: {fileID: 0}
-    previewAvailable: 0
 --- !u!114 &31277208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4014,7 +4005,7 @@ MonoBehaviour:
   holdButtonToUse: 0
   useOnlyIfGrabbed: 0
   pointerActivatesUseAction: 0
-  useOverrideButton: 7
+  useOverrideButton: 3
   allowedUseControllers: 0
   usingState: 0
   isOnboarding: 0
@@ -4022,15 +4013,6 @@ MonoBehaviour:
   canvas: {fileID: 1604948425}
   vinylPrefab: {fileID: 1062972270910036, guid: 90cecb40878374f328795a4a7c474943,
     type: 2}
-  artist:
-    artistName: 
-    imageUrl: 
-    trackName: 
-    previewUrl: 
-    albumName: 
-    index: 0
-    artwork: {fileID: 0}
-    previewAvailable: 0
 --- !u!114 &98122926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5365,7 +5347,7 @@ MonoBehaviour:
   holdButtonToUse: 0
   useOnlyIfGrabbed: 0
   pointerActivatesUseAction: 0
-  useOverrideButton: 7
+  useOverrideButton: 3
   allowedUseControllers: 0
   usingState: 0
   isOnboarding: 0
@@ -5373,15 +5355,6 @@ MonoBehaviour:
   canvas: {fileID: 1604948425}
   vinylPrefab: {fileID: 1062972270910036, guid: 90cecb40878374f328795a4a7c474943,
     type: 2}
-  artist:
-    artistName: 
-    imageUrl: 
-    trackName: 
-    previewUrl: 
-    albumName: 
-    index: 0
-    artwork: {fileID: 0}
-    previewAvailable: 0
 --- !u!114 &237317851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6548,7 +6521,7 @@ MonoBehaviour:
   holdButtonToUse: 0
   useOnlyIfGrabbed: 0
   pointerActivatesUseAction: 0
-  useOverrideButton: 7
+  useOverrideButton: 3
   allowedUseControllers: 0
   usingState: 0
   isOnboarding: 0
@@ -6556,15 +6529,6 @@ MonoBehaviour:
   canvas: {fileID: 1604948425}
   vinylPrefab: {fileID: 1062972270910036, guid: 90cecb40878374f328795a4a7c474943,
     type: 2}
-  artist:
-    artistName: 
-    imageUrl: 
-    trackName: 
-    previewUrl: 
-    albumName: 
-    index: 0
-    artwork: {fileID: 0}
-    previewAvailable: 0
 --- !u!114 &306936626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6807,7 +6771,7 @@ MonoBehaviour:
   holdButtonToUse: 0
   useOnlyIfGrabbed: 0
   pointerActivatesUseAction: 0
-  useOverrideButton: 7
+  useOverrideButton: 3
   allowedUseControllers: 0
   usingState: 0
   isOnboarding: 0
@@ -6815,15 +6779,6 @@ MonoBehaviour:
   canvas: {fileID: 1604948425}
   vinylPrefab: {fileID: 1062972270910036, guid: 90cecb40878374f328795a4a7c474943,
     type: 2}
-  artist:
-    artistName: 
-    imageUrl: 
-    trackName: 
-    previewUrl: 
-    albumName: 
-    index: 0
-    artwork: {fileID: 0}
-    previewAvailable: 0
 --- !u!114 &319076978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7494,7 +7449,7 @@ MonoBehaviour:
   holdButtonToUse: 0
   useOnlyIfGrabbed: 0
   pointerActivatesUseAction: 0
-  useOverrideButton: 7
+  useOverrideButton: 3
   allowedUseControllers: 0
   usingState: 0
   isOnboarding: 0
@@ -7502,15 +7457,6 @@ MonoBehaviour:
   canvas: {fileID: 1604948425}
   vinylPrefab: {fileID: 1062972270910036, guid: 90cecb40878374f328795a4a7c474943,
     type: 2}
-  artist:
-    artistName: 
-    imageUrl: 
-    trackName: 
-    previewUrl: 
-    albumName: 
-    index: 0
-    artwork: {fileID: 0}
-    previewAvailable: 0
 --- !u!114 &354512121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8000,7 +7946,7 @@ MonoBehaviour:
   holdButtonToUse: 0
   useOnlyIfGrabbed: 0
   pointerActivatesUseAction: 0
-  useOverrideButton: 7
+  useOverrideButton: 3
   allowedUseControllers: 0
   usingState: 0
   isOnboarding: 0
@@ -8008,15 +7954,6 @@ MonoBehaviour:
   canvas: {fileID: 1604948425}
   vinylPrefab: {fileID: 1062972270910036, guid: 90cecb40878374f328795a4a7c474943,
     type: 2}
-  artist:
-    artistName: 
-    imageUrl: 
-    trackName: 
-    previewUrl: 
-    albumName: 
-    index: 0
-    artwork: {fileID: 0}
-    previewAvailable: 0
 --- !u!114 &368220364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8437,7 +8374,7 @@ MonoBehaviour:
   holdButtonToUse: 0
   useOnlyIfGrabbed: 0
   pointerActivatesUseAction: 0
-  useOverrideButton: 7
+  useOverrideButton: 3
   allowedUseControllers: 0
   usingState: 0
   isOnboarding: 0
@@ -8445,15 +8382,6 @@ MonoBehaviour:
   canvas: {fileID: 1604948425}
   vinylPrefab: {fileID: 1062972270910036, guid: 90cecb40878374f328795a4a7c474943,
     type: 2}
-  artist:
-    artistName: 
-    imageUrl: 
-    trackName: 
-    previewUrl: 
-    albumName: 
-    index: 0
-    artwork: {fileID: 0}
-    previewAvailable: 0
 --- !u!114 &390852204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9884,12 +9812,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Hover.Core.Items.Managers.HoverItemsManager+ItemEvent, Assembly-CSharp,
-      Version=1.0.2.37021, Culture=neutral, PublicKeyToken=null
+      Version=1.0.2.37664, Culture=neutral, PublicKeyToken=null
   OnItemRemoved:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Hover.Core.Items.Managers.HoverItemsManager+ItemEvent, Assembly-CSharp,
-      Version=1.0.2.37021, Culture=neutral, PublicKeyToken=null
+      Version=1.0.2.37664, Culture=neutral, PublicKeyToken=null
 --- !u!1 &481328563
 GameObject:
   m_ObjectHideFlags: 0
@@ -10515,7 +10443,7 @@ MonoBehaviour:
   holdButtonToUse: 0
   useOnlyIfGrabbed: 0
   pointerActivatesUseAction: 0
-  useOverrideButton: 7
+  useOverrideButton: 3
   allowedUseControllers: 0
   usingState: 0
   isOnboarding: 0
@@ -10523,15 +10451,6 @@ MonoBehaviour:
   canvas: {fileID: 1604948425}
   vinylPrefab: {fileID: 1062972270910036, guid: 90cecb40878374f328795a4a7c474943,
     type: 2}
-  artist:
-    artistName: 
-    imageUrl: 
-    trackName: 
-    previewUrl: 
-    albumName: 
-    index: 0
-    artwork: {fileID: 0}
-    previewAvailable: 0
 --- !u!114 &528859463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11159,7 +11078,7 @@ MonoBehaviour:
   holdButtonToUse: 0
   useOnlyIfGrabbed: 0
   pointerActivatesUseAction: 0
-  useOverrideButton: 7
+  useOverrideButton: 3
   allowedUseControllers: 0
   usingState: 0
   isOnboarding: 0
@@ -11167,15 +11086,6 @@ MonoBehaviour:
   canvas: {fileID: 1604948425}
   vinylPrefab: {fileID: 1062972270910036, guid: 90cecb40878374f328795a4a7c474943,
     type: 2}
-  artist:
-    artistName: 
-    imageUrl: 
-    trackName: 
-    previewUrl: 
-    albumName: 
-    index: 0
-    artwork: {fileID: 0}
-    previewAvailable: 0
 --- !u!114 &574283454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14086,7 +13996,7 @@ MonoBehaviour:
   holdButtonToUse: 0
   useOnlyIfGrabbed: 0
   pointerActivatesUseAction: 0
-  useOverrideButton: 7
+  useOverrideButton: 3
   allowedUseControllers: 0
   usingState: 0
   isOnboarding: 0
@@ -14094,15 +14004,6 @@ MonoBehaviour:
   canvas: {fileID: 1604948425}
   vinylPrefab: {fileID: 1062972270910036, guid: 90cecb40878374f328795a4a7c474943,
     type: 2}
-  artist:
-    artistName: 
-    imageUrl: 
-    trackName: 
-    previewUrl: 
-    albumName: 
-    index: 0
-    artwork: {fileID: 0}
-    previewAvailable: 0
 --- !u!114 &859359107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14643,7 +14544,7 @@ MonoBehaviour:
   holdButtonToUse: 0
   useOnlyIfGrabbed: 0
   pointerActivatesUseAction: 0
-  useOverrideButton: 7
+  useOverrideButton: 3
   allowedUseControllers: 0
   usingState: 0
   isOnboarding: 0
@@ -14651,15 +14552,6 @@ MonoBehaviour:
   canvas: {fileID: 1604948425}
   vinylPrefab: {fileID: 1062972270910036, guid: 90cecb40878374f328795a4a7c474943,
     type: 2}
-  artist:
-    artistName: 
-    imageUrl: 
-    trackName: 
-    previewUrl: 
-    albumName: 
-    index: 0
-    artwork: {fileID: 0}
-    previewAvailable: 0
 --- !u!114 &881467965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15287,7 +15179,7 @@ MonoBehaviour:
   holdButtonToUse: 0
   useOnlyIfGrabbed: 0
   pointerActivatesUseAction: 0
-  useOverrideButton: 7
+  useOverrideButton: 3
   allowedUseControllers: 0
   usingState: 0
   isOnboarding: 0
@@ -15295,15 +15187,6 @@ MonoBehaviour:
   canvas: {fileID: 1604948425}
   vinylPrefab: {fileID: 1062972270910036, guid: 90cecb40878374f328795a4a7c474943,
     type: 2}
-  artist:
-    artistName: 
-    imageUrl: 
-    trackName: 
-    previewUrl: 
-    albumName: 
-    index: 0
-    artwork: {fileID: 0}
-    previewAvailable: 0
 --- !u!114 &893372586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24334,7 +24217,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5886aa4f697127c478dd367d91c9e054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  artists: []
   Records: {fileID: 290106853}
   artist: marvin gaye
 --- !u!4 &1136694832
@@ -24362,6 +24244,7 @@ GameObject:
   - component: {fileID: 1141846370}
   - component: {fileID: 1141846372}
   - component: {fileID: 1141846369}
+  - component: {fileID: 1141846373}
   m_Layer: 0
   m_Name: LeftController
   m_TagString: Untagged
@@ -24475,6 +24358,18 @@ MonoBehaviour:
   controllerEvents: {fileID: 0}
   interactTouch: {fileID: 0}
   interactGrab: {fileID: 0}
+--- !u!114 &1141846373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1141846367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d18394fdc8dfffb47ae968aaf6e03792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  voiceSpawner: {fileID: 13313160}
 --- !u!1 &1157901706
 GameObject:
   m_ObjectHideFlags: 0
@@ -25626,7 +25521,7 @@ MonoBehaviour:
   holdButtonToUse: 0
   useOnlyIfGrabbed: 0
   pointerActivatesUseAction: 0
-  useOverrideButton: 7
+  useOverrideButton: 3
   allowedUseControllers: 0
   usingState: 0
   isOnboarding: 0
@@ -25634,15 +25529,6 @@ MonoBehaviour:
   canvas: {fileID: 1604948425}
   vinylPrefab: {fileID: 1062972270910036, guid: 90cecb40878374f328795a4a7c474943,
     type: 2}
-  artist:
-    artistName: 
-    imageUrl: 
-    trackName: 
-    previewUrl: 
-    albumName: 
-    index: 0
-    artwork: {fileID: 0}
-    previewAvailable: 0
 --- !u!114 &1233707935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28308,6 +28194,21 @@ Prefab:
       propertyPath: animator
       value: 
       objectReference: {fileID: 1878134973}
+    - target: {fileID: 135671055745521850, guid: 64ab3d57f601f8a43afe39e50b9cf358,
+        type: 2}
+      propertyPath: m_Radius
+      value: 0.4163018
+      objectReference: {fileID: 0}
+    - target: {fileID: 135671055745521850, guid: 64ab3d57f601f8a43afe39e50b9cf358,
+        type: 2}
+      propertyPath: m_Center.y
+      value: 0.060000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 135671055745521850, guid: 64ab3d57f601f8a43afe39e50b9cf358,
+        type: 2}
+      propertyPath: m_Center.z
+      value: -0.046301782
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64ab3d57f601f8a43afe39e50b9cf358, type: 2}
   m_IsPrefabParent: 0
@@ -29119,7 +29020,7 @@ MonoBehaviour:
   holdButtonToUse: 0
   useOnlyIfGrabbed: 0
   pointerActivatesUseAction: 0
-  useOverrideButton: 7
+  useOverrideButton: 3
   allowedUseControllers: 0
   usingState: 0
   isOnboarding: 0
@@ -29127,15 +29028,6 @@ MonoBehaviour:
   canvas: {fileID: 1604948425}
   vinylPrefab: {fileID: 1062972270910036, guid: 90cecb40878374f328795a4a7c474943,
     type: 2}
-  artist:
-    artistName: 
-    imageUrl: 
-    trackName: 
-    previewUrl: 
-    albumName: 
-    index: 0
-    artwork: {fileID: 0}
-    previewAvailable: 0
 --- !u!114 &1542727644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29774,7 +29666,7 @@ MonoBehaviour:
   holdButtonToUse: 0
   useOnlyIfGrabbed: 0
   pointerActivatesUseAction: 0
-  useOverrideButton: 7
+  useOverrideButton: 3
   allowedUseControllers: 0
   usingState: 0
   isOnboarding: 0
@@ -29782,15 +29674,6 @@ MonoBehaviour:
   canvas: {fileID: 1604948425}
   vinylPrefab: {fileID: 1062972270910036, guid: 90cecb40878374f328795a4a7c474943,
     type: 2}
-  artist:
-    artistName: 
-    imageUrl: 
-    trackName: 
-    previewUrl: 
-    albumName: 
-    index: 0
-    artwork: {fileID: 0}
-    previewAvailable: 0
 --- !u!114 &1586535541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30228,7 +30111,7 @@ MonoBehaviour:
   holdButtonToUse: 0
   useOnlyIfGrabbed: 0
   pointerActivatesUseAction: 0
-  useOverrideButton: 7
+  useOverrideButton: 3
   allowedUseControllers: 0
   usingState: 0
   isOnboarding: 0
@@ -30236,15 +30119,6 @@ MonoBehaviour:
   canvas: {fileID: 1604948425}
   vinylPrefab: {fileID: 1062972270910036, guid: 90cecb40878374f328795a4a7c474943,
     type: 2}
-  artist:
-    artistName: 
-    imageUrl: 
-    trackName: 
-    previewUrl: 
-    albumName: 
-    index: 0
-    artwork: {fileID: 0}
-    previewAvailable: 0
 --- !u!114 &1611685082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35378,7 +35252,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1876842903}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fc65878c7102524bb8c2bcfbefff497, type: 3}
+  m_Script: {fileID: 11500000, guid: bd904f4ca6767424eaf8e050bc174741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playareaCursor: {fileID: 0}
@@ -35392,18 +35266,22 @@ MonoBehaviour:
     maxAllowedPerFrameDistanceDifference: 0.003
     smoothsRotation: 0
     maxAllowedPerFrameAngleDifference: 1.5
-  validCollisionColor: {r: 0.12224266, g: 0.6621513, b: 0.875, a: 1}
-  invalidCollisionColor: {r: 1, g: 0.375, b: 0.375, a: 1}
+  validCollisionColor: {r: 0.4, g: 0.8, b: 0.8, a: 0.366}
+  invalidCollisionColor: {r: 1, g: 0, b: 0, a: 0.703}
   tracerVisibility: 0
   cursorVisibility: 0
-  maximumLength: 100
-  scaleFactor: 0.002
-  cursorScaleMultiplier: 25
+  maximumLength: {x: 10, y: Infinity}
+  tracerDensity: 10
+  cursorRadius: 0.2
+  heightLimitAngle: 100
+  curveOffset: 1
+  rescaleTracer: 0
   cursorMatchTargetRotation: 0
-  cursorDistanceRescale: 0
-  maximumCursorScale: {x: Infinity, y: Infinity, z: Infinity}
+  collisionCheckFrequency: 0
   customTracer: {fileID: 0}
   customCursor: {fileID: 0}
+  validLocationObject: {fileID: 0}
+  invalidLocationObject: {fileID: 0}
 --- !u!114 &1876842905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35714,7 +35592,7 @@ MonoBehaviour:
   holdButtonToUse: 0
   useOnlyIfGrabbed: 0
   pointerActivatesUseAction: 0
-  useOverrideButton: 7
+  useOverrideButton: 3
   allowedUseControllers: 0
   usingState: 0
   isOnboarding: 0
@@ -35722,15 +35600,6 @@ MonoBehaviour:
   canvas: {fileID: 1604948425}
   vinylPrefab: {fileID: 1062972270910036, guid: 90cecb40878374f328795a4a7c474943,
     type: 2}
-  artist:
-    artistName: 
-    imageUrl: 
-    trackName: 
-    previewUrl: 
-    albumName: 
-    index: 0
-    artwork: {fileID: 0}
-    previewAvailable: 0
 --- !u!114 &1885279039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36000,7 +35869,7 @@ MonoBehaviour:
   holdButtonToUse: 0
   useOnlyIfGrabbed: 0
   pointerActivatesUseAction: 0
-  useOverrideButton: 7
+  useOverrideButton: 3
   allowedUseControllers: 0
   usingState: 0
   isOnboarding: 0
@@ -36008,15 +35877,6 @@ MonoBehaviour:
   canvas: {fileID: 1604948425}
   vinylPrefab: {fileID: 1062972270910036, guid: 90cecb40878374f328795a4a7c474943,
     type: 2}
-  artist:
-    artistName: 
-    imageUrl: 
-    trackName: 
-    previewUrl: 
-    albumName: 
-    index: 0
-    artwork: {fileID: 0}
-    previewAvailable: 0
 --- !u!114 &1902304663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38845,7 +38705,7 @@ MonoBehaviour:
   holdButtonToUse: 0
   useOnlyIfGrabbed: 0
   pointerActivatesUseAction: 0
-  useOverrideButton: 7
+  useOverrideButton: 3
   allowedUseControllers: 0
   usingState: 0
   isOnboarding: 0
@@ -38853,15 +38713,6 @@ MonoBehaviour:
   canvas: {fileID: 1604948425}
   vinylPrefab: {fileID: 1062972270910036, guid: 90cecb40878374f328795a4a7c474943,
     type: 2}
-  artist:
-    artistName: 
-    imageUrl: 
-    trackName: 
-    previewUrl: 
-    albumName: 
-    index: 0
-    artwork: {fileID: 0}
-    previewAvailable: 0
 --- !u!114 &2138594353
 MonoBehaviour:
   m_ObjectHideFlags: 0

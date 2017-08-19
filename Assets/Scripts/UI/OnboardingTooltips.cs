@@ -6,6 +6,8 @@ using VRTK;
 
 public class OnboardingTooltips : MonoBehaviour {
 
+	[HideInInspector]
+	public int currentStep;
 	public bool highlightBodyOnlyOnCollision = false;
 	public bool pulseTriggerHighlightColor = true;
 	public Color highlightColor = Color.yellow;
@@ -22,10 +24,19 @@ public class OnboardingTooltips : MonoBehaviour {
 	private bool highlighted;
 
 	void OnEnable() {
-		if (pulseTriggerHighlightColor) {
-			Debug.Log ("enabled!");
-			InvokeRepeating("PulseGrip", pulseTimer, pulseTimer);
+		Debug.Log ("tool tips current step: " + currentStep);
+		if (currentStep == 1 || currentStep == 0) {
+			InvokeRepeating ("PulseButtonTwo", pulseTimer, pulseTimer);
+		} else if (currentStep == 3) {
+			if (pulseTriggerHighlightColor) {
+				Debug.Log ("enabled!");
+				InvokeRepeating("PulseGrip", pulseTimer, pulseTimer);
+			}
 		}
+	}
+
+	void OnDisable() {
+		CancelInvoke ();
 	}
 
 	// Use this for initialization
@@ -48,10 +59,10 @@ public class OnboardingTooltips : MonoBehaviour {
 
 		tooltips.ToggleTips(false);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	private void PulseButtonTwo() {
+		highligher.HighlightElement (SDK_BaseController.ControllerElements.ButtonTwo, currentPulseColor, pulseTimer);
+		currentPulseColor = (currentPulseColor == pulseColor ? highlightColor : pulseColor);
 	}
 
 	private void PulseGrip() {

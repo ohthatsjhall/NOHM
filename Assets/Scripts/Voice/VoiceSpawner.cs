@@ -28,7 +28,7 @@ public class VoiceSpawner : Widget {
 	private fsSerializer _serializer = new fsSerializer();
 
 	TextToSpeech textToSpeech = new TextToSpeech();
-	private string welcomeString = "Welcome to Gnome, when you are ready to listen to music, press the right trigger";
+	private string welcomeString = "Welcome to Gnome, when you are ready to listen to music, press the app button";
 
 	#region InitAndLifecycle
 	//------------------------------------------------------------------------------------------------------------------
@@ -90,7 +90,7 @@ public class VoiceSpawner : Widget {
 		}
 	}
 
-	public void TriggerPressed() {
+	public void ActivateSearchArtist() {
 		microphone.ActivateMicrophone ();
 		m_Conversation.Message(OnMessage, m_WorkspaceID, "I'd like to hear some new music");
 	}

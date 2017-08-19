@@ -21,6 +21,7 @@ public class OnboardingVoiceSpawner : Widget {
 	public AudioClip sorryClip;
 	public List<AudioClip> helpClips;
 
+	private VRTK_ControllerEvents controllerEvents;
 	private Conversation m_Conversation = new Conversation();
 	private string m_WorkspaceID;
 	private bool artistReturned = false;
@@ -40,6 +41,7 @@ public class OnboardingVoiceSpawner : Widget {
 
 	protected override void Start() {
 		base.Start();
+		controllerEvents = onboardingManager.rightController.GetComponent<VRTK_ControllerEvents> ();
 		pointLightAnimator = onboardingManager.pointLight.GetComponent<Animator> ();
 		textToSpeech.Voice = VoiceType.en_GB_Kate;
 		//textToSpeech.ToSpeech (welcomeString, HandleToSpeechCallback);
@@ -139,7 +141,8 @@ public class OnboardingVoiceSpawner : Widget {
 				StartCoroutine (DelayMethod (0.0f, values));
 
 			} else if (intent == "OnboardingGrabRecord" && currentStep == 2) {
-				onboardingManager.rightController.GetComponent<OnboardingRightControllerListener> ().enabled = false;
+				onboardingManager.rightController.GetComponent<OnboardingControllerListener> ().enabled = false;
+				onboardingManager.leftController.GetComponent<OnboardingControllerListener> ().enabled = false;
 				onboardingManager.microphone.DeactivateMicrophone ();
 				onboardingManager.records.GetComponent<OnboardingRecords> ().AnimateRecords (currentStep == 2);
 				pointLightAnimator.SetInteger ("Stage", 1);
@@ -161,16 +164,26 @@ public class OnboardingVoiceSpawner : Widget {
 			yield return new WaitForSeconds (delay);
 			if (currentStep == 1) {
 				if (i == values.Length - 1) {
-					//onboardingManager.microphone.ActivateMicrophone ();
-					onboardingManager.rightController.GetComponent<OnboardingRightControllerListener>().enabled = true;
+					VRTK_ControllerHaptics.TriggerHapticPulse (VRTK_ControllerReference.GetControllerReference (controllerEvents.gameObject), 3.5f);
+					onboardingManager.rightController.GetComponent<OnboardingControllerListener>().enabled = true;
+					onboardingManager.leftController.GetComponent<OnboardingControllerListener> ().enabled = true;
+
+					onboardingManager.leftController.GetComponent<OnboardingTooltips> ().currentStep = 1;
+					onboardingManager.rightController.GetComponent<OnboardingTooltips> ().currentStep = 1;
+
+					onboardingManager.leftController.GetComponent<OnboardingTooltips> ().enabled = true;
+					onboardingManager.rightController.GetComponent<OnboardingTooltips> ().enabled = true;
 				}	
 
 			} else if (currentStep == 3) {
 				onboardingManager.recordPlayer.SetActive (true);
 
+				onboardingManager.leftController.GetComponent<OnboardingTooltips> ().currentStep = 3;
+				onboardingManager.rightController.GetComponent<OnboardingTooltips> ().currentStep = 3;
+
 				onboardingManager.leftController.GetComponent<OnboardingTooltips> ().enabled = true;
 				onboardingManager.rightController.GetComponent<OnboardingTooltips> ().enabled = true;
-				// animate point light
+
 			} else {
 				onboardingManager.leftController.GetComponent<OnboardingTooltips> ().enabled = false;
 				onboardingManager.rightController.GetComponent<OnboardingTooltips> ().enabled = false;
@@ -189,7 +202,7 @@ public class OnboardingVoiceSpawner : Widget {
 		SteamVR_LoadLevel.Begin ("Vinyl");
 	}
 
-	public void OnboardingTriggerPressed() {
+	public void OnboardingButtonTwoPressed() {
 		onboardingManager.microphone.ActivateMicrophone ();
 		m_Conversation.Message(OnMessage, m_WorkspaceID, "I'd like to hear some new music");
 	}
