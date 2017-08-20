@@ -9820,12 +9820,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Hover.Core.Items.Managers.HoverItemsManager+ItemEvent, Assembly-CSharp,
-      Version=1.0.2.18634, Culture=neutral, PublicKeyToken=null
+      Version=1.0.2.22993, Culture=neutral, PublicKeyToken=null
   OnItemRemoved:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Hover.Core.Items.Managers.HoverItemsManager+ItemEvent, Assembly-CSharp,
-      Version=1.0.2.18634, Culture=neutral, PublicKeyToken=null
+      Version=1.0.2.22993, Culture=neutral, PublicKeyToken=null
 --- !u!1 &481328563
 GameObject:
   m_ObjectHideFlags: 0
@@ -35545,7 +35545,7 @@ Animator:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1878134968}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 30ef2381c74864c2c8c6a48fbbf171e9, type: 3}
+  m_Avatar: {fileID: 9000000, guid: 71344b018d0f4354ba1bdf1cd547e567, type: 3}
   m_Controller: {fileID: 9100000, guid: 5cd1c1bc4f776470d909639ed2209e7c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
