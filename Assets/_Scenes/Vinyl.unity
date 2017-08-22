@@ -3481,6 +3481,10 @@ Prefab:
       propertyPath: m_TagString
       value: Floor
       objectReference: {fileID: 0}
+    - target: {fileID: 100030, guid: ef69f87bec8453d4da50dee039a84d26, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9500000, guid: ef69f87bec8453d4da50dee039a84d26, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: ef69f87bec8453d4da50dee039a84d26, type: 3}
@@ -6055,6 +6059,22 @@ ReflectionProbe:
   m_UseOcclusionCulling: 1
   m_Importance: 1
   m_CustomBakedTexture: {fileID: 0}
+--- !u!1 &279814119 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100030, guid: ef69f87bec8453d4da50dee039a84d26, type: 3}
+  m_PrefabInternal: {fileID: 70579295}
+--- !u!65 &279814123
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 279814119}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 364.40088, y: 187.44876, z: 132.00003}
+  m_Center: {x: -1181.4146, y: 606.5754, z: 37.60001}
 --- !u!1001 &280191105
 Prefab:
   m_ObjectHideFlags: 0
@@ -32954,6 +32974,22 @@ Transform:
   m_Father: {fileID: 1878134975}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1779195475 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100004, guid: ef69f87bec8453d4da50dee039a84d26, type: 3}
+  m_PrefabInternal: {fileID: 70579295}
+--- !u!65 &1779195479
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1779195475}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1659.5997, y: 674.58264, z: 66.78039}
+  m_Center: {x: -156.69984, y: -377.98962, z: -92.909805}
 --- !u!1 &1781346698
 GameObject:
   m_ObjectHideFlags: 0
