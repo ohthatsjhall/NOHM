@@ -22,6 +22,9 @@ public class VoiceSpawnerReconfig : Widget {
 	private Conversation m_Conversation = new Conversation();
 	private string m_WorkspaceID;
 	private bool artistReturned = false;
+	private bool m_UseAlternateIntents = true;
+	public Context myContext = new Context();
+	private int convoIndexTracker = 0;
 
 	[SerializeField]
 	private Input m_SpeechInput = new Input("SpeechInput", typeof(SpeechToTextData), "OnSpeechInput");
@@ -40,43 +43,9 @@ public class VoiceSpawnerReconfig : Widget {
 	protected override void Start() {
 		base.Start();
 		m_WorkspaceID = Config.Instance.GetVariableValue("ConversationV1_ID");
-		SendInitialMessage ("I'd like to hear something else");
+		//SendInitialMessage ("I'd like to hear something else");
+		microphone.ActivateMicrophone();
 	}
-	/*
-	void HandleToSpeechCallback (AudioClip clip) {
-		PlayClip (clip);
-	}
-
-	public void TextToSpeechWithString(string text) {
-		textToSpeech.Voice = VoiceType.en_GB_Kate;
-		textToSpeech.ToSpeech (text, HandleToSpeechCallback);
-	}
-
-	private void PlayClip(AudioClip clip) {
-		if (Application.isPlaying && clip != null) {
-			GameObject audioObject = new GameObject("AudioObject");
-			AudioSource source = audioObject.AddComponent<AudioSource>();
-			source.spatialBlend = 0.0f;
-			source.loop = false;
-			source.clip = clip;
-			source.PlayOneShot (clip);
-
-			GameObject.Destroy(audioObject, clip.length);
-		}
-	}
-	*/
-
-	protected override string GetName()
-	{
-		return "VoiceSpawnerReconfig";
-	}
-	#endregion
-
-	#region EventHandlers
-	/*
-	//------------------------------------------------------------------------------------------------------------------
-	// Event Handler Functions
-	//------------------------------------------------------------------------------------------------------------------
 
 	private void OnSpeechInput(Data data) {
 		SpeechRecognitionEvent result = ((SpeechToTextData)data).Results;
@@ -86,8 +55,21 @@ public class VoiceSpawnerReconfig : Widget {
 					if (res.final && alt.confidence > 0.667) {
 						string text = alt.transcript;
 						Debug.Log ("Result: " + text + " Confidence: " + alt.confidence);
-						m_Conversation.Message (OnMessage, m_WorkspaceID, text);
-						microphone.DeactivateMicrophone ();
+						if (convoIndexTracker == 0) {
+							SendInitialMessage (text);
+							//m_Conversation.Message (SendInitialMessage, m_WorkspaceID, text);
+							microphone.DeactivateMicrophone ();
+						} else if(convoIndexTracker == 1){
+							MessageRequest messageRequest = new MessageRequest();
+							messageRequest.InputText = text;
+							messageRequest.alternate_intents = m_UseAlternateIntents;
+							messageRequest.ContextData = myContext;
+
+							//  Send the second message
+							SendFollowupMessage(messageRequest);
+							microphone.DeactivateMicrophone ();
+						}
+
 					} else {
 						Debug.Log ("Confidence below threshold");
 					}
@@ -96,66 +78,13 @@ public class VoiceSpawnerReconfig : Widget {
 		}
 	}
 
-	public void ActivateSearchArtist() {
-		microphone.ActivateMicrophone ();
-		m_Conversation.Message(OnMessage, m_WorkspaceID, "I'd like to hear some new music");
-	}
-
-	void OnMessage(object resp, string customData) {
-		//  Convert resp to fsdata
-		fsData fsdata = null;
-		fsResult r = _serializer.TrySerialize (resp.GetType (), resp, out fsdata);
-		if (!r.Succeeded)
-			throw new WatsonException (r.FormattedMessages);
-
-		//  Convert fsdata to MessageResponse
-		MessageResponse messageResponse = new MessageResponse ();
-		object obj = messageResponse;
-		r = _serializer.TryDeserialize (fsdata, obj.GetType (), ref obj);
-		if (!r.Succeeded)
-			throw new WatsonException (r.FormattedMessages);
-		if (resp != null && (messageResponse.intents.Length > 0 || messageResponse.entities.Length > 0)) {
-			string[] values = messageResponse.output.text;
-			foreach (string value in values) {
-				Debug.Log ("response value: " + value);
-			}
-
-			Debug.Log ("intents count: " + messageResponse.intents.Length);
-
-			string intent = messageResponse.intents [0].intent;
-			Debug.Log ("Intent: " + intent);
-
-			if (intent == "HeyNohm") {
-				Debug.Log (messageResponse.output.text [0]);				
-				string greeting = messageResponse.output.text [0];
-				textToSpeech.ToSpeech (greeting, HandleToSpeechCallback);
-
-				foreach (EntityResponse entity in messageResponse.entities) {
-					Debug.Log ("entityType: " + entity.entity + " , value: " + entity.value);
-					apiManager.artist = entity.value;
-					apiManager.SearchTracksForArtist (entity.value);
-					microphone.DeactivateMicrophone ();
-				}
-
-			} else {
-				Debug.Log ("Different intent path)");
-				string greeting = messageResponse.output.text [0];
-				textToSpeech.ToSpeech (greeting, HandleToSpeechCallback);
-				foreach (EntityResponse entity in messageResponse.entities) {
-					Debug.Log ("entityType: " + entity.entity + " , value: " + entity.value);
-					apiManager.artist = entity.value;
-					apiManager.SearchTracksForArtist (entity.value);
-					microphone.DeactivateMicrophone ();
-				}
-			}
-		} else {
-			string responseOutput = messageResponse.output.text [0];
-			textToSpeech.ToSpeech (responseOutput, HandleToSpeechCallback);
-			microphone.DeactivateMicrophone ();
-		}
+	protected override string GetName()
+	{
+		return "VoiceSpawnerReconfig";
 	}
 	#endregion
-	*/
+
+	#region EventHandlers
 
 	///////////////////////
 
@@ -164,7 +93,7 @@ public class VoiceSpawnerReconfig : Widget {
 		if (string.IsNullOrEmpty (input))
 			Debug.Log ("input was empty");
 
-		//  Send inital message to the service
+		//  Send initial message to the service
 		m_Conversation.Message(OnInitialMessage, m_WorkspaceID, input);
 	}
 
@@ -190,18 +119,20 @@ public class VoiceSpawnerReconfig : Widget {
 				string[] values = messageResponse.output.text;
 				foreach (string value in values) {
 					Debug.Log ("response value: " + value);
+					TextToSpeechWithString (value);
 				}
 			}
-
 			//  Create a message request object with the context
-			MessageRequest messageRequest = new MessageRequest();
-			messageRequest.InputText = "Primus";
-			messageRequest.alternate_intents = true;
-			messageRequest.ContextData = resp.context; // Context of the conversation
-			Debug.Log(resp.context.system.dialog_stack);
+			myContext = resp.context;  // Context of the conversation
+			convoIndexTracker++;
+			microphone.ActivateMicrophone ();
+			//MessageRequest messageRequest = new MessageRequest();
+			//messageRequest.InputText = "Primus";
+			//messageRequest.alternate_intents = m_UseAlternateIntents;
+			//messageRequest.ContextData = myContext;
 
 			//  Send the second message
-			SendFollowupMessage(messageRequest);
+			//SendFollowupMessage(messageRequest);
 		}
 		else
 		{
@@ -223,22 +154,14 @@ public class VoiceSpawnerReconfig : Widget {
 	{
 		if (resp != null)
 		{
-			//  Check response here
-			//  Convert resp to fsdata
-			fsData fsdata = null;
-			fsResult r = _serializer.TrySerialize (resp.GetType (), resp, out fsdata);
-			if (!r.Succeeded)
-				throw new WatsonException (r.FormattedMessages);
+			foreach (Intent mi in resp.intents) {
+				Debug.Log ("Full Request intent: " + mi.intent + ", confidence: " + mi.confidence);
+			}
 
-			MessageResponse messageResponse = new MessageResponse ();
-			object obj = messageResponse;
-			r = _serializer.TryDeserialize (fsdata, obj.GetType (), ref obj);
-			if (!r.Succeeded)
-				throw new WatsonException (r.FormattedMessages);
-			if (resp != null && (messageResponse.intents.Length > 0 || messageResponse.entities.Length > 0)) {
-				string[] values = messageResponse.output.text;
-				foreach (string value in values) {
-					Debug.Log ("response value: " + value);
+			if (resp.output != null && resp.output.text.Length > 0) {
+				foreach (string txt in resp.output.text) {
+					Debug.Log ("Full Request output: " + txt);
+					TextToSpeechWithString (txt);
 				}
 			}
 		}
@@ -248,9 +171,27 @@ public class VoiceSpawnerReconfig : Widget {
 		}
 	}
 
+	public void TextToSpeechWithString(string text) {
+		textToSpeech.Voice = VoiceType.en_GB_Kate;
+		textToSpeech.ToSpeech (text, HandleToSpeechCallback);
+	}
 
+	void HandleToSpeechCallback (AudioClip clip) {
+		PlayClip (clip);
+	}
 
+	private void PlayClip(AudioClip clip) {
+		if (Application.isPlaying && clip != null) {
+			GameObject audioObject = new GameObject("AudioObject");
+			AudioSource source = audioObject.AddComponent<AudioSource>();
+			source.spatialBlend = 0.0f;
+			source.loop = false;
+			source.clip = clip;
+			source.PlayOneShot (clip);
 
+			GameObject.Destroy(audioObject, clip.length);
+		}
+	}
 
 	///////////////////
 
