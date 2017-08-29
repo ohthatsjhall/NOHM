@@ -79,7 +79,7 @@ public class VinylSnapZone : VRTK_SnapDropZone {
 	}
 
 	IEnumerator SpinVinyl(GameObject currentVinyl) {
-		spinSpeed = 55.0f;
+		spinSpeed = 55.75f;
 		yield return new WaitForSecondsRealtime (30);
 		spinSpeed = 0.0f;
 		Destroy (currentVinyl);

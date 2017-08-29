@@ -17,7 +17,7 @@ public class TeleportTutorial : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		voiceSpawner.TextToSpeechWithString ("Welcome to Gnome! To move around the house, press and hold the touch pad. Use the cursor to choose your desired destination. Give it a try!");
+		voiceSpawner.TextToSpeechWithString ("Steely Dan! To move around the house, press and hold the touch pad. Use the cursor to choose your desired destination. Give it a try!");
 	}
 	
 	// Update is called once per frame
