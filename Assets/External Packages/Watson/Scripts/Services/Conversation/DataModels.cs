@@ -282,7 +282,7 @@ namespace IBM.Watson.DeveloperCloud.Services.Conversation.v1
     /// <summary>
     /// An array of dialog node IDs that are in focus in the conversation.
     /// </summary>
-    public string[] dialog_stack { get; set; }
+	public DialogNode[] dialog_stack { get; set; }
     /// <summary>
     /// The number of cycles of user input and response in this conversation.
     /// </summary>
@@ -292,6 +292,17 @@ namespace IBM.Watson.DeveloperCloud.Services.Conversation.v1
     /// </summary>
     public int dialog_request_counter { get; set; }
   }
+
+	/// <summary>
+	/// The dialog node ID information
+	/// </summary>
+	[fsObject]
+	public class DialogNode {
+		/// <summary>
+		/// the dialog node in focus
+		/// </summary>
+		public string dialog_node {get; set;}
+	}
   #endregion
 
   #region Version
