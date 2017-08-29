@@ -509,6 +509,7 @@ GameObject:
   m_Component:
   - component: {fileID: 13313161}
   - component: {fileID: 13313160}
+  - component: {fileID: 13313162}
   m_Layer: 0
   m_Name: VoiceManager
   m_TagString: Untagged
@@ -522,12 +523,12 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 13313159}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae6c62bb841aa8542a0362f10e002637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AutoConnect: 1
+  m_AutoConnect: 0
   apiManager: {fileID: 1136694831}
   sorryClip: {fileID: 0}
   helpClips: []
@@ -545,6 +546,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &13313162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 13313159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d90fbbce55b39404f8daf0b8ae6b9234, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AutoConnect: 1
+  apiManager: {fileID: 1136694831}
+  sorryClip: {fileID: 0}
+  helpClips: []
+  microphone: {fileID: 769365727}
 --- !u!1 &14776022
 GameObject:
   m_ObjectHideFlags: 0
@@ -9820,12 +9837,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Hover.Core.Items.Managers.HoverItemsManager+ItemEvent, Assembly-CSharp,
-      Version=1.0.2.18634, Culture=neutral, PublicKeyToken=null
+      Version=1.0.2.36070, Culture=neutral, PublicKeyToken=null
   OnItemRemoved:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Hover.Core.Items.Managers.HoverItemsManager+ItemEvent, Assembly-CSharp,
-      Version=1.0.2.18634, Culture=neutral, PublicKeyToken=null
+      Version=1.0.2.36070, Culture=neutral, PublicKeyToken=null
 --- !u!1 &481328563
 GameObject:
   m_ObjectHideFlags: 0
