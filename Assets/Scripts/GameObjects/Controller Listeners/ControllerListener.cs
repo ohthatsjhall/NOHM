@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ControllerListener : MonoBehaviour {
 
-	public VoiceSpawner voiceSpawner;
+	public VoiceSpawnerReconfig voiceSpawner;
 
 	// Use this for initialization
 	void Start () {

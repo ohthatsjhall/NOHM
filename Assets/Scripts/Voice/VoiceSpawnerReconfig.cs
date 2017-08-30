@@ -97,8 +97,11 @@ public class VoiceSpawnerReconfig : Widget {
 		m_Conversation.Message(OnInitialMessage, m_WorkspaceID, input);
 	}
 
-
-
+	public void ActivateSearchArtist() {
+		microphone.ActivateMicrophone ();
+		m_Conversation.Message(OnInitialMessage, m_WorkspaceID, "I'd like to hear some new music"); // Double check OnInitialMessage is correct
+	}
+		
 	private void OnInitialMessage(MessageResponse resp, string customData)
 	{
 		if (resp != null)
