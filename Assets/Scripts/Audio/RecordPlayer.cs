@@ -6,7 +6,6 @@ using UnityEngine;
 public class RecordPlayer : MonoBehaviour {
 
 	public APIManager manager;
-	public GameObject albums;
 	private AudioSource audioSource;
 
 	// Use this for initialization
