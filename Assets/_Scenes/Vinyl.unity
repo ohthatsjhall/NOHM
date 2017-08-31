@@ -528,7 +528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae6c62bb841aa8542a0362f10e002637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AutoConnect: 1
+  m_AutoConnect: 0
   apiManager: {fileID: 0}
   sorryClip: {fileID: 0}
   helpClips: []
@@ -9838,12 +9838,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Hover.Core.Items.Managers.HoverItemsManager+ItemEvent, Assembly-CSharp,
-      Version=1.0.2.32094, Culture=neutral, PublicKeyToken=null
+      Version=1.0.2.33491, Culture=neutral, PublicKeyToken=null
   OnItemRemoved:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Hover.Core.Items.Managers.HoverItemsManager+ItemEvent, Assembly-CSharp,
-      Version=1.0.2.32094, Culture=neutral, PublicKeyToken=null
+      Version=1.0.2.33491, Culture=neutral, PublicKeyToken=null
 --- !u!1 &481328563
 GameObject:
   m_ObjectHideFlags: 0
