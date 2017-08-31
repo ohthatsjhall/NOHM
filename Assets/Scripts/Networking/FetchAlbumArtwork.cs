@@ -24,7 +24,8 @@ public class FetchAlbumArtwork : MonoBehaviour {
 
 	void Callback(HTTPRequest request, HTTPResponse response) {
 		int artistIndex = manager.artists [count].index;
-		Texture2D artwork = response.DataAsTexture2D;
+		Texture2D artwork = new Texture2D(1, 1);
+		artwork.LoadImage (response.Data);
 		if (count == artistIndex) {
 			configureVinylRecordWithArtwork (artwork, artistIndex);
 			if (count >= 19) {

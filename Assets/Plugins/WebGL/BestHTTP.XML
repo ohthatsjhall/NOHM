@@ -2675,7 +2675,7 @@
         </member>
         <member name="F:BestHTTP.HTTPManager.Connections">
             <summary>
-            All connection has a reference in this Dictionary untill it's removed completly.
+            All connection has a reference in this Dictionary until it's removed completely.
             </summary>
         </member>
         <member name="F:BestHTTP.HTTPManager.ActiveConnections">
@@ -2685,7 +2685,7 @@
         </member>
         <member name="F:BestHTTP.HTTPManager.FreeConnections">
             <summary>
-            Free connections. They can be removed completly after a specified time.
+            Free connections. They can be removed completely after a specified time.
             </summary>
         </member>
         <member name="F:BestHTTP.HTTPManager.RecycledConnections">
@@ -3553,7 +3553,7 @@
         </member>
         <member name="E:BestHTTP.ServerSentEvents.EventSource.OnError">
             <summary>
-            Called when an error occures.
+            Called when an error occurs.
             </summary>
         </member>
         <member name="E:BestHTTP.ServerSentEvents.EventSource.OnClosed">
@@ -3573,7 +3573,7 @@
         </member>
         <member name="M:BestHTTP.ServerSentEvents.EventSource.Open">
             <summary>
-            Start to connect to the remote servr.
+            Start to connect to the remote server.
             </summary>
         </member>
         <member name="M:BestHTTP.ServerSentEvents.EventSource.Close">
