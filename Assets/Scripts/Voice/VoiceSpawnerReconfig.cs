@@ -97,8 +97,11 @@ public class VoiceSpawnerReconfig : Widget {
 		m_Conversation.Message(OnInitialMessage, m_WorkspaceID, input);
 	}
 
-
-
+	public void ActivateSearchArtist() {
+		microphone.ActivateMicrophone ();
+		m_Conversation.Message(OnInitialMessage, m_WorkspaceID, "I'd like to hear some new music"); // Double check OnInitialMessage is correct
+	}
+		
 	private void OnInitialMessage(MessageResponse resp, string customData)
 	{
 		if (resp != null)
@@ -120,6 +123,14 @@ public class VoiceSpawnerReconfig : Widget {
 				foreach (string value in values) {
 					Debug.Log ("response value: " + value);
 					TextToSpeechWithString (value);
+				}
+				if (messageResponse.entities.Length > 0) {
+					foreach (EntityResponse entity in messageResponse.entities) {
+						Debug.Log ("entityType: " + entity.entity + " , value: " + entity.value);
+						apiManager.artist = entity.value;
+						apiManager.SearchTracksForArtist (entity.value);
+						microphone.DeactivateMicrophone ();
+					}
 				}
 			}
 			//  Create a message request object with the context
@@ -161,7 +172,16 @@ public class VoiceSpawnerReconfig : Widget {
 			if (resp.output != null && resp.output.text.Length > 0) {
 				foreach (string txt in resp.output.text) {
 					Debug.Log ("Full Request output: " + txt);
+					convoIndexTracker = 0;
 					TextToSpeechWithString (txt);
+				}
+			}
+			if (resp.entities.Length > 0) {
+				foreach (EntityResponse entity in resp.entities) {
+					Debug.Log ("entityType: " + entity.entity + " , value: " + entity.value);
+					apiManager.artist = entity.value;
+					apiManager.SearchTracksForArtist (entity.value);
+					microphone.DeactivateMicrophone ();
 				}
 			}
 		}

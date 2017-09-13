@@ -1,5 +1,6 @@
 ﻿#if !BESTHTTP_DISABLE_SOCKETIO
 
+using System.Collections;
 using System.Collections.Generic;
 
 using LitJson;
