@@ -124,6 +124,14 @@ public class VoiceSpawnerReconfig : Widget {
 					Debug.Log ("response value: " + value);
 					TextToSpeechWithString (value);
 				}
+				if (messageResponse.entities.Length > 0) {
+					foreach (EntityResponse entity in messageResponse.entities) {
+						Debug.Log ("entityType: " + entity.entity + " , value: " + entity.value);
+						apiManager.artist = entity.value;
+						apiManager.SearchTracksForArtist (entity.value);
+						microphone.DeactivateMicrophone ();
+					}
+				}
 			}
 			//  Create a message request object with the context
 			myContext = resp.context;  // Context of the conversation
@@ -164,7 +172,16 @@ public class VoiceSpawnerReconfig : Widget {
 			if (resp.output != null && resp.output.text.Length > 0) {
 				foreach (string txt in resp.output.text) {
 					Debug.Log ("Full Request output: " + txt);
+					convoIndexTracker = 0;
 					TextToSpeechWithString (txt);
+				}
+			}
+			if (resp.entities.Length > 0) {
+				foreach (EntityResponse entity in resp.entities) {
+					Debug.Log ("entityType: " + entity.entity + " , value: " + entity.value);
+					apiManager.artist = entity.value;
+					apiManager.SearchTracksForArtist (entity.value);
+					microphone.DeactivateMicrophone ();
 				}
 			}
 		}
