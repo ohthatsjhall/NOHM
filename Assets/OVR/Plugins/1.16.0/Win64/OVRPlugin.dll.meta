@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: b635e7de9b44061408b3cfc0500d7756
-timeCreated: 1505278623
+guid: 91bbb20880fdd744bb871f2a919cbe1d
+timeCreated: 1505360873
 licenseType: Free
 PluginImporter:
   serializedVersion: 2
@@ -11,9 +11,17 @@ PluginImporter:
   platformData:
     data:
       first:
+        '': Editor
+      second:
+        enabled: 0
+        settings:
+          CPU: X86_64
+          OS: Windows
+    data:
+      first:
         Android: Android
       second:
-        enabled: 1
+        enabled: 0
         settings:
           CPU: ARMv7
     data:
@@ -26,9 +34,17 @@ PluginImporter:
       first:
         Editor: Editor
       second:
-        enabled: 0
+        enabled: 1
         settings:
+          CPU: X86_64
           DefaultValueInitialized: true
+          OS: Windows
+    data:
+      first:
+        Standalone: Win64
+      second:
+        enabled: 1
+        settings: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
