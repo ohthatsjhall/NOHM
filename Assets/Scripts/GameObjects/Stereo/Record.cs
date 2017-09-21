@@ -23,9 +23,9 @@ public class Record : VRTK_InteractableObject {
 		canvasAnimator = canvas.GetComponent<Animator> ();
 	}
 
-	public override void StartTouching (VRTK_InteractTouch currentTouchingObject)
-	{
+	public override void StartTouching (VRTK_InteractTouch currentTouchingObject) {
 		base.StartTouching (currentTouchingObject);
+
 		Vector3 recordPosition = gameObject.transform.position;
 		Quaternion recordRotation = gameObject.transform.rotation;
 		if (isOnboarding) {
@@ -54,7 +54,6 @@ public class Record : VRTK_InteractableObject {
 	{
 		base.StartUsing (currentUsingObject);
 		controllerEvents = usingObject.GetComponent<VRTK_ControllerEvents>();
-
 		GameObject vinyl = Instantiate (vinylPrefab) as GameObject;
 		Vector3 controllerPosition = usingObject.transform.position;
 		if (isOnboarding) {
