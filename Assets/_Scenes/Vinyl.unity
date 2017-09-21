@@ -10011,12 +10011,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Hover.Core.Items.Managers.HoverItemsManager+ItemEvent, Assembly-CSharp,
-      Version=1.0.2.37447, Culture=neutral, PublicKeyToken=null
+      Version=1.0.2.34286, Culture=neutral, PublicKeyToken=null
   OnItemRemoved:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Hover.Core.Items.Managers.HoverItemsManager+ItemEvent, Assembly-CSharp,
-      Version=1.0.2.37447, Culture=neutral, PublicKeyToken=null
+      Version=1.0.2.34286, Culture=neutral, PublicKeyToken=null
 --- !u!1 &481328563
 GameObject:
   m_ObjectHideFlags: 0
@@ -16101,7 +16101,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1470306593
+  randomSeed: 1032587613
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -16461,7 +16461,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 0
     randomizeRotationDirection: 0
-    maxNumParticles: 500
+    maxNumParticles: 453
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -19320,7 +19320,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1637657257
+  randomSeed: -1262149289
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -19680,7 +19680,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 0
     randomizeRotationDirection: 0
-    maxNumParticles: 500
+    maxNumParticles: 379
     size3D: 0
     rotation3D: 0
     gravityModifier:
