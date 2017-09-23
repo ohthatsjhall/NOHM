@@ -256,7 +256,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1715540777
+  randomSeed: 736102902
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -6329,7 +6329,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -643000716
+  randomSeed: -956092262
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -10787,7 +10787,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 132351855}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 13.05, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2070266940}
@@ -13023,7 +13023,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1242525148
+  randomSeed: -29588861
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -31305,7 +31305,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 639958471
+  randomSeed: -1367115793
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -38577,7 +38577,7 @@ MonoBehaviour:
   blinkTransitionSpeed: 0.6
   distanceBlinkDelay: 0
   headsetPositionCompensation: 1
-  targetListPolicy: {fileID: 960346558}
+  targetListPolicy: {fileID: 0}
   navMeshLimitDistance: 0
   snapToNearestFloor: 1
   customRaycast: {fileID: 0}
@@ -51314,7 +51314,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1328456046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61022,7 +61022,7 @@ MonoBehaviour:
   cursorVisibility: 0
   maximumLength: {x: 10, y: Infinity}
   tracerDensity: 10
-  cursorRadius: 0.5
+  cursorRadius: 0.17
   heightLimitAngle: 100
   curveOffset: 1
   rescaleTracer: 0
@@ -66720,7 +66720,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 154590097
+  randomSeed: 1270197924
   InitialModule:
     serializedVersion: 3
     enabled: 1
