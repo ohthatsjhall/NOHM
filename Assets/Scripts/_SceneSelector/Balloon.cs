@@ -5,6 +5,8 @@ using VRTK;
 
 public class Balloon : VRTK_InteractableObject {
 
+	public int levelToLoad;
+
 	[SerializeField] GameObject player;
 	[SerializeField] float balloonSpeed;
 
@@ -16,7 +18,7 @@ public class Balloon : VRTK_InteractableObject {
 		base.Update ();
 		if (isUsing) {
 			Vector3 floatVelocity = new Vector3 (0.0f, balloonSpeed * Time.deltaTime, 0.0f);
-			floatPlayer (floatVelocity);
+			FloatPlayer (floatVelocity);
 		}
 	}
 		
@@ -33,7 +35,7 @@ public class Balloon : VRTK_InteractableObject {
 		isUsing = false;
 	}
 
-	private void floatPlayer(Vector3 floatVelocity)
+	private void FloatPlayer(Vector3 floatVelocity)
 	{
 		player.transform.Translate (floatVelocity);
 		gameObject.transform.Translate (floatVelocity);
