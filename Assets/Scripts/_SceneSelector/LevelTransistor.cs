@@ -6,13 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class LevelTransistor : MonoBehaviour {
 
-	[SerializeField] Balloon balloon;
-	//[SerializeField] GameObject balloons;
-
 	void OnTriggerEnter(Collider collider) 
 	{
-		// Balloon balloon = balloons.GetComponentInChildren<Balloon> ();
-		LoadLevel (balloon.levelToLoad);
+		if (collider.gameObject.tag == "Balloon") {
+			int levelToLoad = collider.gameObject.GetComponent<Balloon> ().levelToLoad;
+			Debug.Log ("Level To Load: " + levelToLoad);
+			LoadLevel (levelToLoad);
+		}
 	}
 
 	void LoadLevel(int index)
