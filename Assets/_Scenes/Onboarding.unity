@@ -42,7 +42,7 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 9
+  serializedVersion: 11
   m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -54,7 +54,7 @@ LightmapSettings:
     m_EnableBakedLightmaps: 1
     m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
-    serializedVersion: 8
+    serializedVersion: 9
     m_Resolution: 2
     m_BakeResolution: 40
     m_TextureWidth: 1024
@@ -71,7 +71,7 @@ LightmapSettings:
     m_FinalGatherFiltering: 1
     m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
-    m_MixedBakeMode: 3
+    m_MixedBakeMode: 2
     m_BakeBackend: 0
     m_PVRSampling: 1
     m_PVRDirectSampleCount: 32
@@ -87,7 +87,7 @@ LightmapSettings:
     m_PVRFilteringAtrousNormalSigma: 1
     m_PVRFilteringAtrousPositionSigma: 1
   m_LightingDataAsset: {fileID: 0}
-  m_ShadowMaskMode: 2
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -352,7 +352,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 3969041}
-  m_LocalRotation: {x: -0, y: 0.042684313, z: -0, w: 0.9990886}
+  m_LocalRotation: {x: -0, y: 0.042684317, z: -0, w: 0.99908864}
   m_LocalPosition: {x: 375.1, y: -48.1, z: -344.5}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
@@ -1756,7 +1756,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 29432902}
-  m_LocalRotation: {x: -0, y: -0.8427052, z: -0, w: 0.53837526}
+  m_LocalRotation: {x: -0, y: -0.84270525, z: -0, w: 0.5383753}
   m_LocalPosition: {x: -569.2, y: 103.5, z: 1047.8}
   m_LocalScale: {x: 100.000046, y: 100, z: 100.000046}
   m_Children: []
@@ -5900,7 +5900,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 115970778}
-  m_LocalRotation: {x: -0, y: -0.07641884, z: -0, w: 0.9970758}
+  m_LocalRotation: {x: -0, y: -0.07641885, z: -0, w: 0.99707586}
   m_LocalPosition: {x: 578.1, y: -48.4, z: -209.5}
   m_LocalScale: {x: 99.999985, y: 100, z: 99.999985}
   m_Children: []
@@ -15973,13 +15973,13 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 381879525}
-  m_LocalRotation: {x: -0, y: -0.8793837, z: -0, w: -0.47611386}
-  m_LocalPosition: {x: -679, y: -89, z: 315}
+  m_LocalRotation: {x: -0, y: -0.97905463, z: -0, w: 0.20359777}
+  m_LocalPosition: {x: -684.18896, y: -88.999985, z: 333.65976}
   m_LocalScale: {x: 100.000015, y: 100, z: 100.000015}
   m_Children: []
   m_Father: {fileID: 1932762865}
   m_RootOrder: 122
-  m_LocalEulerAnglesHint: {x: 0, y: -236.86398, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -156.505, z: 0}
 --- !u!23 &381879527
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -23946,6 +23946,7 @@ LineRenderer:
     numCapVertices: 0
     alignment: 0
     textureMode: 0
+    generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
 --- !u!1 &556124090
@@ -24727,6 +24728,20 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
+  m_FalloffTable:
+    m_Table[0]: 0
+    m_Table[1]: 0
+    m_Table[2]: 0
+    m_Table[3]: 0
+    m_Table[4]: 0
+    m_Table[5]: 0
+    m_Table[6]: 0
+    m_Table[7]: 0
+    m_Table[8]: 0
+    m_Table[9]: 0
+    m_Table[10]: 0
+    m_Table[11]: 0
+    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -27693,7 +27708,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 657971457}
-  m_LocalRotation: {x: -0, y: 0.2772126, z: -0, w: 0.9608086}
+  m_LocalRotation: {x: -0, y: 0.27721262, z: -0, w: 0.96080863}
   m_LocalPosition: {x: 423.1, y: -24.7, z: -319.5}
   m_LocalScale: {x: 99.99997, y: 100, z: 99.99997}
   m_Children: []
@@ -27985,7 +28000,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 673328413}
-  m_LocalRotation: {x: 0.00000007358139, y: -0.4290632, z: 0.000000034951793, w: 0.9032744}
+  m_LocalRotation: {x: 0.0000000735814, y: -0.42906323, z: 0.000000034951796, w: 0.9032745}
   m_LocalPosition: {x: 744.1, y: 90.5, z: -144.5}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
@@ -30813,6 +30828,20 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
+  m_FalloffTable:
+    m_Table[0]: 0
+    m_Table[1]: 0
+    m_Table[2]: 0
+    m_Table[3]: 0
+    m_Table[4]: 0
+    m_Table[5]: 0
+    m_Table[6]: 0
+    m_Table[7]: 0
+    m_Table[8]: 0
+    m_Table[9]: 0
+    m_Table[10]: 0
+    m_Table[11]: 0
+    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -31527,7 +31556,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 746172012}
-  m_LocalRotation: {x: -0, y: -0.3053713, z: -0, w: 0.9522333}
+  m_LocalRotation: {x: -0, y: -0.30537134, z: -0, w: 0.9522334}
   m_LocalPosition: {x: 919.1, y: 95.5, z: -352.5}
   m_LocalScale: {x: 99.99997, y: 100, z: 99.99997}
   m_Children: []
@@ -32979,6 +33008,7 @@ LineRenderer:
     numCapVertices: 0
     alignment: 0
     textureMode: 0
+    generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
 --- !u!1 &778394084
@@ -34525,7 +34555,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 817499442}
-  m_LocalRotation: {x: -0, y: 0.042684313, z: -0, w: 0.9990886}
+  m_LocalRotation: {x: -0, y: 0.042684317, z: -0, w: 0.99908864}
   m_LocalPosition: {x: 389.1, y: -22.1, z: -175.5}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
@@ -40622,6 +40652,7 @@ LineRenderer:
     numCapVertices: 0
     alignment: 0
     textureMode: 0
+    generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
 --- !u!1 &949929729
@@ -46003,7 +46034,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1069643068}
-  m_LocalRotation: {x: -0, y: -0.22237572, z: -0, w: 0.97496104}
+  m_LocalRotation: {x: -0, y: -0.22237574, z: -0, w: 0.9749611}
   m_LocalPosition: {x: -474.2, y: 74.5, z: 314.1}
   m_LocalScale: {x: 99.99996, y: 100, z: 99.99996}
   m_Children: []
@@ -47925,6 +47956,7 @@ LineRenderer:
     numCapVertices: 0
     alignment: 0
     textureMode: 0
+    generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
 --- !u!1 &1126235360
@@ -49133,6 +49165,7 @@ LineRenderer:
     numCapVertices: 0
     alignment: 0
     textureMode: 0
+    generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
 --- !u!1 &1148463609
@@ -52025,7 +52058,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1222756952}
-  m_LocalRotation: {x: -0, y: 0.042684313, z: -0, w: 0.9990886}
+  m_LocalRotation: {x: -0, y: 0.042684317, z: -0, w: 0.99908864}
   m_LocalPosition: {x: 420.1, y: -62.3, z: -109.5}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
@@ -53158,7 +53191,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 1898397913}
-  albums: {fileID: 1052133595}
 --- !u!82 &1243542435
 AudioSource:
   m_ObjectHideFlags: 0
@@ -56304,6 +56336,7 @@ LineRenderer:
     numCapVertices: 0
     alignment: 0
     textureMode: 0
+    generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
 --- !u!1 &1357471329
@@ -56966,6 +56999,7 @@ LineRenderer:
     numCapVertices: 0
     alignment: 0
     textureMode: 0
+    generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
 --- !u!1 &1377127717
@@ -62822,6 +62856,7 @@ LineRenderer:
     numCapVertices: 0
     alignment: 0
     textureMode: 0
+    generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
 --- !u!1 &1507062888
@@ -67802,6 +67837,7 @@ LineRenderer:
     numCapVertices: 0
     alignment: 0
     textureMode: 0
+    generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
 --- !u!1 &1620524541
@@ -68284,6 +68320,7 @@ LineRenderer:
     numCapVertices: 0
     alignment: 0
     textureMode: 0
+    generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
 --- !u!1 &1630678471
@@ -69757,6 +69794,7 @@ Material:
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
@@ -78424,7 +78462,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1902186938}
-  m_LocalRotation: {x: -0, y: 0.9990886, z: -0, w: -0.042684313}
+  m_LocalRotation: {x: -0, y: 0.99908864, z: -0, w: -0.042684317}
   m_LocalPosition: {x: 421.1, y: -144.5, z: -467.5}
   m_LocalScale: {x: 99.999985, y: 100, z: 99.999985}
   m_Children: []
@@ -81253,7 +81291,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1971246965}
-  m_LocalRotation: {x: -0, y: 0.042684313, z: -0, w: 0.9990886}
+  m_LocalRotation: {x: -0, y: 0.042684317, z: -0, w: 0.99908864}
   m_LocalPosition: {x: 429.1, y: -17.9, z: -244.5}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
@@ -83356,6 +83394,7 @@ LineRenderer:
     numCapVertices: 0
     alignment: 0
     textureMode: 0
+    generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
 --- !u!1 &2020559534
@@ -83625,6 +83664,7 @@ LineRenderer:
     numCapVertices: 0
     alignment: 0
     textureMode: 0
+    generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
 --- !u!1 &2026417490
@@ -88341,7 +88381,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2140311904}
-  m_LocalRotation: {x: -0, y: 0.71646994, z: -0, w: -0.69761807}
+  m_LocalRotation: {x: -0, y: 0.7164699, z: -0, w: -0.697618}
   m_LocalPosition: {x: 364.1, y: -126.6, z: -62.5}
   m_LocalScale: {x: 99.99992, y: 100, z: 99.99992}
   m_Children: []
