@@ -61,13 +61,14 @@ public class OnboardingTooltips : MonoBehaviour {
 	}
 
 	private void PulseButtonTwo() {
+		Debug.Log ("Should be puling...");
 		highligher.HighlightElement (SDK_BaseController.ControllerElements.ButtonTwo, currentPulseColor, pulseTimer);
 		currentPulseColor = (currentPulseColor == pulseColor ? highlightColor : pulseColor);
 	}
 
 	private void PulseGrip() {
-		highligher.HighlightElement(SDK_BaseController.ControllerElements.GripRight, currentPulseColor, pulseTimer);
-		highligher.HighlightElement (SDK_BaseController.ControllerElements.GripLeft, currentPulseColor, pulseTimer);
+		highligher.HighlightElement(SDK_BaseController.ControllerElements.Trigger, currentPulseColor, pulseTimer);
+		highligher.HighlightElement (SDK_BaseController.ControllerElements.Trigger, currentPulseColor, pulseTimer);
 		currentPulseColor = (currentPulseColor == pulseColor ? highlightColor : pulseColor);
 	}
 

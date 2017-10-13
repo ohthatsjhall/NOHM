@@ -148,10 +148,12 @@ public class OnboardingVoiceSpawner : Widget {
 				pointLightAnimator.SetInteger ("Stage", 1);
 				StartCoroutine (DelayMethod (8.0f, values));
 				currentStep++;
+				Debug.Log ("current step: " + currentStep + "(Should be 3)");
 			} else if (intent == "OnboardingClose" && currentStep == 3){
 				pointLightAnimator.SetInteger ("Stage", 2);
 				currentStep++;
 				StartCoroutine(DelayMethod(20.0f, values));
+				Debug.Log ("current step: " + currentStep + "(Should be 4)");
 			}
 
 		} else {
@@ -190,6 +192,7 @@ public class OnboardingVoiceSpawner : Widget {
 			}
 			textToSpeech.ToSpeech (values[i], HandleToSpeechCallback);
 			if (currentStep == 4) {
+				Debug.Log ("current step is 4");
 				LoadLevelWithSteam ();
 			}
 			Debug.Log ("value post" + values[i]);
