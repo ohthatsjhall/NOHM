@@ -199,7 +199,7 @@ public class OnboardingVoiceSpawner : Widget {
 		
 	private void LoadLevelWithSteam() {
 		VRTK_SDKManager.instance.UnloadSDKSetup ();
-		SteamVR_LoadLevel.Begin ("Vinyl");
+		SceneManager.LoadSceneAsync ("Vinyl");
 	}
 
 	public void OnboardingButtonTwoPressed() {

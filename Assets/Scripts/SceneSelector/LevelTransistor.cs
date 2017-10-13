@@ -8,7 +8,8 @@ public class LevelTransistor : MonoBehaviour {
 
 	void OnTriggerEnter(Collider collider) 
 	{
-		if (collider.gameObject.tag == "Balloon") {
+		if (collider.gameObject.tag == "Balloon") 
+		{
 			int levelToLoad = collider.gameObject.GetComponent<Balloon> ().levelToLoad;
 			Debug.Log ("Level To Load: " + levelToLoad);
 			LoadLevel (levelToLoad);
