@@ -23,7 +23,8 @@ public class Record : VRTK_InteractableObject {
 		canvasAnimator = canvas.GetComponent<Animator> ();
 	}
 
-	public override void StartTouching (VRTK_InteractTouch currentTouchingObject) {
+	public override void StartTouching (VRTK_InteractTouch currentTouchingObject) 
+	{
 		base.StartTouching (currentTouchingObject);
 
 		Vector3 recordPosition = gameObject.transform.position;

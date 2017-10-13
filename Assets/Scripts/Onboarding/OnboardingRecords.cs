@@ -63,7 +63,9 @@ public class OnboardingRecords : MonoBehaviour {
 	}
 
 	void AlbumArtworkCallback(HTTPRequest request, HTTPResponse response) {
-		gameObject.transform.GetChild (count).GetComponent<Renderer> ().material.mainTexture = response.DataAsTexture2D;
+		Texture2D artwork = new Texture2D(1, 1);
+		artwork.LoadImage(response.Data);
+		gameObject.transform.GetChild (count).GetComponent<Renderer> ().material.mainTexture = artwork;
 		count++;
 	}
 
