@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class VinylManager : MonoBehaviour {
 
+	[Header("Scene Managers")]
+	[Tooltip("Watson Manager")]
 	public NohmWatsonManager nohmWatsonManager;
+	[Tooltip("Napster API Manager")]
 	public APIManager apiManager;
 
-	private string welcomeString = "Hello Dad, Welcome to Nohm Vinyl you dad";
 
-	// Use this for initialization
-	void Start () {
-		nohmWatsonManager.SayString (welcomeString);
-	}
 	
 	// Update is called once per frame
 	void Update () {

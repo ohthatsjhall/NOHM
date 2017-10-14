@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class NohmWatsonManager : MonoBehaviour {
 
-	private string welcomeMessage = "Welcome to Gnome, when you are ready to listen to music, press the app button";
+	public APIManager apiManager;
+
+	private string welcomeString = "Hello Dad";
 	private SpeechToTextManager speechToText;
 	private TextToSpeechManager textToSpeech;
 	private ConversationManager conversationManager;
@@ -15,9 +17,10 @@ public class NohmWatsonManager : MonoBehaviour {
 		conversationManager = GetComponent<ConversationManager>();
 	}
 
+
+	// Use this for initialization
 	void Start () {
-		//StartCoroutine(WelcomeDelay());
-		//speechToText.StartRecording();
+		SayString (welcomeString);
 	}
 
 	public void RecognizeQuestion (string finalText) {
@@ -28,18 +31,16 @@ public class NohmWatsonManager : MonoBehaviour {
 		textToSpeech.Say(speechText);
 	}
 
-	IEnumerator WelcomeDelay () {
-		yield return new WaitForSeconds(3.0f);
-		textToSpeech.Say(welcomeMessage);
-		// yield return new WaitForSeconds(10.0f);
-		// speechToText.StopRecording();
-	}
-
 	public void StartRecording() {
 		speechToText.StartRecording ();
 	}
 
 	public void StopRecording() {
 		speechToText.StopRecording ();
+	}
+
+	public void SearchForArtist(string artist) {
+		apiManager.artist = artist;
+		apiManager.SearchTracksForArtist (artist);
 	}
 }

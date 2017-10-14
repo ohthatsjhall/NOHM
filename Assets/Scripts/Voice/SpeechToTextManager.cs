@@ -34,7 +34,7 @@ public class SpeechToTextManager : MonoBehaviour {
 		_speechToText = new SpeechToText(credentials);
 		nohmWatsonManager = GetComponent<NohmWatsonManager>();
 
-		Active = true;
+		// Active = true;
 
 		// StartRecording();
 	}
@@ -69,6 +69,7 @@ public class SpeechToTextManager : MonoBehaviour {
 
 	public void StartRecording()
 	{
+		Active = true;
 		if (_recordingRoutine == 0)
 		{
 			UnityObjectUtil.StartDestroyQueue();
@@ -78,6 +79,7 @@ public class SpeechToTextManager : MonoBehaviour {
 
 	public void StopRecording()
 	{
+		Active = false;
 		if (_recordingRoutine != 0)
 		{
 			Microphone.End(_microphoneID);
@@ -161,7 +163,7 @@ public class SpeechToTextManager : MonoBehaviour {
 					if (res.final && alt.confidence > 0.75) {
 						Debug.Log("text after final check: " + text);
 						nohmWatsonManager.RecognizeQuestion(text);
-						// StopRecording();
+						StopRecording();
 					}
 				}
 

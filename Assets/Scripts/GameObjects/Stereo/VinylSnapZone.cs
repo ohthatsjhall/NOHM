@@ -7,12 +7,15 @@ using VRTK;
 public class VinylSnapZone : VRTK_SnapDropZone {
 
 	//public SoundSystem soundSystem;
+	[Header("Subclass Assets")]
 	public GameObject recordPlayer;
+	[Tooltip("Toggle to recognize whether snap drop zone is in onoarding scene or vinyl scene")]
 	public bool isOnboarding;
+	public Animator animator;
 
 	private GameObject vinylRecord;
 	private float spinSpeed;
-	public Animator animator;
+
 
 
 	protected override void Awake () {

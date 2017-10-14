@@ -94,6 +94,8 @@ public class ConversationManager : MonoBehaviour {
 			context = _context
 		};
 
+		newQuestionArray.Clear ();
+
 		if (!_conversation.Message(OnMessage, _workspaceId, messageRequest))
 			Log.Debug("ExampleConversation", "Failed to message!");
 	}
@@ -120,6 +122,19 @@ public class ConversationManager : MonoBehaviour {
 			string[] values = messageResponse.output.text;
 			foreach (string value in values) {
 				Debug.Log ("response value: " + value);
+
+				bool isFinal = (bool)messageResponse.context ["isFinal"];
+				if (isFinal) {
+					if (messageResponse.entities.Length > 0) {
+						foreach (var entity in messageResponse.entities) {
+							Debug.Log ("entity type: " + entity + "\nvalue: " + entity.value);
+							string artist = entity.value;
+							_nohmWatsonManager.SearchForArtist (artist);
+						}
+					}
+					_nohmWatsonManager.StopRecording ();
+					messageResponse.context.Clear ();
+				}	
 				_nohmWatsonManager.SayString (value);
 			}
 		}
