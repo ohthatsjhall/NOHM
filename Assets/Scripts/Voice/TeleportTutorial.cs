@@ -5,7 +5,7 @@ using UnityEngine;
 public class TeleportTutorial : MonoBehaviour {
 
 	[SerializeField]
-	private VoiceSpawner voiceSpawner;
+	private TextToSpeechManager textToSpeech;
 
 	private bool isStartingPosition;
 	private Vector3 startingPosition;
@@ -17,7 +17,7 @@ public class TeleportTutorial : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		voiceSpawner.TextToSpeechWithString ("Steely Dan! To move around the house, press and hold the touch pad. Use the cursor to choose your desired destination. Give it a try!");
+		textToSpeech.Say ("Steely Dan! To move around the house, press and hold the touch pad. Use the cursor to choose your desired destination. Give it a try!");
 	}
 	
 	// Update is called once per frame
@@ -29,7 +29,7 @@ public class TeleportTutorial : MonoBehaviour {
 
 		if (!isStartingPosition) {
 			Debug.Log ("moved");
-			voiceSpawner.TextToSpeechWithString ("well done dad! It's time to spin. Sit back, relax, and put on your favorite bjorn.");//. Press the app button to search for an artist");
+			textToSpeech.Say ("well done dad! It's time to spin. Sit back, relax, and put on your favorite bjorn.");//. Press the app button to search for an artist");
 			enabled = false;
 		}
 	}

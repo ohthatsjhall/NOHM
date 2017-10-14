@@ -6191,6 +6191,98 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 120026359}
   m_Mesh: {fileID: 4300098, guid: 94c0de7b4810c41dcbcbb413ea2ec75a, type: 3}
+--- !u!1 &120573614
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 120573619}
+  - component: {fileID: 120573618}
+  - component: {fileID: 120573617}
+  - component: {fileID: 120573616}
+  - component: {fileID: 120573615}
+  - component: {fileID: 120573620}
+  m_Layer: 0
+  m_Name: Watson Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &120573615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 120573614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 198fe04520d72cb42b7d2acf8b4a8523, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &120573616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 120573614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f22899f41bff3ee48921d0fabfbf482d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &120573617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 120573614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc3dd15fc853e35428422855e0533963, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &120573618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 120573614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b76891ccd19af1341a139e99e1d6a97a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &120573619
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 120573614}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.43686903, y: 0.91174006, z: 9.36957}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &120573620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 120573614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e816b4990d1114f4c8a1800ff9353aa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _autoConnect: 1
+  onboardingManager: {fileID: 1492459637}
+  sorryClip: {fileID: 0}
+  helpClips: []
 --- !u!1 &120917823
 GameObject:
   m_ObjectHideFlags: 0
@@ -7371,7 +7463,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &154377806
 Transform:
   m_ObjectHideFlags: 0
@@ -8748,12 +8840,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 337eda4d7be18aa45bc090ad9cc57644, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &185364576 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11406180, guid: 337eda4d7be18aa45bc090ad9cc57644,
-    type: 2}
-  m_PrefabInternal: {fileID: 185364575}
-  m_Script: {fileID: 11500000, guid: 131721b15c8a68d438d5b7163a1c05df, type: 3}
 --- !u!1 &186044885
 GameObject:
   m_ObjectHideFlags: 0
@@ -9004,7 +9090,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: -1
   modelOverride: 
-  shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 3}
   verbose: 0
   createComponents: 1
   updateDynamically: 1
@@ -33548,7 +33634,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &772646771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33560,7 +33646,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e816b4990d1114f4c8a1800ff9353aa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AutoConnect: 1
+  _autoConnect: 1
   onboardingManager: {fileID: 1492459637}
   sorryClip: {fileID: 0}
   helpClips: []
@@ -40690,7 +40776,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: -1
   modelOverride: 
-  shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 3}
   verbose: 0
   createComponents: 1
   updateDynamically: 1
@@ -64247,7 +64333,7 @@ MonoBehaviour:
   records: {fileID: 1052133595}
   pointLight: {fileID: 728500015}
   recordPlayer: {fileID: 1383374389}
-  microphone: {fileID: 185364576}
+  microphone: {fileID: 120573617}
   leftController: {fileID: 1245791923}
   rightController: {fileID: 783012635}
 --- !u!1 &1492949398

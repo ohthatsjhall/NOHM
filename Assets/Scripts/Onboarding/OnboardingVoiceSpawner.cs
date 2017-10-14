@@ -22,8 +22,11 @@ public class OnboardingVoiceSpawner : Widget {
 	public List<AudioClip> helpClips;
 
 	private VRTK_ControllerEvents controllerEvents;
-	private Conversation m_Conversation = new Conversation();
-	private string m_WorkspaceID;
+	private ConversationManager conversationManager;
+	private TextToSpeechManager textToSpeechManager;
+	private NohmWatsonManager nohmWatsonManager;
+	private SpeechToTextManager speechToTextManager;
+
 	private bool artistReturned = false;
 	private int currentStep = 0;
 	private Animator pointLightAnimator;
@@ -32,28 +35,33 @@ public class OnboardingVoiceSpawner : Widget {
 	private Input m_SpeechInput = new Input("SpeechInput", typeof(SpeechToTextData), "OnSpeechInput");
 	private fsSerializer _serializer = new fsSerializer();
 
-	TextToSpeech textToSpeech = new TextToSpeech();
-
 	#region InitAndLifecycle
 	//------------------------------------------------------------------------------------------------------------------
 	// Initialization and Lifecycle
 	//------------------------------------------------------------------------------------------------------------------
 
+	protected override void Awake() {
+		conversationManager = GetComponent<ConversationManager> ();
+		textToSpeechManager = GetComponent<TextToSpeechManager> ();
+		nohmWatsonManager   = GetComponent<NohmWatsonManager> ();
+		speechToTextManager = GetComponent<SpeechToTextManager> ();
+	}
+
 	protected override void Start() {
 		base.Start();
 		controllerEvents = onboardingManager.rightController.GetComponent<VRTK_ControllerEvents> ();
 		pointLightAnimator = onboardingManager.pointLight.GetComponent<Animator> ();
-		textToSpeech.Voice = VoiceType.en_GB_Kate;
-		//textToSpeech.ToSpeech (welcomeString, HandleToSpeechCallback);
-		m_WorkspaceID = Config.Instance.GetVariableValue("ConversationV1_ID");
-		m_Conversation.Message (OnMessage, m_WorkspaceID, "LastMoonOnboardingForNohm");
+		// textToSpeech.ToSpeech (welcomeString, HandleToSpeechCallback);
+		// m_Conversation.Message (OnMessage, m_WorkspaceID, "LastMoonOnboardingForNohm");
+		nohmWatsonManager.RecognizeQuestion("LastMoonOnboardingForNohm");
 	}
 
 	private void Update(){
 		if (currentStep == 2) {
-			m_Conversation.Message (OnMessage, m_WorkspaceID, "OnboardingGrabRecord");
+			//m_Conversation.Message (OnMessage, m_WorkspaceID, "OnboardingGrabRecord");
+			nohmWatsonManager.RecognizeQuestion("OnboardingGrabRecord");
 		} else if (SoundSystem.Instance.GetComponent<AudioSource>().isPlaying && currentStep == 3) {
-			m_Conversation.Message (OnMessage, m_WorkspaceID, "Onboarding Close");
+			nohmWatsonManager.RecognizeQuestion ("Onboarding Close");
 		}
 	}
 
@@ -97,13 +105,14 @@ public class OnboardingVoiceSpawner : Widget {
 						Debug.Log("Result: " + text + " Confidence: " + alt.confidence);
 						string resultText = text.ToLower ();
 						if ((resultText.Contains ("frank")) || (resultText.Contains ("ocean"))) {
-							m_Conversation.Message (OnMessage, m_WorkspaceID, text);
+							nohmWatsonManager.RecognizeQuestion (text);
 							currentStep = 2;
 							ClearCanvas ();
 						} else {
 							// Error Handling to make the user say 
 							Debug.Log ("didnt say Frank Ocean");
-							textToSpeech.ToSpeech ("try again by searching for the artist, Frank Ocean", HandleToSpeechCallback);
+							// textToSpeech.ToSpeech ("try again by searching for the artist, Frank Ocean", HandleToSpeechCallback);
+							nohmWatsonManager.SayString("try again by searching for the artist, Frank Ocean");
 						}
 					}
 				}
@@ -132,7 +141,7 @@ public class OnboardingVoiceSpawner : Widget {
 			Debug.Log ("Intent: " + intent);
 
 			if (intent == "LastMoonOnboardingForNohm" && currentStep == 0) {
-				
+				Debug.Log ("dad man");
 				StartCoroutine (DelayMethod (7.0f, values));
 				currentStep++;
 
@@ -143,7 +152,7 @@ public class OnboardingVoiceSpawner : Widget {
 			} else if (intent == "OnboardingGrabRecord" && currentStep == 2) {
 				onboardingManager.rightController.GetComponent<OnboardingControllerListener> ().enabled = false;
 				onboardingManager.leftController.GetComponent<OnboardingControllerListener> ().enabled = false;
-				onboardingManager.microphone.DeactivateMicrophone ();
+				speechToTextManager.StopRecording ();
 				onboardingManager.records.GetComponent<OnboardingRecords> ().AnimateRecords (currentStep == 2);
 				pointLightAnimator.SetInteger ("Stage", 1);
 				StartCoroutine (DelayMethod (8.0f, values));
@@ -190,7 +199,7 @@ public class OnboardingVoiceSpawner : Widget {
 				onboardingManager.leftController.GetComponent<OnboardingTooltips> ().enabled = false;
 				onboardingManager.rightController.GetComponent<OnboardingTooltips> ().enabled = false;
 			}
-			textToSpeech.ToSpeech (values[i], HandleToSpeechCallback);
+			nohmWatsonManager.SayString (values [i]);
 			if (currentStep == 4) {
 				Debug.Log ("current step is 4");
 				LoadLevelWithSteam ();
@@ -206,8 +215,8 @@ public class OnboardingVoiceSpawner : Widget {
 	}
 
 	public void OnboardingButtonTwoPressed() {
-		onboardingManager.microphone.ActivateMicrophone ();
-		m_Conversation.Message(OnMessage, m_WorkspaceID, "I'd like to hear some new music");
+		speechToTextManager.StartRecording ();
+		nohmWatsonManager.RecognizeQuestion ("I'd like to hear some new music");
 	}
 
 	private void ClearCanvas() {

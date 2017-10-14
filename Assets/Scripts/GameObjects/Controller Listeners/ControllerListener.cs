@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ControllerListener : MonoBehaviour {
 
-	public VoiceSpawnerReconfig voiceSpawner;
+	public SpeechToTextManager speechToText;
 
 	// Use this for initialization
 	void Start () {
@@ -19,7 +19,7 @@ public class ControllerListener : MonoBehaviour {
 	}
 
 	private void ButtonTwoPressed(object sender, ControllerInteractionEventArgs e) {
-		voiceSpawner.ActivateSearchArtist ();
+		speechToText.StopRecording ();
 		DebugLogger(VRTK_ControllerReference.GetRealIndex(e.controllerReference), "ButtonTwo", "pressed", e);
 	}
 }
