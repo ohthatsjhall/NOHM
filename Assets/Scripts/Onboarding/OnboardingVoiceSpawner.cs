@@ -53,7 +53,7 @@ public class OnboardingVoiceSpawner : Widget {
 		if (currentStep == 2) {
 			m_Conversation.Message (OnMessage, m_WorkspaceID, "OnboardingGrabRecord");
 		} else if (SoundSystem.Instance.GetComponent<AudioSource>().isPlaying && currentStep == 3) {
-			m_Conversation.Message (OnMessage, m_WorkspaceID, "OnboardingClose");
+			m_Conversation.Message (OnMessage, m_WorkspaceID, "Onboarding Close");
 		}
 	}
 
@@ -151,9 +151,8 @@ public class OnboardingVoiceSpawner : Widget {
 				Debug.Log ("current step: " + currentStep + "(Should be 3)");
 			} else if (intent == "OnboardingClose" && currentStep == 3){
 				pointLightAnimator.SetInteger ("Stage", 2);
-				onboardingManager.recordPlayer.transform.Translate (new Vector3 (1.0f * Time.deltaTime, 0.0f, 0.0f));
-				currentStep++;
 				StartCoroutine(DelayMethod(20.0f, values));
+				currentStep++;
 				Debug.Log ("current step: " + currentStep + "(Should be 4)");
 			}
 
