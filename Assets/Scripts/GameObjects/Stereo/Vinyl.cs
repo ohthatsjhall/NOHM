@@ -5,8 +5,7 @@ using VRTK;
 
 public class Vinyl : VRTK_InteractableObject {
 
-	[HideInInspector]
-	public Artist artist;
+	[HideInInspector] public Artist artist;
 	private VRTK_ControllerEvents controllerEvents;
 
 	protected override void Awake () {

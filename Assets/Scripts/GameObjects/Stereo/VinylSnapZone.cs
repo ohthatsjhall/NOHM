@@ -48,7 +48,6 @@ public class VinylSnapZone : VRTK_SnapDropZone {
 		}
 
 		StartCoroutine (SpinVinyl (e.snappedObject));
-		Debug.Log (vinylRecord.GetComponent<Vinyl>().artist.trackName);
 		SoundSystem.Instance.PlayOneShot (SoundSystem.Instance.track);
 	}
 

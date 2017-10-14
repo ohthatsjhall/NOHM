@@ -53,7 +53,7 @@ public class OnboardingVoiceSpawner : Widget {
 		if (currentStep == 2) {
 			m_Conversation.Message (OnMessage, m_WorkspaceID, "OnboardingGrabRecord");
 		} else if (SoundSystem.Instance.GetComponent<AudioSource>().isPlaying && currentStep == 3) {
-			m_Conversation.Message (OnMessage, m_WorkspaceID, "OnboardingClose");
+			m_Conversation.Message (OnMessage, m_WorkspaceID, "Onboarding Close");
 		}
 	}
 
@@ -148,10 +148,12 @@ public class OnboardingVoiceSpawner : Widget {
 				pointLightAnimator.SetInteger ("Stage", 1);
 				StartCoroutine (DelayMethod (8.0f, values));
 				currentStep++;
+				Debug.Log ("current step: " + currentStep + "(Should be 3)");
 			} else if (intent == "OnboardingClose" && currentStep == 3){
 				pointLightAnimator.SetInteger ("Stage", 2);
-				currentStep++;
 				StartCoroutine(DelayMethod(20.0f, values));
+				currentStep++;
+				Debug.Log ("current step: " + currentStep + "(Should be 4)");
 			}
 
 		} else {
@@ -190,6 +192,7 @@ public class OnboardingVoiceSpawner : Widget {
 			}
 			textToSpeech.ToSpeech (values[i], HandleToSpeechCallback);
 			if (currentStep == 4) {
+				Debug.Log ("current step is 4");
 				LoadLevelWithSteam ();
 			}
 			Debug.Log ("value post" + values[i]);
@@ -199,7 +202,7 @@ public class OnboardingVoiceSpawner : Widget {
 		
 	private void LoadLevelWithSteam() {
 		VRTK_SDKManager.instance.UnloadSDKSetup ();
-		SteamVR_LoadLevel.Begin ("Vinyl");
+		SceneManager.LoadSceneAsync ("Vinyl");
 	}
 
 	public void OnboardingButtonTwoPressed() {
