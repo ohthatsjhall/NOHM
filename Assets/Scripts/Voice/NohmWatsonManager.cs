@@ -34,4 +34,12 @@ public class NohmWatsonManager : MonoBehaviour {
 		// yield return new WaitForSeconds(10.0f);
 		// speechToText.StopRecording();
 	}
+
+	public void StartRecording() {
+		speechToText.StartRecording ();
+	}
+
+	public void StopRecording() {
+		speechToText.StopRecording ();
+	}
 }

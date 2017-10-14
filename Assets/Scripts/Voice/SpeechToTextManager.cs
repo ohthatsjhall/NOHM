@@ -36,7 +36,7 @@ public class SpeechToTextManager : MonoBehaviour {
 
 		Active = true;
 
-		StartRecording();
+		// StartRecording();
 	}
 
 	public bool Active

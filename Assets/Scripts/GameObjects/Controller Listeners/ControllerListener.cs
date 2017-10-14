@@ -5,11 +5,14 @@ using UnityEngine;
 
 public class ControllerListener : MonoBehaviour {
 
-	public SpeechToTextManager speechToText;
+	public NohmWatsonManager watsonManager;
+
+	private AudioSource source;
 
 	// Use this for initialization
 	void Start () {
 		// GetComponent<VRTK_ControllerEvents>().TriggerClicked += new ControllerInteractionEventHandler(DoTriggerClicked);
+		source = GetComponent<AudioSource>();
 		GetComponent<VRTK_ControllerEvents> ().ButtonTwoPressed += new ControllerInteractionEventHandler (ButtonTwoPressed);
 	}
 
@@ -19,7 +22,7 @@ public class ControllerListener : MonoBehaviour {
 	}
 
 	private void ButtonTwoPressed(object sender, ControllerInteractionEventArgs e) {
-		speechToText.StopRecording ();
-		DebugLogger(VRTK_ControllerReference.GetRealIndex(e.controllerReference), "ButtonTwo", "pressed", e);
+		source.Play ();
+		watsonManager.StartRecording ();
 	}
 }
