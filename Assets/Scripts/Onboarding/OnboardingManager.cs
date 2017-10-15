@@ -16,7 +16,7 @@ public class OnboardingManager : MonoBehaviour {
 	public GameObject records;
 	public Light pointLight;
 	public GameObject recordPlayer;
-	public MicrophoneWidget microphone;
+	public SpeechToTextManager microphone;
 	//public Canvas transitionCanvas;
 	public GameObject leftController;
 	public GameObject rightController;

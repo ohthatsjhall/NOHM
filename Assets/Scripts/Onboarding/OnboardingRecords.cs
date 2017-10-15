@@ -26,6 +26,7 @@ public class OnboardingRecords : MonoBehaviour {
 		firstArtist.index = 0;
 		onboardingArtists.Add (firstArtist);
 
+
 		Artist secondArtist = new Artist ();
 		secondArtist.previewUrl = "http://listen.vo.llnwd.net/g3/7/5/9/4/0/1341604957.mp3";
 		secondArtist.albumName = "Blonde";
