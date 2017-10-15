@@ -84,8 +84,11 @@ public class ConversationManager : MonoBehaviour {
 
 	public void AskQuestion()
 	{
+		Debug.Log("newQuestionArray first index: " + newQuestionArray[0]);
+
 		MessageRequest messageRequest = new MessageRequest()
 		{
+
 			input = new Dictionary<string, object>()
 			{
 				// { "text", _questionArray[_questionCount] }
@@ -96,8 +99,8 @@ public class ConversationManager : MonoBehaviour {
 
 		newQuestionArray.Clear ();
 
-		if (!_conversation.Message(OnMessage, _workspaceId, messageRequest))
-			Log.Debug("ExampleConversation", "Failed to message!");
+		//if (!_conversation.Message(OnMessage, _workspaceId, messageRequest))
+			//Log.Debug("ExampleConversation", "Failed to message!");
 	}
 
 	private void OnMessage (object resp, string data)

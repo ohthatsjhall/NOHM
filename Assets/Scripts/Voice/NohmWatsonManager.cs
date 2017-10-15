@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class NohmWatsonManager : MonoBehaviour {
@@ -20,7 +21,9 @@ public class NohmWatsonManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		SayString (welcomeString);
+		int buildNumber = SceneManager.GetActiveScene ().buildIndex;
+		if (buildNumber == 2)
+			SayString (welcomeString);
 	}
 
 	public void RecognizeQuestion (string finalText) {
