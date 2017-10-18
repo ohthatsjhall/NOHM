@@ -41,7 +41,6 @@ public class TutorialManager : MonoBehaviour {
 		}
 	}
 
-
 	private void TriggerHapticPulseOnController() {
 		VRTK_ControllerHaptics.TriggerHapticPulse (
 			VRTK_ControllerReference.GetControllerReference (controllerEvents.gameObject),
