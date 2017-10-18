@@ -6,6 +6,8 @@ using IBM.Watson.DeveloperCloud.Logging;
 using System.Collections;
 using FullSerializer;
 using System.Collections.Generic;
+using BestHTTP;
+using System.Text;
 
 public class ConversationManager : MonoBehaviour {
 
@@ -91,16 +93,17 @@ public class ConversationManager : MonoBehaviour {
 
 			input = new Dictionary<string, object>()
 			{
-				// { "text", _questionArray[_questionCount] }
 				{ "text", newQuestionArray[0] }
 			},
 			context = _context
 		};
 
+		// _conversation.Message (OnMessage, _workspaceId, messageRequest);
+
 		newQuestionArray.Clear ();
 
-		//if (!_conversation.Message(OnMessage, _workspaceId, messageRequest))
-			//Log.Debug("ExampleConversation", "Failed to message!");
+		if (!_conversation.Message(OnMessage, _workspaceId, messageRequest))
+			Log.Debug("ExampleConversation", "Failed to message!");
 	}
 
 	private void OnMessage (object resp, string data)
@@ -120,6 +123,7 @@ public class ConversationManager : MonoBehaviour {
 		if (!r.Succeeded)
 			throw new WatsonException (r.FormattedMessages);
 
+		Debug.Log ("TRIGGERERDDDDD");
 
 		if (resp != null ) {
 			string[] values = messageResponse.output.text;
@@ -132,12 +136,24 @@ public class ConversationManager : MonoBehaviour {
 						foreach (var entity in messageResponse.entities) {
 							Debug.Log ("entity type: " + entity + "\nvalue: " + entity.value);
 							string artist = entity.value;
+							Debug.Log ("artist: " + artist);
 							_nohmWatsonManager.SearchForArtist (artist);
 						}
 					}
 					_nohmWatsonManager.StopRecording ();
 					messageResponse.context.Clear ();
 				}	
+
+				if (messageResponse.intents.Length > 0) {
+					foreach (var intent in messageResponse.intents) {
+						string intentValue = intent.intent;
+						if (intentValue == "Confirmation" && isFinal) {
+							string unknownArtist = (string)messageResponse.context ["artistSearch"];
+							AddUnknownArtistToEntity (unknownArtist, NohmConstants.AddArtistURL);
+						}
+					}
+				}
+
 				_nohmWatsonManager.SayString (value);
 			}
 		}
@@ -157,4 +173,24 @@ public class ConversationManager : MonoBehaviour {
 		newQuestionArray.Add(questionString);
 		AskQuestion();
 	}
+
+	private void AddUnknownArtistToEntity(string unknownArtist, string url) {
+
+		string requestJson = "{{\"metadata\": {{\"property\": \"{0}\"}}}}";
+		string requestString = string.Format (requestJson, unknownArtist);
+
+		HTTPRequest request = new HTTPRequest (new System.Uri (url), AddArtistCallback);
+		request.MethodType = HTTPMethods.Post;
+		request.AddHeader ("Content-Type", "application/json");
+		request.AddHeader ("Authorization", "Basic ZTY5ZjFlZWEtMjczMS00OGViLWFjY2MtNjExM2ZmZTRkNDIwOjZMeHhrUXhrWE9jVQ==");
+		request.RawData = Encoding.UTF8.GetBytes (requestString);
+		request.Send ();
+		//request.AddField ("entity", "UnknownArtists");
+		//request.AddField ("metadata", "");
+	}
+
+	private void AddArtistCallback(HTTPRequest request, HTTPResponse response) {
+		Debug.Log ("response: " + response.DataAsText);
+	}
+
 }
