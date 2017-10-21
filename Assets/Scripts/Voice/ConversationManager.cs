@@ -174,10 +174,26 @@ public class ConversationManager : MonoBehaviour {
 		_waitingForResponse = false;
 	}
 
-	public void SetQuestions (string questionString) 
+	private void AddQuestion(string questionString) 
 	{
 		newQuestionArray.Add(questionString);
 		AskQuestion();
+	}
+
+	public void SetQuestions (string questionString) 
+	{
+		AddQuestion (questionString);
+	}
+
+	public string IncrementStage(OnboardingStage currentStage) 
+	{
+		AddQuestion (currentStage.ToString());
+		switch (currentStage) {
+		case OnboardingStage.LastMoonOnboardingForNohm:
+			
+		default:
+			return "";
+		}
 	}
 
 	private void AddUnknownArtistToEntity(string unknownArtist, string url) 
@@ -198,5 +214,7 @@ public class ConversationManager : MonoBehaviour {
 	{
 		Debug.Log ("response: " + response.DataAsText);
 	}
+
+
 
 }

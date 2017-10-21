@@ -6257,6 +6257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   apiManager: {fileID: 1898397913}
+  tutorialManager: {fileID: 0}
 --- !u!4 &120573619
 Transform:
   m_ObjectHideFlags: 0

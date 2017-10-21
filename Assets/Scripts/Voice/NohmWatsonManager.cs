@@ -11,6 +11,8 @@ public class NohmWatsonManager : MonoBehaviour {
 	private SpeechToTextManager speechToText;
 	private TextToSpeechManager textToSpeech;
 	private ConversationManager conversationManager;
+	[HideInInspector]
+	public TutorialManager tutorialManager;
 
 	void Awake () {
 		speechToText = GetComponent<SpeechToTextManager>();
@@ -24,6 +26,8 @@ public class NohmWatsonManager : MonoBehaviour {
 		int buildNumber = SceneManager.GetActiveScene ().buildIndex;
 		if (buildNumber == 2)
 			SayString (welcomeString);
+		else if (buildNumber == 1)
+			tutorialManager = GetComponent<TutorialManager> ();
 	}
 
 	public void RecognizeQuestion (string finalText) {

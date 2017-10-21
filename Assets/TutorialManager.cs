@@ -5,12 +5,14 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using VRTK;
 
+public enum OnboardingStage {LastMoonOnboardingForNohm, PlayMusic, OnboardingGrabRecord, OnboardingClose};
+
 public class TutorialManager : MonoBehaviour {
 
 	[Header("Managers")]
 	public OnboardingManager onboardingManager;
 
-	public enum OnboardingStage {LastMoonOnboardingForNohm, PlayMusic, OnboardingGrabRecord, OnboardingClose};
+
 	public OnboardingStage onboardingStage;
 
 	private VRTK_ControllerEvents controllerEvents;
@@ -41,16 +43,7 @@ public class TutorialManager : MonoBehaviour {
 		}
 	}
 
-	private void TriggerHapticPulseOnController() {
-		VRTK_ControllerHaptics.TriggerHapticPulse (
-			VRTK_ControllerReference.GetControllerReference (controllerEvents.gameObject),
-			10.5f);
-	}
 
-	private void EnableControllers(bool isEnabled) {
-		onboardingManager.rightController.GetComponent<OnboardingControllerListener> ().enabled = isEnabled;
-		onboardingManager.leftController.GetComponent<OnboardingControllerListener> ().enabled = isEnabled;
-	}
 
 	private void OnboardingStageProceedure(OnboardingStage onboardingStage, int index, string[] values) {
 
@@ -79,6 +72,17 @@ public class TutorialManager : MonoBehaviour {
 
 	private void WorldCanvasSetText(string text) {
 		onboardingManager.worldSpaceCanvas.GetComponent<Text> ().text = text;
+	}
+
+	private void TriggerHapticPulseOnController() {
+		VRTK_ControllerHaptics.TriggerHapticPulse (
+			VRTK_ControllerReference.GetControllerReference (controllerEvents.gameObject),
+			10.5f);
+	}
+
+	private void EnableControllers(bool isEnabled) {
+		onboardingManager.rightController.GetComponent<OnboardingControllerListener> ().enabled = isEnabled;
+		onboardingManager.leftController.GetComponent<OnboardingControllerListener> ().enabled = isEnabled;
 	}
 
 }
