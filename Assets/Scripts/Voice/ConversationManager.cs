@@ -149,16 +149,12 @@ public class ConversationManager : MonoBehaviour {
 				if (messageResponse.intents.Length > 0) {
 					foreach (var intent in messageResponse.intents) {
 						string intentValue = intent.intent;
-						if (intentValue == "Confirmation" && isFinal) {
-							Debug.Log ("gotem");
-							Debug.Log(messageResponse.context.ContainsKey ("isFinal"));
+						if (intentValue == "Confirmation" && isFinal) {    
 							string unknownArtist = (string)messageResponse.context ["artistSearch"];
-							Debug.Log ("Unknown Artist to be added: " + unknownArtist);
 							AddUnknownArtistToEntity (unknownArtist, NohmConstants.AddArtistURL);
 						}
 					}
 				}
-
 				_nohmWatsonManager.SayString (value);
 			}
 		}
