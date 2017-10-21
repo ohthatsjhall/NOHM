@@ -6,6 +6,8 @@ using IBM.Watson.DeveloperCloud.Logging;
 using System.Collections;
 using FullSerializer;
 using System.Collections.Generic;
+using BestHTTP;
+using System.Text;
 
 public class ConversationManager : MonoBehaviour {
 
@@ -84,15 +86,19 @@ public class ConversationManager : MonoBehaviour {
 
 	public void AskQuestion()
 	{
+		Debug.Log("newQuestionArray first index: " + newQuestionArray[0]);
+
 		MessageRequest messageRequest = new MessageRequest()
 		{
+
 			input = new Dictionary<string, object>()
 			{
-				// { "text", _questionArray[_questionCount] }
 				{ "text", newQuestionArray[0] }
 			},
 			context = _context
 		};
+
+		// _conversation.Message (OnMessage, _workspaceId, messageRequest);
 
 		newQuestionArray.Clear ();
 
@@ -117,6 +123,7 @@ public class ConversationManager : MonoBehaviour {
 		if (!r.Succeeded)
 			throw new WatsonException (r.FormattedMessages);
 
+		Debug.Log ("TRIGGERERDDDDD");
 
 		if (resp != null ) {
 			string[] values = messageResponse.output.text;
@@ -124,17 +131,34 @@ public class ConversationManager : MonoBehaviour {
 				Debug.Log ("response value: " + value);
 
 				bool isFinal = (bool)messageResponse.context ["isFinal"];
+				Debug.Log ("Context is Final? " + isFinal);
 				if (isFinal) {
 					if (messageResponse.entities.Length > 0) {
 						foreach (var entity in messageResponse.entities) {
 							Debug.Log ("entity type: " + entity + "\nvalue: " + entity.value);
 							string artist = entity.value;
+							Debug.Log ("artist: " + artist);
 							_nohmWatsonManager.SearchForArtist (artist);
 						}
 					}
 					_nohmWatsonManager.StopRecording ();
-					messageResponse.context.Clear ();
+					//messageResponse.context.Clear ();
+					Debug.Log ("mess response context: " + messageResponse.context);
 				}	
+
+				if (messageResponse.intents.Length > 0) {
+					foreach (var intent in messageResponse.intents) {
+						string intentValue = intent.intent;
+						if (intentValue == "Confirmation" && isFinal) {
+							Debug.Log ("gotem");
+							Debug.Log(messageResponse.context.ContainsKey ("isFinal"));
+							string unknownArtist = (string)messageResponse.context ["artistSearch"];
+							Debug.Log ("Unknown Artist to be added: " + unknownArtist);
+							AddUnknownArtistToEntity (unknownArtist, NohmConstants.AddArtistURL);
+						}
+					}
+				}
+
 				_nohmWatsonManager.SayString (value);
 			}
 		}
@@ -150,8 +174,47 @@ public class ConversationManager : MonoBehaviour {
 		_waitingForResponse = false;
 	}
 
-	public void SetQuestions (string questionString) {
+	private void AddQuestion(string questionString) 
+	{
 		newQuestionArray.Add(questionString);
 		AskQuestion();
 	}
+
+	public void SetQuestions (string questionString) 
+	{
+		AddQuestion (questionString);
+	}
+
+	public string IncrementStage(OnboardingStage currentStage) 
+	{
+		AddQuestion (currentStage.ToString());
+		switch (currentStage) {
+		case OnboardingStage.LastMoonOnboardingForNohm:
+			
+		default:
+			return "";
+		}
+	}
+
+	private void AddUnknownArtistToEntity(string unknownArtist, string url) 
+	{
+		string requestJson = "{{\"metadata\": {{\"property\": \"{0}\"}}}}";
+		string requestString = string.Format (requestJson, unknownArtist);
+
+		HTTPRequest request = new HTTPRequest (new System.Uri (url), AddArtistCallback);
+		request.MethodType = HTTPMethods.Post;
+		request.AddHeader ("Content-Type", "application/json");
+		request.AddHeader ("Authorization", "Basic ZTY5ZjFlZWEtMjczMS00OGViLWFjY2MtNjExM2ZmZTRkNDIwOjZMeHhrUXhrWE9jVQ==");
+		request.AddField ("entity", "UnknownArtists");
+		request.RawData = Encoding.UTF8.GetBytes (requestString);
+		request.Send ();
+	}
+
+	private void AddArtistCallback(HTTPRequest request, HTTPResponse response) 
+	{
+		Debug.Log ("response: " + response.DataAsText);
+	}
+
+
+
 }
