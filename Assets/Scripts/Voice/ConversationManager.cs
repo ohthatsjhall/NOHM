@@ -131,6 +131,7 @@ public class ConversationManager : MonoBehaviour {
 				Debug.Log ("response value: " + value);
 
 				bool isFinal = (bool)messageResponse.context ["isFinal"];
+				Debug.Log ("Context is Final? " + isFinal);
 				if (isFinal) {
 					if (messageResponse.entities.Length > 0) {
 						foreach (var entity in messageResponse.entities) {
@@ -141,14 +142,18 @@ public class ConversationManager : MonoBehaviour {
 						}
 					}
 					_nohmWatsonManager.StopRecording ();
-					messageResponse.context.Clear ();
+					//messageResponse.context.Clear ();
+					Debug.Log ("mess response context: " + messageResponse.context);
 				}	
 
 				if (messageResponse.intents.Length > 0) {
 					foreach (var intent in messageResponse.intents) {
 						string intentValue = intent.intent;
 						if (intentValue == "Confirmation" && isFinal) {
+							Debug.Log ("gotem");
+							Debug.Log(messageResponse.context.ContainsKey ("isFinal"));
 							string unknownArtist = (string)messageResponse.context ["artistSearch"];
+							Debug.Log ("Unknown Artist to be added: " + unknownArtist);
 							AddUnknownArtistToEntity (unknownArtist, NohmConstants.AddArtistURL);
 						}
 					}
@@ -169,13 +174,14 @@ public class ConversationManager : MonoBehaviour {
 		_waitingForResponse = false;
 	}
 
-	public void SetQuestions (string questionString) {
+	public void SetQuestions (string questionString) 
+	{
 		newQuestionArray.Add(questionString);
 		AskQuestion();
 	}
 
-	private void AddUnknownArtistToEntity(string unknownArtist, string url) {
-
+	private void AddUnknownArtistToEntity(string unknownArtist, string url) 
+	{
 		string requestJson = "{{\"metadata\": {{\"property\": \"{0}\"}}}}";
 		string requestString = string.Format (requestJson, unknownArtist);
 
@@ -183,13 +189,13 @@ public class ConversationManager : MonoBehaviour {
 		request.MethodType = HTTPMethods.Post;
 		request.AddHeader ("Content-Type", "application/json");
 		request.AddHeader ("Authorization", "Basic ZTY5ZjFlZWEtMjczMS00OGViLWFjY2MtNjExM2ZmZTRkNDIwOjZMeHhrUXhrWE9jVQ==");
+		request.AddField ("entity", "UnknownArtists");
 		request.RawData = Encoding.UTF8.GetBytes (requestString);
 		request.Send ();
-		//request.AddField ("entity", "UnknownArtists");
-		//request.AddField ("metadata", "");
 	}
 
-	private void AddArtistCallback(HTTPRequest request, HTTPResponse response) {
+	private void AddArtistCallback(HTTPRequest request, HTTPResponse response) 
+	{
 		Debug.Log ("response: " + response.DataAsText);
 	}
 

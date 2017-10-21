@@ -163,7 +163,7 @@ public class SpeechToTextManager : MonoBehaviour {
 					if (res.final && alt.confidence > 0.75) {
 						Debug.Log("text after final check: " + text);
 						nohmWatsonManager.RecognizeQuestion(text);
-						StopRecording();
+						// StopRecording();
 					}
 				}
 
