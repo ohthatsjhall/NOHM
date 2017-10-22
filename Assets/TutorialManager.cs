@@ -12,6 +12,8 @@ public class TutorialManager : MonoBehaviour {
 	[Header("Managers")]
 	public OnboardingManager onboardingManager;
 
+	[Header("DEBUGGING")]
+	public int onboardingCompleted;
 
 	public OnboardingStage onboardingStage;
 
@@ -26,6 +28,7 @@ public class TutorialManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		PlayerPrefs.SetInt ("OnboardingCompleted", onboardingCompleted);
 		onboardingStage = OnboardingStage.LastMoonOnboardingForNohm;
 		controllerEvents = onboardingManager.rightController.GetComponent<VRTK_ControllerEvents> ();
 		nohmWatsonManager.RecognizeQuestion(onboardingStage.ToString());

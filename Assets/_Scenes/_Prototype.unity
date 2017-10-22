@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d18394fdc8dfffb47ae968aaf6e03792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  voiceSpawner: {fileID: 0}
+  watsonManager: {fileID: 0}
 --- !u!114 &223787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13036,6 +13036,10 @@ Prefab:
       propertyPath: m_TagString
       value: Balloon
       objectReference: {fileID: 0}
+    - target: {fileID: 100154, guid: 8bd2a1488ae3607419ab5b5907fbe404, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8bd2a1488ae3607419ab5b5907fbe404, type: 3}
   m_IsPrefabParent: 0
@@ -19529,7 +19533,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d18394fdc8dfffb47ae968aaf6e03792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  voiceSpawner: {fileID: 0}
+  watsonManager: {fileID: 0}
 --- !u!114 &895592498
 MonoBehaviour:
   m_ObjectHideFlags: 0
