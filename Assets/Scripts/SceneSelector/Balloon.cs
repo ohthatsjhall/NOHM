@@ -5,6 +5,7 @@ using VRTK;
 
 public class Balloon : VRTK_InteractableObject {
 
+	[HideInInspector]
 	public int levelToLoad;
 
 	[SerializeField] GameObject player;
@@ -12,6 +13,10 @@ public class Balloon : VRTK_InteractableObject {
 
 	private bool isUsing;
 
+	void Start() {
+		levelToLoad = CheckOnboardingCompleted ();
+		Debug.Log ("level to load: " + CheckOnboardingCompleted());
+	}
 
 	protected override void Update ()
 	{
@@ -39,6 +44,21 @@ public class Balloon : VRTK_InteractableObject {
 	{
 		player.transform.Translate (floatVelocity);
 		gameObject.transform.Translate (floatVelocity);
+	}
+
+	private int CheckOnboardingCompleted() {
+		if (PlayerPrefs.HasKey("OnboardingCompleted")) {
+
+			int completed = PlayerPrefs.GetInt ("OnboardingCompleted");
+			if (completed == 0)
+				return 1;
+			else
+				return 2;
+
+		} else {
+			PlayerPrefs.SetInt ("OnboardingCompleted", 0);
+			return 1;
+		}
 	}
 		
 }
