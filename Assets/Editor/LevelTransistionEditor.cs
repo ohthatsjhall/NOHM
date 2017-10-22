@@ -8,6 +8,11 @@ public class LevelTransistionEditor : Editor {
 
 	public override void OnInspectorGUI() {
 		DrawDefaultInspector ();
+
+		EditorGUILayout.Space ();
+		EditorGUILayout.Space ();
+		EditorGUILayout.Space ();
+
 		if (GUILayout.Button ("Clear Player Prefs"))
 			PlayerPrefs.DeleteKey ("OnboardingCompleted");
 	}
