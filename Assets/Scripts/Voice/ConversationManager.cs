@@ -30,6 +30,10 @@ public class ConversationManager : MonoBehaviour {
 	private int _questionCount = -1;
 	private bool _waitingForResponse = true;
 
+	private int buildIndex {
+		get { return UnityEngine.SceneManagement.SceneManager.GetActiveScene ().buildIndex; }
+	}
+
 	void Start()
 	{
 		LogSystem.InstallDefaultReactors();
@@ -106,6 +110,43 @@ public class ConversationManager : MonoBehaviour {
 			Log.Debug("ExampleConversation", "Failed to message!");
 	}
 
+
+	private void OnMessage(object resp, string data) 
+	{
+		Log.Debug ("ExampleConversation", "Conversation: Message Response: {0}", data);
+
+		//  Convert resp to fsdata
+		fsData fsdata = null;
+		fsResult r = _serializer.TrySerialize (resp.GetType (), resp, out fsdata);
+		if (!r.Succeeded)
+			throw new WatsonException (r.FormattedMessages);
+
+		//  Convert fsdata to MessageResponse
+		MessageResponse messageResponse = new MessageResponse ();
+		object obj = messageResponse;
+		r = _serializer.TryDeserialize (fsdata, obj.GetType (), ref obj);
+		if (!r.Succeeded)
+			throw new WatsonException (r.FormattedMessages);
+
+		if (resp != null) {
+			string[] values = messageResponse.output.text;
+			foreach (string value in values) {
+				switch (buildIndex) {
+				case 1:
+
+					StartCoroutine(_nohmWatsonManager.tutorialManager.DelayMethod(3.0f, values));
+
+					break;
+				case 2:
+					break;
+				default:
+					break;
+				}
+			}
+		}
+	}
+
+	/*
 	private void OnMessage (object resp, string data)
 	{
 		Log.Debug ("ExampleConversation", "Conversation: Message Response: {0}", data);
@@ -123,42 +164,48 @@ public class ConversationManager : MonoBehaviour {
 		if (!r.Succeeded)
 			throw new WatsonException (r.FormattedMessages);
 
-		Debug.Log ("TRIGGERERDDDDD");
-
-		if (resp != null ) {
+		if (resp != null) {
 			string[] values = messageResponse.output.text;
-			foreach (string value in values) {
-				Debug.Log ("response value: " + value);
 
-				bool isFinal = (bool)messageResponse.context ["isFinal"];
-				Debug.Log ("Context is Final? " + isFinal);
-				if (isFinal) {
-					if (messageResponse.entities.Length > 0) {
-						foreach (var entity in messageResponse.entities) {
-							Debug.Log ("entity type: " + entity + "\nvalue: " + entity.value);
-							string artist = entity.value;
-							Debug.Log ("artist: " + artist);
-							_nohmWatsonManager.SearchForArtist (artist);
-						}
-					}
-					_nohmWatsonManager.StopRecording ();
-					//messageResponse.context.Clear ();
-					Debug.Log ("mess response context: " + messageResponse.context);
-				}	
-
-				if (messageResponse.intents.Length > 0) {
-					foreach (var intent in messageResponse.intents) {
-						string intentValue = intent.intent;
-						if (intentValue == "Confirmation" && isFinal) {    
-							string unknownArtist = (string)messageResponse.context ["artistSearch"];
-							AddUnknownArtistToEntity (unknownArtist, NohmConstants.AddArtistURL);
-						}
-					}
+			if (UnityEngine.SceneManagement.SceneManager.GetActiveScene ().buildIndex == 1) {
+				Debug.Log ("Vinyl Onboarding");
+				foreach (string value in values) {
+					Debug.Log ("response Value Onboarding: " + value);
 				}
-				_nohmWatsonManager.SayString (value);
+			} else {
+
+				foreach (string value in values) {
+					Debug.Log ("response value: " + value);
+
+					bool isFinal = (bool)messageResponse.context ["isFinal"];
+					Debug.Log ("Context is Final? " + isFinal);
+					if (isFinal) {
+						if (messageResponse.entities.Length > 0) {
+							foreach (var entity in messageResponse.entities) {
+								Debug.Log ("entity type: " + entity + "\nvalue: " + entity.value);
+								string artist = entity.value;
+								Debug.Log ("artist: " + artist);
+								_nohmWatsonManager.SearchForArtist (artist);
+							}
+						}
+						_nohmWatsonManager.StopRecording ();
+						//messageResponse.context.Clear ();
+						Debug.Log ("mess response context: " + messageResponse.context);
+					}	
+
+					if (messageResponse.intents.Length > 0) {
+						foreach (var intent in messageResponse.intents) {
+							string intentValue = intent.intent;
+							if (intentValue == "Confirmation" && isFinal) {    
+								string unknownArtist = (string)messageResponse.context ["artistSearch"];
+								AddUnknownArtistToEntity (unknownArtist, NohmConstants.AddArtistURL);
+							}
+						}
+					}
+					_nohmWatsonManager.SayString (value);
+				}
 			}
 		}
-
 		//  Set context for next round of messaging
 		object _tempContext = null;
 		(resp as Dictionary<string, object>).TryGetValue("context", out _tempContext);
@@ -169,6 +216,7 @@ public class ConversationManager : MonoBehaviour {
 			Log.Debug("ExampleConversation", "Failed to get context");
 		_waitingForResponse = false;
 	}
+	*/
 
 	private void AddQuestion(string questionString) 
 	{
@@ -194,15 +242,18 @@ public class ConversationManager : MonoBehaviour {
 
 	private void AddUnknownArtistToEntity(string unknownArtist, string url) 
 	{
-		string requestJson = "{{\"metadata\": {{\"property\": \"{0}\"}}}}";
+
+		string requestJson = "{{\"value\": \"{0}\"}}";
 		string requestString = string.Format (requestJson, unknownArtist);
+
+		Debug.Log ("unknown artist: " + unknownArtist);
 
 		HTTPRequest request = new HTTPRequest (new System.Uri (url), AddArtistCallback);
 		request.MethodType = HTTPMethods.Post;
 		request.AddHeader ("Content-Type", "application/json");
 		request.AddHeader ("Authorization", "Basic ZTY5ZjFlZWEtMjczMS00OGViLWFjY2MtNjExM2ZmZTRkNDIwOjZMeHhrUXhrWE9jVQ==");
-		request.AddField ("entity", "UnknownArtists");
 		request.RawData = Encoding.UTF8.GetBytes (requestString);
+
 		request.Send ();
 	}
 

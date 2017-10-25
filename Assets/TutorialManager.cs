@@ -14,7 +14,6 @@ public class TutorialManager : MonoBehaviour {
 
 	[Header("DEBUGGING")]
 	public int onboardingCompleted;
-
 	public OnboardingStage onboardingStage;
 
 	private VRTK_ControllerEvents controllerEvents;
@@ -39,7 +38,7 @@ public class TutorialManager : MonoBehaviour {
 		
 	}
 
-	private IEnumerator DelayMethod(float delay, string[] values) {
+	public IEnumerator DelayMethod(float delay, string[] values) {
 		yield return new WaitForSeconds (delay);
 		for (int i = 0; i < values.Length; i++) {
 			OnboardingStageProceedure (onboardingStage, i, values);
@@ -74,7 +73,7 @@ public class TutorialManager : MonoBehaviour {
 	}
 
 	private void WorldCanvasSetText(string text) {
-		onboardingManager.worldSpaceCanvas.GetComponent<Text> ().text = text;
+		onboardingManager.worldSpaceCanvas.GetComponentInChildren<Text> ().text = text;
 	}
 
 	private void TriggerHapticPulseOnController() {
