@@ -13,6 +13,10 @@ public class NohmWatsonManager : MonoBehaviour {
 	private ConversationManager conversationManager;
 	[HideInInspector]
 	public TutorialManager tutorialManager;
+	[HideInInspector]
+	public int buildIndex {
+		get { return UnityEngine.SceneManagement.SceneManager.GetActiveScene ().buildIndex; }
+	}
 
 	void Awake () {
 		speechToText = GetComponent<SpeechToTextManager>();
@@ -23,10 +27,9 @@ public class NohmWatsonManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		int buildNumber = SceneManager.GetActiveScene ().buildIndex;
-		if (buildNumber == 2)
+		if (buildIndex == 2)
 			SayString (welcomeString);
-		else if (buildNumber == 1)
+		else if (buildIndex == 1)
 			tutorialManager = GetComponent<TutorialManager> ();
 	}
 

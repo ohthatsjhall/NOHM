@@ -30,9 +30,7 @@ public class ConversationManager : MonoBehaviour {
 	private int _questionCount = -1;
 	private bool _waitingForResponse = true;
 
-	private int buildIndex {
-		get { return UnityEngine.SceneManagement.SceneManager.GetActiveScene ().buildIndex; }
-	}
+
 
 	void Start()
 	{
@@ -130,23 +128,22 @@ public class ConversationManager : MonoBehaviour {
 
 		if (resp != null) {
 			string[] values = messageResponse.output.text;
-			foreach (string value in values) {
-				switch (buildIndex) {
-				case 1:
 
-					StartCoroutine(_nohmWatsonManager.tutorialManager.DelayMethod(3.0f, values));
+			switch (_nohmWatsonManager.buildIndex) {
+			case 1:
 
-					break;
-				case 2:
-					break;
-				default:
-					break;
-				}
+				StartCoroutine(_nohmWatsonManager.tutorialManager.DelayMethod(5.0f, values));
+			
+				break;
+			case 2:
+				break;
+			default:
+				break;
 			}
 		}
 	}
 
-	/*
+	/* uncomment for vinyl
 	private void OnMessage (object resp, string data)
 	{
 		Log.Debug ("ExampleConversation", "Conversation: Message Response: {0}", data);

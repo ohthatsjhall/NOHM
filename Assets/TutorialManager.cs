@@ -39,8 +39,8 @@ public class TutorialManager : MonoBehaviour {
 	}
 
 	public IEnumerator DelayMethod(float delay, string[] values) {
-		yield return new WaitForSeconds (delay);
 		for (int i = 0; i < values.Length; i++) {
+			yield return new WaitForSeconds (delay);
 			OnboardingStageProceedure (onboardingStage, i, values);
 		}
 	}
@@ -51,19 +51,27 @@ public class TutorialManager : MonoBehaviour {
 
 		string value = values [index];
 
-		switch (onboardingStage) {
-		case OnboardingStage.PlayMusic:
-			if (index == values.Length - 1) {
+		if (index == value.Length - 1) {
+			switch (onboardingStage) {
+			case OnboardingStage.LastMoonOnboardingForNohm:
+				Debug.Log ("Last Moon Onboarding Stage - Final Stage");
+				onboardingStage = OnboardingStage.PlayMusic;
+				break;
+			case OnboardingStage.PlayMusic:
+				// if (index == values.Length - 1) {
 				TriggerHapticPulseOnController ();
 				EnableControllers (true);
+				//  }
+				break;
+			default:
+				Debug.Log ("default case");
+				break;
 			}
-			break;
-		default:
-			Debug.Log ("default case");
-			break;
+			nohmWatsonManager.RecognizeQuestion (onboardingStage.ToString ());
 		}
-		nohmWatsonManager.SayString (value);
+			
 		WorldCanvasSetText (value);
+		nohmWatsonManager.SayString (value);
 	}
 
 
