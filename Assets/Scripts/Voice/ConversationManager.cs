@@ -131,8 +131,37 @@ public class ConversationManager : MonoBehaviour {
 
 			switch (_nohmWatsonManager.buildIndex) {
 			case 1:
+				OnboardingStage stage = _nohmWatsonManager.tutorialManager.onboardingStage;
 
-				StartCoroutine(_nohmWatsonManager.tutorialManager.DelayMethod(5.0f, values));
+				switch (stage) {
+				case OnboardingStage.LastMoonOnboardingForNohm:
+					Debug.Log (">>>> Last Moon Onboarding for Nohm");
+					_nohmWatsonManager.tutorialManager.onboardingStage = OnboardingStage.PlayMusic;
+					StartCoroutine (_nohmWatsonManager.tutorialManager.DelayMethod (5.0f, values));
+					break;
+				case OnboardingStage.PlayMusic:
+					Debug.Log (">>>> Play Music");
+
+					_nohmWatsonManager.tutorialManager.onboardingStage = OnboardingStage.OnboardingGrabRecord;
+					StartCoroutine(_nohmWatsonManager.tutorialManager.DelayMethod(1.0f, values));
+				
+					break;
+				case OnboardingStage.OnboardingGrabRecord:
+					Debug.Log (">>>> Onboarding Grab Record");
+					_nohmWatsonManager.tutorialManager.onboardingStage = OnboardingStage.OnboardingClose;
+					StartCoroutine(_nohmWatsonManager.tutorialManager.DelayMethod(4.0f, values));
+					break;
+				case OnboardingStage.OnboardingClose:
+					Debug.Log (">>>> Onboarding Close");
+					_nohmWatsonManager.tutorialManager.onboardingStage = OnboardingStage.OnboardingCompleted;
+					StartCoroutine (_nohmWatsonManager.tutorialManager.DelayMethod (10.0f, values));
+					break;
+				default:
+					Debug.Log ("no onboarding stage my dad");
+					break;
+				}
+
+
 			
 				break;
 			case 2:

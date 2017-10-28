@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using VRTK;
 
-public enum OnboardingStage {LastMoonOnboardingForNohm, PlayMusic, OnboardingGrabRecord, OnboardingClose};
+public enum OnboardingStage {LastMoonOnboardingForNohm, PlayMusic, OnboardingGrabRecord, OnboardingClose, OnboardingCompleted};
 
 public class TutorialManager : MonoBehaviour {
 
@@ -45,29 +45,40 @@ public class TutorialManager : MonoBehaviour {
 		}
 	}
 
-
-
 	private void OnboardingStageProceedure(OnboardingStage onboardingStage, int index, string[] values) {
 
 		string value = values [index];
 
-		if (index == value.Length - 1) {
+		if (index == values.Length - 1) {
 			switch (onboardingStage) {
-			case OnboardingStage.LastMoonOnboardingForNohm:
-				Debug.Log ("Last Moon Onboarding Stage - Final Stage");
-				onboardingStage = OnboardingStage.PlayMusic;
-				break;
 			case OnboardingStage.PlayMusic:
-				// if (index == values.Length - 1) {
+
 				TriggerHapticPulseOnController ();
-				EnableControllers (true);
-				//  }
+				EnableControllerListeners (true);
+
+				break;
+			case OnboardingStage.OnboardingGrabRecord:
+
+				EnableControllerListeners (false);
+				onboardingManager.recordPlayer.SetActive (true);
+				onboardingManager.records.GetComponent<OnboardingRecords> ().AnimateRecords (true);
+				pointLightAnimator.SetInteger ("Stage", 1);
+				nohmWatsonManager.RecognizeQuestion (onboardingStage.ToString ());
+
+				break;
+			case OnboardingStage.OnboardingClose:
+				pointLightAnimator.SetInteger ("Stage", 2);
+				nohmWatsonManager.RecognizeQuestion (onboardingStage.ToString ());
+				break;
+			case OnboardingStage.OnboardingCompleted:
+				Debug.Log ("got emmm >> move to vinyl");
+				nohmWatsonManager.LoadLevel (2);
 				break;
 			default:
 				Debug.Log ("default case");
 				break;
 			}
-			nohmWatsonManager.RecognizeQuestion (onboardingStage.ToString ());
+
 		}
 			
 		WorldCanvasSetText (value);
@@ -76,7 +87,7 @@ public class TutorialManager : MonoBehaviour {
 
 
 	// World Canvas
-	private void ClearCanvas() {
+	public void ClearCanvas() {
 		onboardingManager.worldSpaceCanvas.GetComponentInChildren<Text> ().text = "";
 	}
 
@@ -84,13 +95,15 @@ public class TutorialManager : MonoBehaviour {
 		onboardingManager.worldSpaceCanvas.GetComponentInChildren<Text> ().text = text;
 	}
 
+	// Controllers
+
 	private void TriggerHapticPulseOnController() {
 		VRTK_ControllerHaptics.TriggerHapticPulse (
 			VRTK_ControllerReference.GetControllerReference (controllerEvents.gameObject),
 			10.5f);
 	}
 
-	private void EnableControllers(bool isEnabled) {
+	private void EnableControllerListeners(bool isEnabled) {
 		onboardingManager.rightController.GetComponent<OnboardingControllerListener> ().enabled = isEnabled;
 		onboardingManager.leftController.GetComponent<OnboardingControllerListener> ().enabled = isEnabled;
 	}

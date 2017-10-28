@@ -162,8 +162,14 @@ public class SpeechToTextManager : MonoBehaviour {
 					Log.Debug ("ExampleStreaming", string.Format ("{0} ({1}, {2:0.00})\n", text, res.final ? "Final" : "Interim", alt.confidence));
 					if (res.final && alt.confidence > 0.75) {
 						Debug.Log("text after final check: " + text);
-						nohmWatsonManager.RecognizeQuestion(text);
-						// StopRecording();
+
+
+						if (nohmWatsonManager.buildIndex == 1)
+							OnRecognizeOnboardingArtist (text);
+						else
+							nohmWatsonManager.RecognizeQuestion (text);
+
+
 					}
 				}
 
@@ -177,4 +183,19 @@ public class SpeechToTextManager : MonoBehaviour {
 			}
 		}
 	}
+
+
+	private void OnRecognizeOnboardingArtist(string text) 
+	{
+		string resultText = text.ToLower ();
+		if ((resultText.Contains ("frank")) || (resultText.Contains ("ocean"))) {
+			nohmWatsonManager.RecognizeQuestion (text);
+			nohmWatsonManager.tutorialManager.ClearCanvas ();
+		} else {
+			Debug.Log ("didnt say Frank Ocean");
+			nohmWatsonManager.SayString ("try again by searching for the artist, Frank Ocean");
+		}
+		nohmWatsonManager.StopRecording ();
+	}
+
 }

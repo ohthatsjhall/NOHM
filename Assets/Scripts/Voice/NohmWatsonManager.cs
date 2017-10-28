@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using VRTK;
 
 public class NohmWatsonManager : MonoBehaviour {
 
@@ -52,5 +53,11 @@ public class NohmWatsonManager : MonoBehaviour {
 	public void SearchForArtist(string artist) {
 		apiManager.artist = artist;
 		apiManager.SearchTracksForArtist (artist);
+	}
+
+	public void LoadLevel(int index)
+	{
+		VRTK_SDKManager.instance.UnloadSDKSetup ();
+		SceneManager.LoadSceneAsync (index);
 	}
 }
