@@ -20,6 +20,12 @@ public class TutorialManager : MonoBehaviour {
 	private NohmWatsonManager nohmWatsonManager;
 	private Animator pointLightAnimator;
 
+	private bool onboardingClosed {
+		get { 
+			return SoundSystem.Instance.GetComponent<AudioSource> ().isPlaying && onboardingStage == OnboardingStage.OnboardingClose;
+		}
+	}
+
 	void Awake() {
 		nohmWatsonManager  = GetComponent<NohmWatsonManager> ();
 		pointLightAnimator = onboardingManager.pointLight.GetComponent<Animator> ();
@@ -35,7 +41,18 @@ public class TutorialManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (onboardingClosed) {
+			SuccessfullOnboardingFromUser ();
+		}
+	}
+	 
+	private void SuccessfullOnboardingFromUser() {
+		string[] values = { "Great, you are now ready to start listening to Nohm" };
+
+		onboardingStage = OnboardingStage.OnboardingCompleted;
+		pointLightAnimator.SetInteger ("Stage", 2);
+		StartCoroutine(DelayMethod(0.5f, values));
+		StartCoroutine(LoadNextScene(nohmWatsonManager.buildIndex + 1, 20.0f));
 	}
 
 	public IEnumerator DelayMethod(float delay, string[] values) {
@@ -67,12 +84,14 @@ public class TutorialManager : MonoBehaviour {
 
 				break;
 			case OnboardingStage.OnboardingClose:
-				pointLightAnimator.SetInteger ("Stage", 2);
-				nohmWatsonManager.RecognizeQuestion (onboardingStage.ToString ());
+				
+
+
 				break;
 			case OnboardingStage.OnboardingCompleted:
-				Debug.Log ("got emmm >> move to vinyl");
-				nohmWatsonManager.LoadLevel (2);
+
+
+
 				break;
 			default:
 				Debug.Log ("default case");
@@ -108,4 +127,9 @@ public class TutorialManager : MonoBehaviour {
 		onboardingManager.leftController.GetComponent<OnboardingControllerListener> ().enabled = isEnabled;
 	}
 
+	// Scene Management
+	private IEnumerator LoadNextScene(int sceneToLoad, float delay) {
+		yield return new WaitForSeconds (delay);
+		nohmWatsonManager.LoadLevel (sceneToLoad);
+	}
 }

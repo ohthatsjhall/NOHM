@@ -153,8 +153,11 @@ public class ConversationManager : MonoBehaviour {
 					break;
 				case OnboardingStage.OnboardingClose:
 					Debug.Log (">>>> Onboarding Close");
-					_nohmWatsonManager.tutorialManager.onboardingStage = OnboardingStage.OnboardingCompleted;
-					StartCoroutine (_nohmWatsonManager.tutorialManager.DelayMethod (10.0f, values));
+					//_nohmWatsonManager.tutorialManager.onboardingStage = OnboardingStage.OnboardingCompleted;
+					StartCoroutine (_nohmWatsonManager.tutorialManager.DelayMethod (0.0f, values));
+					break;
+				case OnboardingStage.OnboardingCompleted:
+					Debug.Log (">>>> Onboarding Complete");
 					break;
 				default:
 					Debug.Log ("no onboarding stage my dad");
