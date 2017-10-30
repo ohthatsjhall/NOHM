@@ -5,7 +5,7 @@ using VRTK;
 
 public class OnboardingControllerListener : MonoBehaviour {
 
-	public OnboardingVoiceSpawner voiceSpawner;
+	public NohmWatsonManager nohmWatsonManager;
 
 	// Use this for initialization
 	void Start () {
@@ -26,7 +26,7 @@ public class OnboardingControllerListener : MonoBehaviour {
 */
 	private void ButtonTwoPressed(object sender, ControllerInteractionEventArgs e) {
 		DebugLogger(VRTK_ControllerReference.GetRealIndex(e.controllerReference), "Nohm Button", "pressed", e);
-		voiceSpawner.OnboardingButtonTwoPressed ();
+		nohmWatsonManager.StartRecording ();
 	}
 
 }
