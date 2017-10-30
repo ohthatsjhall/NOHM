@@ -84,13 +84,9 @@ public class TutorialManager : MonoBehaviour {
 
 				break;
 			case OnboardingStage.OnboardingClose:
-				
-
 
 				break;
 			case OnboardingStage.OnboardingCompleted:
-
-
 
 				break;
 			default:

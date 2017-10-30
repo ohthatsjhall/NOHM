@@ -143,13 +143,13 @@ public class ConversationManager : MonoBehaviour {
 					Debug.Log (">>>> Play Music");
 
 					_nohmWatsonManager.tutorialManager.onboardingStage = OnboardingStage.OnboardingGrabRecord;
-					StartCoroutine(_nohmWatsonManager.tutorialManager.DelayMethod(1.0f, values));
+					StartCoroutine (_nohmWatsonManager.tutorialManager.DelayMethod (1.0f, values));
 				
 					break;
 				case OnboardingStage.OnboardingGrabRecord:
 					Debug.Log (">>>> Onboarding Grab Record");
 					_nohmWatsonManager.tutorialManager.onboardingStage = OnboardingStage.OnboardingClose;
-					StartCoroutine(_nohmWatsonManager.tutorialManager.DelayMethod(4.0f, values));
+					StartCoroutine (_nohmWatsonManager.tutorialManager.DelayMethod (4.0f, values));
 					break;
 				case OnboardingStage.OnboardingClose:
 					Debug.Log (">>>> Onboarding Close");
@@ -163,16 +163,56 @@ public class ConversationManager : MonoBehaviour {
 					Debug.Log ("no onboarding stage my dad");
 					break;
 				}
-
-
 			
 				break;
 			case 2:
+				foreach (string value in values) {
+					Debug.Log ("response value: " + value);
+					bool isFinal = (bool)messageResponse.context ["isFinal"];
+					Debug.Log ("Context is Final? " + isFinal);
+					if (isFinal) {
+						if (messageResponse.entities.Length > 0) {
+							foreach (var entity in messageResponse.entities) {
+								Debug.Log ("entity type: " + entity + "\nvalue: " + entity.value);
+								string artist = entity.value;
+								Debug.Log ("artist: " + artist);
+								_nohmWatsonManager.SearchForArtist (artist);
+							}
+						}
+						_nohmWatsonManager.StopRecording ();
+						//messageResponse.context.Clear ();
+						Debug.Log ("mess response context: " + messageResponse.context);
+					}	
+
+					if (messageResponse.intents.Length > 0) {
+						foreach (var intent in messageResponse.intents) {
+							string intentValue = intent.intent;
+							if (intentValue == "Confirmation" && isFinal) {    
+								string unknownArtist = (string)messageResponse.context ["artistSearch"];
+								AddUnknownArtistToEntity (unknownArtist, NohmConstants.AddArtistURL);
+							}
+						}
+					}
+					_nohmWatsonManager.SayString (value);
+				}
+					
+				//  Set context for next round of messaging
+				object _tempContext = null;
+				(resp as Dictionary<string, object>).TryGetValue ("context", out _tempContext);
+
+				if (_tempContext != null)
+					_context = _tempContext as Dictionary<string, object>;
+				else
+					Log.Debug ("ExampleConversation", "Failed to get context");
+				_waitingForResponse = false;
+
+
 				break;
 			default:
 				break;
 			}
 		}
+
 	}
 
 	/* uncomment for vinyl
