@@ -1,0 +1,21 @@
+# Radio PRO 2.7.0
+# © 2015-2017 by crosstales LLC (http://www.crosstales.com)
+#
+# Radio stations from jamendo.com as M3U-links
+# Last updated: 14.05.2017
+# Name;Url;DataFormat;AudioFormat;Station (optional);Genres (optional);Bitrate (in kbit/s, optional);Rating (0-5, optional);Description (optional);ExcludeCodec (optional);ChunkSize (in KB, optional);BufferSize (in KB, optional)
+Jamendo Pop;http://dir.xiph.org/listen/8267/listen.m3u;m3u;MP3;http://jamendo.com;pop;128;4
+Jamendo Relaxation;http://dir.xiph.org/listen/2609/listen.m3u;m3u;MP3;http://jamendo.com;chill;128;4
+Jamendo Rock;http://dir.xiph.org/listen/2610/listen.m3u;m3u;MP3;http://jamendo.com;rock;128;4
+Jamendo Best Of;http://dir.xiph.org/listen/7163/listen.m3u;m3u;MP3;http://jamendo.com;alltime;128;4
+Jamendo Classical;http://dir.xiph.org/listen/7148/listen.m3u;m3u;MP3;http://jamendo.com;classical;128;3
+Jamendo Lounge;http://dir.xiph.org/listen/8372/listen.m3u;m3u;MP3;http://jamendo.com;lounge;128;5
+Jamendo HipHop;http://dir.xiph.org/listen/3500/listen.m3u;m3u;MP3;http://jamendo.com;hiphop;128;4
+Jamendo Hits;http://dir.xiph.org/listen/74227/listen.m3u;m3u;MP3;http://jamendo.com;hits;128;4
+Jamendo Songwriting;http://dir.xiph.org/listen/97253/listen.m3u;m3u;MP3;http://jamendo.com;songwriting;128;3
+Jamendo Jazz;http://dir.xiph.org/listen/7147/listen.m3u;m3u;MP3;http://jamendo.com;jazz;128;3
+Jamendo World;http://dir.xiph.org/listen/86583/listen.m3u;m3u;MP3;http://jamendo.com;world;128;4
+Jamendo Electro;http://dir.xiph.org/listen/3494/listen.m3u;m3u;MP3;http://jamendo.com;electro;128;4
+Jamendo Piano;http://dir.xiph.org/listen/3443/listen.m3u;m3u;MP3;http://jamendo.com;piano;128;4
+Jamendo Metal;http://dir.xiph.org/listen/87742/listen.m3u;m3u;MP3;http://jamendo.com;metal;128;3
+Jamendo Soundtrack;http://dir.xiph.org/listen/8492/listen.m3u;m3u;MP3;http://jamendo.com;ost;128;4

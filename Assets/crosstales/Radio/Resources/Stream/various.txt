@@ -1,0 +1,19 @@
+# Radio PRO 2.7.0
+# © 2015-2017 by crosstales LLC (http://www.crosstales.com)
+#
+# Radio stations from various providers as direct streams
+# Last updated: 14.05.2017
+# Name;Url;DataFormat;AudioFormat;Station (optional);Genres (optional);Bitrate (in kbit/s, optional);Rating (0-5, optional);Description (optional);ExcludeCodec (optional);ChunkSize (in KB, optional);BufferSize (in KB, optional)
+#Radio Energy;http://stream.radioreklama.bg:80/nrj.ogg;Stream;OGG;http://radioenergy.bg;pop;96;2
+#Radio1 Rock;http://stream.radioreklama.bg:80/radio1rock.ogg;Stream;OGG;http://radio1rock.bg;rock;96;2
+#Radio Nova;http://stream.radioreklama.bg:80/nova.ogg;Stream;OGG;http://radionova.bg;pop;96;2
+Radio Paradise;http://stream-sd1.radioparadise.com:80/ogg-96;Stream;OGG;http://radioparadise.com;rock;96;4
+Revolution radio;https://revolutionradio.ru:8443/live.ogg;Stream;OGG;http://revolutionradio.ru;trance;128;4
+Dance Wave!;http://stream.dancewave.online:8080/dance.mp3;Stream;MP3;http://dancewave.online;dance;160;4;All Dance from 2000. Global dance radio station. The hottest Dance and Club Music from across the Planet!;;
+8Bit;http://178.32.50.185:60034/stream;Stream;MP3;http://8bitx.com;game;128;4
+Jayger FM;http://50.22.212.203:8025/stream;Stream;MP3;http://jaygerfm.com;alltime;128;4
+Pinguin Radio;http://178.18.137.246:80;Stream;MP3;http://pinguinradio.com;alternative;320;5
+Radio Monacensis;http://laut.fm/monacensis;Stream;MP3;http://www.radio-monacensis.de/;medieval;128;4
+AudioAsyl;http://stream.audioasyl.net:80/audioasyl;Stream;MP3;https://audioasyl.net/;alternative;128;4
+GDS;http://gdsfm.out.airtime.pro:8000/gdsfm_a;Stream;MP3;http://www.gds.fm/;alternative;128;4
+rundfunk.fm;http://rundfunk.ice.infomaniak.ch/rundfunk-192.mp3;Stream;MP3;http://www.rundfunk.fm;alternative;192;4

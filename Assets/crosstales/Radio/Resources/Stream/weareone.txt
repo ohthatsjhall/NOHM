@@ -1,0 +1,13 @@
+# Radio PRO 2.7.0
+# © 2015-2017 by crosstales LLC (http://www.crosstales.com)
+#
+# Radio stations from weareone.fm as direct streams
+# Last updated: 14.05.2017
+# Name;Url;DataFormat;AudioFormat;Station (optional);Genres (optional);Bitrate (in kbit/s, optional);Rating (0-5, optional);Description (optional);ExcludeCodec (optional);ChunkSize (in KB, optional);BufferSize (in KB, optional)
+Housetime;http://listen.housetime.fm/tunein-mp3-asx;Stream;MP3;http://housetime.fm;house;128;4
+Hardbase;http://listen.hardbase.fm/tunein-mp3-asx;Stream;MP3;http://hardbase.fm;hardcore;128;3
+Technobase;http://listen.technobase.fm/tunein-mp3-asx;Stream;MP3;http://technobase.fm;techno;128;4
+Trancebase;http://listen.trancebase.fm/tunein-mp3-asx;Stream;MP3;http://trancebase.fm;trance;128;4
+Coretime;http://listen.coretime.fm/tunein-mp3-asx;Stream;MP3;http://coretime.fm;trance;128;3
+Clubtime;http://listen.clubtime.fm/tunein-mp3-asx;Stream;MP3;http://clubtime.fm;club;128;4
+#Teatime;http://listen.teatime.fm/tunein-mp3-asx;Stream;MP3;http://teatime.fm;club;128;4

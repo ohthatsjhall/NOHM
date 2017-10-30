@@ -1,0 +1,7 @@
+# Radio PRO 2.7.0
+# © 2015-2017 by crosstales LLC (http://www.crosstales.com)
+#
+# Default radio stations for users
+# Last updated: 14.05.2017
+# Name;Url;DataFormat;AudioFormat;Station (optional);Genres (optional);Bitrate (in kbit/s, optional);Rating (0-5, optional);Description (optional);ExcludeCodec (optional);ChunkSize (in KB, optional);BufferSize (in KB, optional)
+Electro Swing Revolution Radio;http://groove.wavestreamer.com:7115/live;Stream;MP3;http://www.electroswing-radio.com/;electro;128;4

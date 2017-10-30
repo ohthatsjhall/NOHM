@@ -1,0 +1,13 @@
+# Radio PRO 2.7.0
+# © 2015-2017 by crosstales LLC (http://www.crosstales.com)
+#
+# Radio stations from shoutedfm.de as PLS-links
+# Last updated: 14.05.2017
+# Name;Url;DataFormat;AudioFormat;Station (optional);Genres (optional);Bitrate (in kbit/s, optional);Rating (0-5, optional);Description (optional);ExcludeCodec (optional);ChunkSize (in KB, optional);BufferSize (in KB, optional)
+Mainstream;http://main.mthn.net:8000/listen.pls;pls;MP3;http://www.shoutedfm.de/;Charts, Pop;128;3
+House;http://house.mthn.net:8500/listen.pls;pls;MP3;http://www.shoutedfm.de/;House, Funk;128;4
+Alternative;http://alternative.mthn.net:8700/listen.pls;pls;MP3;http://www.shoutedfm.de/;Punk, Hardcore, Alternative;128;3
+Black;http://black.mthn.net:8300/listen.pls;pls;MP3;http://www.shoutedfm.de/;HipHop, Rap, RnB, Dancehall;128;3
+Break;http://break.mthn.net:8800/listen.pls;pls;MP3;http://www.shoutedfm.de/;Partybreaks, Remixes;128;4
+Club;http://club.mthn.net:8200/listen.pls;pls;MP3;http://www.shoutedfm.de/;Trance, Techno, House, Electro;128;4
+Elektro;http://electro.mthn.net:8400/listen.pls;pls;MP3;http://www.shoutedfm.de/;Elektro, Minimal, Drum'n'Bass;128;3

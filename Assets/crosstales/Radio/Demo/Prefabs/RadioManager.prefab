@@ -1,0 +1,368 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &101116
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 457448}
+  - 114: {fileID: 11470740}
+  m_Layer: 0
+  m_Name: RadioProviderResource
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &111906
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 402678}
+  - 114: {fileID: 11458120}
+  m_Layer: 0
+  m_Name: RadioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &156888
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 433674}
+  - 114: {fileID: 11427424}
+  m_Layer: 0
+  m_Name: RadioProviderUser
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &176204
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 413848}
+  - 114: {fileID: 11451192}
+  m_Layer: 0
+  m_Name: RadioProviderShoutcast
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &197704
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 479232}
+  - 114: {fileID: 11469306}
+  m_Layer: 0
+  m_Name: RadioProviderURL
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &402678
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111906}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 457448}
+  - {fileID: 479232}
+  - {fileID: 433674}
+  - {fileID: 413848}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!4 &413848
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 176204}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 402678}
+  m_RootOrder: 3
+--- !u!4 &433674
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 156888}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 402678}
+  m_RootOrder: 2
+--- !u!4 &457448
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101116}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 402678}
+  m_RootOrder: 0
+--- !u!4 &479232
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197704}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 402678}
+  m_RootOrder: 1
+--- !u!114 &11427424
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 156888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a72def97a9794377801df2c27b8460d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Filter:
+    Name: 
+    Url: 
+    Station: 
+    Genres: 
+    RatingMin: 0
+    RatingMax: 5
+    Format: 
+    BitrateMin: 32
+    BitrateMax: 500
+    ExcludeUnsupportedCodecs: 1
+  ClearStationsOnLoad: 1
+  LoadOnStart: 1
+  LoadOnStartInEditor: 1
+  SaveOnDisable: 0
+  Entry:
+    Name: Radio stations from the user
+    ForceName: 0
+    EnableSource: 1
+    Station: 
+    Genres: 
+    Rating: 0
+    Description: 
+    Icon: {fileID: 0}
+    Format: 1
+    Bitrate: 128
+    ChunkSize: 32
+    BufferSize: 48
+    ExcludedCodec: 0
+    isInitalized: 1
+    Resource: {fileID: 4900000, guid: dad2579f69924e5d861f72b5800a4db2, type: 3}
+    DataFormat: 0
+    ReadNumberOfStations: 0
+    LoadOnlyOnce: 1
+    Path: Radios_user.txt
+    Prefix: 1
+--- !u!114 &11451192
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 176204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60de430aa8f642bebe5a63f4bef5737f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Filter:
+    Name: 
+    Url: 
+    Station: 
+    Genres: 
+    RatingMin: 0
+    RatingMax: 5
+    Format: 
+    BitrateMin: 32
+    BitrateMax: 500
+    ExcludeUnsupportedCodecs: 1
+  ClearStationsOnLoad: 1
+  LoadOnStart: 1
+  LoadOnStartInEditor: 1
+  Entries:
+  - Name: idobi Radio
+    ForceName: 1
+    EnableSource: 0
+    Station: http://idobi.com/
+    Genres: charts
+    Rating: 3
+    Description: New. Music. Unfiltered.
+    Icon: {fileID: 0}
+    Format: 1
+    Bitrate: 128
+    ChunkSize: 32
+    BufferSize: 48
+    ExcludedCodec: 0
+    isInitalized: 1
+    ShoutcastID: 898221
+--- !u!114 &11458120
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b09cbc61566f4a76805302145fe02ff1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Providers:
+  - {fileID: 11470740}
+  - {fileID: 11469306}
+  - {fileID: 11427424}
+  - {fileID: 11451192}
+  Filter:
+    Name: 
+    Url: 
+    Station: 
+    Genres: 
+    RatingMin: 0
+    RatingMax: 5
+    Format: 
+    BitrateMin: 32
+    BitrateMax: 500
+    ExcludeUnsupportedCodecs: 1
+  LoadOnStart: 1
+  LoadOnStartInEditor: 1
+  InstantiateRadioPlayers: 0
+  RadioPrefab: {fileID: 108654, guid: 34a1aad15e2b4f18884c4fec67170a9c, type: 2}
+--- !u!114 &11469306
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1c0e7d7f0f5420c827b6cc3084051ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Filter:
+    Name: 
+    Url: 
+    Station: 
+    Genres: 
+    RatingMin: 0
+    RatingMax: 5
+    Format: 
+    BitrateMin: 32
+    BitrateMax: 500
+    ExcludeUnsupportedCodecs: 1
+  ClearStationsOnLoad: 1
+  LoadOnStart: 1
+  LoadOnStartInEditor: 1
+  Entries:
+  - Name: All Stations
+    ForceName: 0
+    EnableSource: 0
+    Station: 
+    Genres: 
+    Rating: 0
+    Description: 
+    Icon: {fileID: 0}
+    Format: 1
+    Bitrate: 128
+    ChunkSize: 32
+    BufferSize: 48
+    ExcludedCodec: 0
+    isInitalized: 1
+    URL: https://www.crosstales.com/media/radio/Radios.txt
+    Prefix: 0
+    DataFormat: 1
+    ReadNumberOfStations: 0
+--- !u!114 &11470740
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe8529a8f9494d15a58ada78bb2e6b85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Filter:
+    Name: 
+    Url: 
+    Station: 
+    Genres: 
+    RatingMin: 0
+    RatingMax: 5
+    Format: 
+    BitrateMin: 32
+    BitrateMax: 500
+    ExcludeUnsupportedCodecs: 1
+  ClearStationsOnLoad: 1
+  LoadOnStart: 1
+  LoadOnStartInEditor: 1
+  Entries:
+  - Name: All stations
+    ForceName: 0
+    EnableSource: 0
+    Station: 
+    Genres: 
+    Rating: 0
+    Description: 
+    Icon: {fileID: 0}
+    Format: 1
+    Bitrate: 128
+    ChunkSize: 32
+    BufferSize: 48
+    ExcludedCodec: 0
+    isInitalized: 1
+    Resource: {fileID: 4900000, guid: dad2579f69924e5d861f72b5800a4db2, type: 3}
+    DataFormat: 0
+    ReadNumberOfStations: 0
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 111906}
+  m_IsPrefabParent: 1

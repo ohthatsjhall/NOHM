@@ -1,0 +1,17 @@
+# Radio PRO 2.7.0
+# © 2015-2017 by crosstales LLC (http://www.crosstales.com)
+#
+# Radio stations from energyzueri.ch as M3U-links
+# Last updated: 14.05.2017
+# Name;Url;DataFormat;AudioFormat;Station (optional);Genres (optional);Bitrate (in kbit/s, optional);Rating (0-5, optional);Description (optional);ExcludeCodec (optional);ChunkSize (in KB, optional);BufferSize (in KB, optional)
+Energy 80's;http://energyzuerich.ice.infomaniak.ch/energy80s-high.mp3.m3u;m3u;MP3;http://www.energyzueri.ch/;80s;128;4
+Energy 90's;http://energyzuerich.ice.infomaniak.ch/energy90s-high.mp3.m3u;m3u;MP3;http://www.energyzueri.ch/;90s;128;4
+Energy 00's;http://energyzuerich.ice.infomaniak.ch/energy00s-high.mp3.m3u;m3u;MP3;http://www.energyzueri.ch/;00s;128;4
+Energy Black;http://energyzuerich.ice.infomaniak.ch/energyblack-high.mp3.m3u;m3u;MP3;http://www.energyzueri.ch/;Black;128;3
+Energy Dance;http://energyzuerich.ice.infomaniak.ch/energydance-high.mp3.m3u;m3u;MP3;http://www.energyzueri.ch/;Dance;128;4
+Energy Rock;http://energyzuerich.ice.infomaniak.ch/energyrock-high.mp3.m3u;m3u;MP3;http://www.energyzueri.ch/;Rock;128;3
+Energy Soundtrack;http://energyzuerich.ice.infomaniak.ch/energysoundtrack-high.mp3.m3u;m3u;MP3;http://www.energyzueri.ch/;Soundtrack;128;3
+Energy Swiss;http://energyzuerich.ice.infomaniak.ch/energyswiss-high.mp3.m3u;m3u;MP3;http://www.energyzueri.ch/;Swiss;128;3
+Energy Charts;http://energyzuerich.ice.infomaniak.ch/energycharts-high.mp3.m3u;m3u;MP3;http://www.energyzueri.ch/;Charts;128;3
+#Energy Live;http://energyzuerich.ice.infomaniak.ch/energylive-high.mp3.m3u;m3u;MP3;http://www.energyzueri.ch/;Live;128;3
+Energy Lounge;http://energyzuerich.ice.infomaniak.ch/energylounge-high.mp3.m3u;m3u;MP3;http://www.energyzueri.ch/;Lounge;128;4
