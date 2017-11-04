@@ -160,16 +160,15 @@ public class SpeechToTextManager : MonoBehaviour {
 				foreach (var alt in res.alternatives) {
 					string text = alt.transcript;
 					Log.Debug ("ExampleStreaming", string.Format ("{0} ({1}, {2:0.00})\n", text, res.final ? "Final" : "Interim", alt.confidence));
-					if (res.final && alt.confidence > 0.75) {
+					if (res.final && alt.confidence > 0.05) {
 						Debug.Log("text after final check: " + text);
 
-
-						if (nohmWatsonManager.buildIndex == 1)
+						if (nohmWatsonManager.buildIndex == 1) {
 							OnRecognizeOnboardingArtist (text);
-						else
+						} else {
 							nohmWatsonManager.RecognizeQuestion (text);
-
-
+						}
+						nohmWatsonManager.StopRecording ();
 					}
 				}
 

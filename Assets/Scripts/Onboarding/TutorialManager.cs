@@ -84,7 +84,8 @@ public class TutorialManager : MonoBehaviour {
 
 				break;
 			case OnboardingStage.OnboardingClose:
-
+				Debug.Log ("Player Prefs ---> Onboarding Completed");
+				PlayerPrefs.SetInt (NohmConstants.OnboardingCompleted, 1);
 				break;
 			case OnboardingStage.OnboardingCompleted:
 

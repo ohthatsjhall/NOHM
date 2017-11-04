@@ -47,16 +47,16 @@ public class Balloon : VRTK_InteractableObject {
 	}
 
 	private int CheckOnboardingCompleted() {
-		if (PlayerPrefs.HasKey("OnboardingCompleted")) {
+		if (PlayerPrefs.HasKey(NohmConstants.OnboardingCompleted)) {
 
-			int completed = PlayerPrefs.GetInt ("OnboardingCompleted");
+			int completed = PlayerPrefs.GetInt (NohmConstants.OnboardingCompleted);
 			if (completed == 0)
 				return 1;
 			else
 				return 2;
 
 		} else {
-			PlayerPrefs.SetInt ("OnboardingCompleted", 0);
+			PlayerPrefs.SetInt (NohmConstants.OnboardingCompleted, 0);
 			return 1;
 		}
 	}
