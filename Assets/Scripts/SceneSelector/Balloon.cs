@@ -8,8 +8,8 @@ public class Balloon : VRTK_InteractableObject {
 	[HideInInspector]
 	public int levelToLoad;
 
-	[SerializeField] GameObject player;
-	[SerializeField] float balloonSpeed;
+	public GameObject player;
+	public float balloonSpeed;
 
 	private bool isUsing;
 
