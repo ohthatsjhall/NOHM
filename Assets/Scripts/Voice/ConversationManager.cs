@@ -168,11 +168,14 @@ public class ConversationManager : MonoBehaviour {
 			case 2:
 				foreach (string value in values) {
 					Debug.Log ("response value: " + value);
-					bool isFinal = (bool)messageResponse.context ["isFinal"];
+					bool isFinal = ResultIsFinal (messageResponse);
 					Debug.Log ("Context is Final? " + isFinal);
-					if (isFinal) {
-						if (messageResponse.entities.Length > 0) {
-							foreach (var entity in messageResponse.entities) {
+					if (isFinal)
+					{
+						if (messageResponse.entities.Length > 0) 
+						{
+							foreach (var entity in messageResponse.entities) 
+							{
 								Debug.Log ("entity type: " + entity + "\nvalue: " + entity.value);
 								string artist = entity.value;
 								Debug.Log ("artist: " + artist);
@@ -184,10 +187,13 @@ public class ConversationManager : MonoBehaviour {
 						Debug.Log ("mess response context: " + messageResponse.context);
 					}	
 
-					if (messageResponse.intents.Length > 0) {
-						foreach (var intent in messageResponse.intents) {
+					if (messageResponse.intents.Length > 0) 
+					{
+						foreach (var intent in messageResponse.intents) 
+						{
 							string intentValue = intent.intent;
-							if (intentValue == "Confirmation" && isFinal) {    
+							if (intentValue == "Confirmation" && isFinal) 
+							{    
 								string unknownArtist = (string)messageResponse.context ["artistSearch"];
 								AddUnknownArtistToEntity (unknownArtist, NohmConstants.AddArtistURL);
 							}
@@ -208,11 +214,36 @@ public class ConversationManager : MonoBehaviour {
 
 
 				break;
+
+			case 3:
+
+				foreach (string value in values) 
+				{
+					Debug.Log ("value: " + value);
+
+					if (ResultIsFinal(messageResponse)) 
+					{
+						foreach (var entity in messageResponse.entities) 
+						{
+							string genre = entity.value;
+							Debug.Log ("genre: " + genre);
+							_nohmWatsonManager.PlayRadioStation (genre);
+						}
+					}
+					_nohmWatsonManager.SayString (value);
+				}
+
+				break;
 			default:
 				break;
 			}
 		}
 
+	}
+
+	private bool ResultIsFinal(MessageResponse messageResponse)
+	{
+		return (bool)messageResponse.context ["isFinal"];
 	}
 
 	/* uncomment for vinyl
