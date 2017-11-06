@@ -94,20 +94,28 @@ public class NohmWatsonManager : MonoBehaviour {
 	}
 
 	// Radio
-	public void PlayRadioStation(string genre) {
+	public void PlayRadioStation(string genre) 
+	{
 		List<RadioStation> radioSations = radioProManager.radioStations;
-		List<string> urls = new List<string>();
-		foreach (RadioStation station in radioSations) {
+		List<RadioStation> stationsByGenre = new List<RadioStation>();
+		foreach (RadioStation station in radioSations) 
+		{
 			
 			if (station.genre == genre)
-				urls.Add (station.url);
+				stationsByGenre.Add (station);
 			
 		}
 
-		string url = urls[Random.Range(0, urls.Count - 1)];
-
-		radioProManager.radioPlayer.Station.Url = url;
+		RadioStation selectedStation = stationsByGenre[Random.Range(0, stationsByGenre.Count - 1)];
+		Debug.Log (SelectedRadioStation(selectedStation));
+		radioProManager.radioPlayer.Station.Url = selectedStation.url;
 		radioProManager.radioPlayer.Play ();
+	}
+
+	// Debug
+	private string SelectedRadioStation(RadioStation station)
+	{
+		return "Station Name: " + station.name + "\nStation Genre: " + station.genre + "\nStationURL: " + station.url;
 	}
 
 }
